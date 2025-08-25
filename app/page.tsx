@@ -35,8 +35,8 @@ export default function Home() {
     },
     {
       image: "/images/court.png",
-      title: "Peaceful Sanctuary",
-      subtitle: "Where tranquility meets tropical beauty",
+      title: "Zen Garden Retreat",
+      subtitle: "Find your center in our sacred meditation spaces",
       imageStyle: "object-cover",
     },
     {
@@ -63,7 +63,14 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div
+      className="min-h-screen"
+      style={{
+        backgroundImage: "url('/images/calligraphy-paper-bg-option.png')",
+        backgroundSize: "cover",
+        backgroundAttachment: "fixed",
+      }}
+    >
       {/* Header */}
       <header
         className="backdrop-blur-sm sticky top-0 z-50 shadow-2xl"
@@ -77,10 +84,10 @@ export default function Home() {
               className="h-24 w-auto"
             />
             <div>
-              <h1 className="font-serif text-xl font-semibold text-white">
+              <h1 className="font-['Yuji_Boku'] text-xl font-semibold text-white">
                 Buddhist B&B
               </h1>
-              <p className="text-sm text-white/70">
+              <p className="text-sm text-white/70 font-['Noto_Sans']">
                 Wailea Village, Hamakua Coast
               </p>
             </div>
@@ -88,25 +95,25 @@ export default function Home() {
           <nav className="hidden md:flex items-center gap-6">
             <a
               href="#accommodations"
-              className="text-white hover:text-white/80 transition-colors"
+              className="text-white hover:text-white/80 transition-colors font-['Noto_Sans']"
             >
               Stay
             </a>
             <a
               href="#activities"
-              className="text-white hover:text-white/80 transition-colors"
+              className="text-white hover:text-white/80 transition-colors font-['Noto_Sans']"
             >
               Activities
             </a>
             <a
               href="#facilities"
-              className="text-white hover:text-white/80 transition-colors"
+              className="text-white hover:text-white/80 transition-colors font-['Noto_Sans']"
             >
               Facilities & Grounds
             </a>
             <a
               href="#contact"
-              className="text-white hover:text-white/80 transition-colors"
+              className="text-white hover:text-white/80 transition-colors font-['Noto_Sans']"
             >
               Contact
             </a>
@@ -152,10 +159,10 @@ export default function Home() {
         </button>
 
         <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-4">
-          <h2 className="font-serif text-5xl md:text-7xl font-light mb-6 leading-tight">
+          <h2 className="font-['Yuji_Boku'] text-5xl md:text-7xl font-light mb-6 leading-tight">
             {slides[currentSlide].title}
           </h2>
-          <p className="text-xl md:text-2xl font-light mb-8 leading-relaxed">
+          <p className="text-xl md:text-2xl font-light mb-8 leading-relaxed font-['Sawarabi_Mincho']">
             {slides[currentSlide].subtitle}
           </p>
         </div>
@@ -174,7 +181,7 @@ export default function Home() {
       </section>
 
       {/* About Akiko Section */}
-      <section id="about" className="py-20 bg-muted/30">
+      <section id="about" className="py-20">
         <div className="container mx-auto px-4 max-w-4xl">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
@@ -185,10 +192,10 @@ export default function Home() {
               />
             </div>
             <div>
-              <h3 className="font-serif text-4xl font-light mb-6 text-foreground">
+              <h3 className="font-['Yuji_Boku'] text-4xl font-light mb-6 text-foreground drop-shadow-sm">
                 Aloha & Welcome
               </h3>
-              <div className="prose prose-lg text-muted-foreground leading-relaxed space-y-4">
+              <div className="prose prose-lg text-foreground leading-relaxed space-y-4 drop-shadow-sm">
                 <p>
                   Thank you very much for visiting with us. Akiko's Buddhist Bed
                   & Breakfast is located along the lush and tropical Hamakua
@@ -215,12 +222,12 @@ export default function Home() {
       </section>
 
       {/* Philosophy Section */}
-      <section id="philosophy" className="py-20 bg-muted/30">
+      <section id="philosophy" className="py-20">
         <div className="container mx-auto px-4 max-w-4xl text-center">
-          <h3 className="font-serif text-4xl font-light mb-8 text-foreground">
+          <h3 className="font-['Yuji_Boku'] text-4xl font-light mb-8 text-foreground drop-shadow-sm">
             The Spirit of This Place
           </h3>
-          <div className="prose prose-lg mx-auto text-muted-foreground leading-relaxed">
+          <div className="prose prose-lg mx-auto text-foreground leading-relaxed drop-shadow-sm">
             <p className="text-xl mb-6">
               {
                 "Our deep love for Hawaii flows through every moment here—its beauty, its human naturalness, its modesty and magnificent contrasts."
@@ -243,12 +250,12 @@ export default function Home() {
       {/* Accommodations */}
       <section id="accommodations" className="py-20">
         <div className="container mx-auto px-4">
-          <h3 className="font-serif text-4xl font-light text-center mb-12 text-foreground">
+          <h3 className="font-['Yuji_Boku'] text-4xl font-light text-center mb-12 text-foreground">
             Sacred Spaces
           </h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             <Link href="/banana-patch">
-              <Card className="overflow-hidden hover:shadow-lg transition-shadow cursor-pointer">
+              <Card className="overflow-hidden hover:shadow-lg transition-shadow cursor-pointer bg-white/90 backdrop-blur-sm">
                 <div
                   className="h-48 bg-muted bg-cover bg-center"
                   style={{
@@ -257,7 +264,7 @@ export default function Home() {
                   }}
                 />
                 <CardHeader>
-                  <CardTitle className="font-serif">
+                  <CardTitle className="font-['Yuji_Boku']">
                     Banana Patch Cottage
                   </CardTitle>
                   <CardDescription>
@@ -281,7 +288,7 @@ export default function Home() {
             </Link>
 
             <Link href="/mango-tree">
-              <Card className="overflow-hidden hover:shadow-lg transition-shadow cursor-pointer">
+              <Card className="overflow-hidden hover:shadow-lg transition-shadow cursor-pointer bg-white/90 backdrop-blur-sm">
                 <div
                   className="h-48 bg-muted bg-cover bg-center"
                   style={{
@@ -289,7 +296,7 @@ export default function Home() {
                   }}
                 />
                 <CardHeader>
-                  <CardTitle className="font-serif">
+                  <CardTitle className="font-['Yuji_Boku']">
                     Mango Tree Cottage
                   </CardTitle>
                   <CardDescription>
@@ -314,7 +321,7 @@ export default function Home() {
             </Link>
 
             <Link href="/puuhonua-house">
-              <Card className="overflow-hidden hover:shadow-lg transition-shadow cursor-pointer">
+              <Card className="overflow-hidden hover:shadow-lg transition-shadow cursor-pointer bg-white/90 backdrop-blur-sm">
                 <div
                   className="h-48 bg-muted bg-cover bg-center"
                   style={{
@@ -322,7 +329,9 @@ export default function Home() {
                   }}
                 />
                 <CardHeader>
-                  <CardTitle className="font-serif">Pu'uhonua House</CardTitle>
+                  <CardTitle className="font-['Yuji_Boku']">
+                    Pu'uhonua House
+                  </CardTitle>
                   <CardDescription>
                     Private cozy bedrooms, shared bathrooms and full kitchen in
                     this classic "old Hawaiian" plantation home
@@ -345,7 +354,7 @@ export default function Home() {
             </Link>
 
             <Link href="/hale-aloha">
-              <Card className="overflow-hidden hover:shadow-lg transition-shadow cursor-pointer">
+              <Card className="overflow-hidden hover:shadow-lg transition-shadow cursor-pointer bg-white/90 backdrop-blur-sm">
                 <div
                   className="h-48 bg-muted bg-cover bg-center"
                   style={{
@@ -353,7 +362,9 @@ export default function Home() {
                   }}
                 />
                 <CardHeader>
-                  <CardTitle className="font-serif">Hale Aloha</CardTitle>
+                  <CardTitle className="font-['Yuji_Boku']">
+                    Hale Aloha
+                  </CardTitle>
                   <CardDescription>
                     Spacious & airy plantation style home with large picture
                     windows opening to beautiful flowers and gardens
@@ -390,9 +401,9 @@ export default function Home() {
       </section>
 
       {/* Activities */}
-      <section id="activities" className="py-20 bg-muted/30">
+      <section id="activities" className="py-20">
         <div className="container mx-auto px-4">
-          <h3 className="font-serif text-4xl font-light text-center mb-12 text-foreground">
+          <h3 className="font-['Yuji_Boku'] text-4xl font-light text-center mb-12 text-foreground drop-shadow-sm">
             Activities & Experiences
           </h3>
           <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
@@ -402,10 +413,10 @@ export default function Home() {
                   <Leaf className="h-6 w-6 text-primary" />
                 </div>
                 <div>
-                  <h4 className="font-serif text-xl font-medium mb-2">
+                  <h4 className="font-serif text-xl font-medium mb-2 drop-shadow-sm">
                     Zazen Meditation
                   </h4>
-                  <p className="text-muted-foreground">
+                  <p className="text-foreground drop-shadow-sm">
                     Sit Zazen meditation Wednesday & Friday nights—7:00-8:15
                     p.m. in our peaceful meditation space.
                   </p>
@@ -417,10 +428,10 @@ export default function Home() {
                   <Mountain className="h-6 w-6 text-primary" />
                 </div>
                 <div>
-                  <h4 className="font-serif text-xl font-medium mb-2">
+                  <h4 className="font-serif text-xl font-medium mb-2 drop-shadow-sm">
                     Yoga & Tai Chi
                   </h4>
-                  <p className="text-muted-foreground">
+                  <p className="text-foreground drop-shadow-sm">
                     Practice restorative yoga 6-7:30pm Monday & Thursday, and
                     attend tai chi & chi gong classes at Hakalau Jodo Mission.
                   </p>
@@ -432,10 +443,10 @@ export default function Home() {
                   <Waves className="h-6 w-6 text-primary" />
                 </div>
                 <div>
-                  <h4 className="font-serif text-xl font-medium mb-2">
+                  <h4 className="font-serif text-xl font-medium mb-2 drop-shadow-sm">
                     Japanese Folk Dance
                   </h4>
-                  <p className="text-muted-foreground">
+                  <p className="text-foreground drop-shadow-sm">
                     Join Japanese Folk dance practice and connect with the
                     cultural heritage of the islands.
                   </p>
@@ -445,10 +456,10 @@ export default function Home() {
 
             <div className="space-y-6">
               <div>
-                <h4 className="font-serif text-xl font-medium mb-4">
+                <h4 className="font-serif text-xl font-medium mb-4 drop-shadow-sm">
                   Community Activities
                 </h4>
-                <ul className="space-y-2 text-muted-foreground">
+                <ul className="space-y-2 text-foreground drop-shadow-sm">
                   <li>• Hakalau Farmers Market & FoodSHARE</li>
                   <li>• Work in the gardens on 2-acre grounds</li>
                   <li>• Occasional dinners and movies with guests</li>
@@ -458,16 +469,16 @@ export default function Home() {
               </div>
 
               <div>
-                <h4 className="font-serif text-xl font-medium mb-4">
+                <h4 className="font-serif text-xl font-medium mb-4 drop-shadow-sm">
                   The Hamakua Coast
                 </h4>
-                <p className="text-muted-foreground mb-4">
+                <p className="text-foreground mb-4 drop-shadow-sm">
                   The drive to Akiko's on Highway 19 is a colorful panorama of
                   small plantation communities with small rusted tin roof
                   houses, mom and pop stores, sweeping ocean vistas, farmlands,
                   pastures, rushing streams and breathtaking waterfalls.
                 </p>
-                <p className="text-muted-foreground">
+                <p className="text-foreground drop-shadow-sm">
                   All that make our Hamakua Coast so extraordinary: a Special
                   Place, whose spirit, cultural history, values, land, and
                   peoples are honored and perpetuated.
@@ -481,13 +492,13 @@ export default function Home() {
       {/* Facilities & Grounds */}
       <section id="facilities" className="py-20">
         <div className="container mx-auto px-4">
-          <h3 className="font-serif text-4xl font-light text-center mb-12 text-foreground">
+          <h3 className="font-['Yuji_Boku'] text-4xl font-light text-center mb-12 text-foreground">
             Sacred Facilities & Grounds
           </h3>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {/* Dojo/Yoga Studio */}
-            <Card className="overflow-hidden">
+            <Card className="overflow-hidden bg-white/90 backdrop-blur-sm">
               <div
                 className="h-48 bg-muted bg-cover bg-center"
                 style={{
@@ -495,7 +506,9 @@ export default function Home() {
                 }}
               />
               <CardHeader>
-                <CardTitle className="font-serif">Dojo & Yoga Studio</CardTitle>
+                <CardTitle className="font-['Yuji_Boku']">
+                  Dojo & Yoga Studio
+                </CardTitle>
                 <CardDescription>
                   Spacious movement and meditation space
                 </CardDescription>
@@ -510,7 +523,7 @@ export default function Home() {
             </Card>
 
             {/* Meditation Room */}
-            <Card className="overflow-hidden">
+            <Card className="overflow-hidden bg-white/90 backdrop-blur-sm">
               <div
                 className="h-48 bg-muted bg-cover bg-center"
                 style={{
@@ -518,7 +531,9 @@ export default function Home() {
                 }}
               />
               <CardHeader>
-                <CardTitle className="font-serif">Meditation Room</CardTitle>
+                <CardTitle className="font-['Yuji_Boku']">
+                  Meditation Room
+                </CardTitle>
                 <CardDescription>Quiet contemplation space</CardDescription>
               </CardHeader>
               <CardContent>
@@ -531,7 +546,7 @@ export default function Home() {
             </Card>
 
             {/* Temple of Gratitude */}
-            <Card className="overflow-hidden">
+            <Card className="overflow-hidden bg-white/90 backdrop-blur-sm">
               <div
                 className="h-48 bg-muted bg-cover bg-center"
                 style={{
@@ -539,7 +554,7 @@ export default function Home() {
                 }}
               />
               <CardHeader>
-                <CardTitle className="font-serif">
+                <CardTitle className="font-['Yuji_Boku']">
                   Temple of Gratitude
                 </CardTitle>
                 <CardDescription>Sacred outdoor sanctuary</CardDescription>
@@ -555,7 +570,7 @@ export default function Home() {
           </div>
 
           <div className="mt-16">
-            <h4 className="font-serif text-2xl font-light text-center mb-8 text-foreground">
+            <h4 className="font-['Sawarabi_Mincho'] text-2xl font-light text-center mb-8 text-foreground">
               Two-Acre Tropical Paradise
             </h4>
             <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-4 max-w-6xl mx-auto">
@@ -603,14 +618,14 @@ export default function Home() {
       {/* Contact Section */}
       <section id="contact" className="py-20">
         <div className="container mx-auto px-4 max-w-4xl">
-          <h3 className="font-serif text-4xl font-light text-center mb-12 text-foreground">
+          <h3 className="font-['Yuji_Boku'] text-4xl font-light text-center mb-12 text-foreground">
             Connect With Us
           </h3>
 
           <div className="grid md:grid-cols-2 gap-12">
             <div className="space-y-8">
               <div>
-                <h4 className="font-serif text-2xl font-medium mb-6">
+                <h4 className="font-['Yuji_Boku'] text-2xl font-medium mb-6">
                   Get in Touch
                 </h4>
                 <div className="space-y-4">
@@ -636,7 +651,7 @@ export default function Home() {
               </div>
 
               <div>
-                <h5 className="font-serif text-lg font-medium mb-3">
+                <h5 className="font-['Sawarabi_Mincho'] text-lg font-medium mb-3">
                   A Special Place
                 </h5>
                 <p className="text-sm text-muted-foreground leading-relaxed">
@@ -648,9 +663,11 @@ export default function Home() {
               </div>
             </div>
 
-            <Card>
+            <Card className="bg-white/90 backdrop-blur-sm">
               <CardHeader>
-                <CardTitle className="font-serif">Send a Message</CardTitle>
+                <CardTitle className="font-['Yuji_Boku']">
+                  Send a Message
+                </CardTitle>
                 <CardDescription>
                   {
                     "We'd love to hear from you and answer any questions about your stay."
@@ -697,7 +714,7 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-border bg-muted/30 py-12">
+      <footer className="border-t border-border bg-white/90 backdrop-blur-sm py-12">
         <div className="container mx-auto px-4 text-center">
           <div className="mb-6">
             <img
