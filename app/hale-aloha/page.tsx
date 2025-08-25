@@ -55,36 +55,41 @@ export default function HaleAloha() {
 
       <section className="relative h-96">
         <div className="relative w-full h-full overflow-hidden">
-          <img
-            src={images[currentSlide].src || "/placeholder.svg"}
-            alt={images[currentSlide].alt}
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-black/30" />
+          {images.map((image, index) => (
+            <div
+              key={index}
+              className={`absolute inset-0 transition-opacity duration-1000 ${
+                index === currentSlide ? "opacity-100" : "opacity-0"
+              }`}
+            >
+              <img src={image.src || "/placeholder.svg"} alt={image.alt} className="w-full h-full object-cover" />
+              <div className="absolute inset-0 bg-black/30" />
+            </div>
+          ))}
 
           {/* Navigation buttons */}
           <button
             onClick={prevSlide}
-            className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 text-white p-2 rounded-full transition-colors"
+            className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 text-white p-2 rounded-full transition-colors z-20 pointer-events-auto"
             aria-label="Previous image"
           >
             <ChevronLeft className="h-6 w-6" />
           </button>
           <button
             onClick={nextSlide}
-            className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 text-white p-2 rounded-full transition-colors"
+            className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 text-white p-2 rounded-full transition-colors z-20 pointer-events-auto"
             aria-label="Next image"
           >
             <ChevronRight className="h-6 w-6" />
           </button>
 
           {/* Slide indicators */}
-          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-20">
             {images.map((_, index) => (
               <button
                 key={index}
                 onClick={() => setCurrentSlide(index)}
-                className={`w-2 h-2 rounded-full transition-colors ${
+                className={`w-2 h-2 rounded-full transition-colors pointer-events-auto ${
                   index === currentSlide ? "bg-white" : "bg-white/50"
                 }`}
                 aria-label={`Go to slide ${index + 1}`}
@@ -93,7 +98,7 @@ export default function HaleAloha() {
           </div>
         </div>
 
-        <div className="absolute inset-0 flex items-center justify-center">
+        <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
           <div className="text-center text-white">
             <h1 className="font-serif text-5xl font-light mb-4">Hale Aloha</h1>
             <p className="text-xl">Home of Aloha and Warmth</p>

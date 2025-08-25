@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { ArrowLeft, Wifi, Coffee, Leaf, Mountain, ChevronLeft, ChevronRight } from "lucide-react"
 import Link from "next/link"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 export default function BananaPatchCottage() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
@@ -14,6 +14,13 @@ export default function BananaPatchCottage() {
     { src: "/images/banana-patch-interior-2.avif", alt: "Sleeping area with rustic wooden walls" },
     { src: "/images/banana-patch-bathroom.avif", alt: "Simple bathroom facilities" },
   ]
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % images.length)
+    }, 8000)
+    return () => clearInterval(timer)
+  }, [images.length])
 
   const nextImage = () => {
     setCurrentImageIndex((prev) => (prev + 1) % images.length)
@@ -40,34 +47,41 @@ export default function BananaPatchCottage() {
 
       <section className="relative h-96">
         <div className="relative w-full h-full overflow-hidden">
-          <img
-            src={images[currentImageIndex].src || "/placeholder.svg"}
-            alt={images[currentImageIndex].alt}
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-black/30" />
+          {images.map((image, index) => (
+            <div
+              key={index}
+              className={`absolute inset-0 transition-opacity duration-1000 ${
+                index === currentImageIndex ? "opacity-100" : "opacity-0"
+              }`}
+            >
+              <img src={image.src || "/placeholder.svg"} alt={image.alt} className="w-full h-full object-cover" />
+              <div className="absolute inset-0 bg-black/30" />
+            </div>
+          ))}
 
           {/* Navigation buttons */}
           <button
             onClick={prevImage}
-            className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 rounded-full p-2 transition-colors"
+            className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 rounded-full p-2 transition-colors z-20 pointer-events-auto"
+            aria-label="Previous image"
           >
             <ChevronLeft className="h-6 w-6 text-white" />
           </button>
           <button
             onClick={nextImage}
-            className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 rounded-full p-2 transition-colors"
+            className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 rounded-full p-2 transition-colors z-20 pointer-events-auto"
+            aria-label="Next image"
           >
             <ChevronRight className="h-6 w-6 text-white" />
           </button>
 
           {/* Image indicators */}
-          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-20">
             {images.map((_, index) => (
               <button
                 key={index}
                 onClick={() => setCurrentImageIndex(index)}
-                className={`w-2 h-2 rounded-full transition-colors ${
+                className={`w-2 h-2 rounded-full transition-colors pointer-events-auto ${
                   index === currentImageIndex ? "bg-white" : "bg-white/50"
                 }`}
               />
@@ -75,7 +89,8 @@ export default function BananaPatchCottage() {
           </div>
         </div>
 
-        <div className="absolute inset-0 flex items-center justify-center">
+        {/* Text overlay */}
+        <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
           <div className="text-center text-white">
             <h1 className="font-serif text-5xl font-light mb-4">Banana Patch Cottage</h1>
             <p className="text-xl">Personal retreat in the banana grove</p>

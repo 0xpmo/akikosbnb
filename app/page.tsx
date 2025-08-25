@@ -131,9 +131,6 @@ export default function Home() {
               {slides[currentSlide].title}
             </h2>
             <p className="text-xl md:text-2xl font-light mb-8 leading-relaxed">{slides[currentSlide].subtitle}</p>
-            <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground font-medium px-8 py-3">
-              <a href="#contact">Begin Your Journey</a>
-            </Button>
           </div>
         )}
 
