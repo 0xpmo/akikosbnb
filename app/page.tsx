@@ -53,7 +53,7 @@ export default function Home() {
       <header className="backdrop-blur-sm sticky top-0 z-50" style={{ backgroundColor: "#123233" }}>
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <img src="/images/akiko-full-logo.png" alt="Akiko's Buddhist B&B" className="h-16 w-auto" />
+            <img src="/images/akiko-logo-no-white.png" alt="Akiko's Buddhist B&B" className="h-20 w-auto" />
             <div>
               <h1 className="font-serif text-xl font-semibold text-white">Buddhist B&B</h1>
               <p className="text-sm text-white/70">Wailea Village, Hamakua Coast</p>
@@ -545,7 +545,11 @@ export default function Home() {
       <footer className="border-t border-border bg-muted/30 py-12">
         <div className="container mx-auto px-4 text-center">
           <div className="mb-6">
-            <img src="/images/akiko-full-logo.png" alt="Akiko's Buddhist B&B" className="h-16 w-auto mx-auto mb-4" />
+            <img
+              src="/images/akiko-logo-no-white.png"
+              alt="Akiko's Buddhist B&B"
+              className="h-16 w-auto mx-auto mb-4"
+            />
             <p className="text-muted-foreground max-w-md mx-auto">
               In gratitude to our ancestors and in service to all who come seeking awakening in Hawaii's sacred beauty.
             </p>
