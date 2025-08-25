@@ -13,12 +13,6 @@ export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0)
   const slides = [
     {
-      image: "/images/akiko-full-logo.png",
-      title: "", // No text overlay for logo slide
-      subtitle: "",
-      imageStyle: "object-contain",
-    },
-    {
       image: "/images/buddha-statue.png",
       title: "Sacred Sanctuary",
       subtitle: "Where ancient wisdom meets island tranquility",
@@ -56,29 +50,26 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="border-b border-border bg-card/50 backdrop-blur-sm sticky top-0 z-50">
+      <header className="backdrop-blur-sm sticky top-0 z-50" style={{ backgroundColor: "#123233" }}>
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <img src="/images/akiko-full-logo.png" alt="Akiko's Buddhist B&B" className="h-12 w-auto" />
+            <img src="/images/akiko-full-logo.png" alt="Akiko's Buddhist B&B" className="h-16 w-auto" />
             <div>
-              <h1 className="font-serif text-xl font-semibold text-foreground">Buddhist B&B</h1>
-              <p className="text-sm text-muted-foreground">Wailea Village, Hamakua Coast</p>
+              <h1 className="font-serif text-xl font-semibold text-white">Buddhist B&B</h1>
+              <p className="text-sm text-white/70">Wailea Village, Hamakua Coast</p>
             </div>
           </div>
           <nav className="hidden md:flex items-center gap-6">
-            <a href="#about" className="text-foreground hover:text-primary transition-colors">
-              About Akiko
-            </a>
-            <a href="#accommodations" className="text-foreground hover:text-primary transition-colors">
+            <a href="#accommodations" className="text-white hover:text-white/80 transition-colors">
               Stay
             </a>
-            <a href="#activities" className="text-foreground hover:text-primary transition-colors">
+            <a href="#activities" className="text-white hover:text-white/80 transition-colors">
               Activities
             </a>
-            <a href="#facilities" className="text-foreground hover:text-primary transition-colors">
+            <a href="#facilities" className="text-white hover:text-white/80 transition-colors">
               Facilities & Grounds
             </a>
-            <a href="#contact" className="text-foreground hover:text-primary transition-colors">
+            <a href="#contact" className="text-white hover:text-white/80 transition-colors">
               Contact
             </a>
           </nav>
@@ -96,13 +87,10 @@ export default function Home() {
               }`}
             >
               <div
-                className={`w-full h-full ${slide.imageStyle === "object-contain" ? "bg-gradient-to-br from-amber-50 to-orange-100" : ""}`}
+                className="w-full h-full"
                 style={{
-                  backgroundImage:
-                    slide.imageStyle === "object-contain"
-                      ? `url('${slide.image}')`
-                      : `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('${slide.image}')`,
-                  backgroundSize: slide.imageStyle === "object-contain" ? "contain" : "cover",
+                  backgroundImage: `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('${slide.image}')`,
+                  backgroundSize: "cover",
                   backgroundPosition: "center",
                   backgroundRepeat: "no-repeat",
                 }}
@@ -125,14 +113,12 @@ export default function Home() {
           <ChevronRight className="h-6 w-6" />
         </button>
 
-        {slides[currentSlide].title && (
-          <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-4">
-            <h2 className="font-serif text-5xl md:text-7xl font-light mb-6 leading-tight">
-              {slides[currentSlide].title}
-            </h2>
-            <p className="text-xl md:text-2xl font-light mb-8 leading-relaxed">{slides[currentSlide].subtitle}</p>
-          </div>
-        )}
+        <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-4">
+          <h2 className="font-serif text-5xl md:text-7xl font-light mb-6 leading-tight">
+            {slides[currentSlide].title}
+          </h2>
+          <p className="text-xl md:text-2xl font-light mb-8 leading-relaxed">{slides[currentSlide].subtitle}</p>
+        </div>
 
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-2">
           {slides.map((_, index) => (
