@@ -728,7 +728,7 @@ export default function Home() {
             </p>
           </div>
           <p className="text-sm text-muted-foreground">
-            © 2024 {"Akiko's Buddhist B&B"}. All rights reserved.
+            © 2025 {"Akiko's Buddhist B&B"}. All rights reserved.
           </p>
         </div>
       </footer>
