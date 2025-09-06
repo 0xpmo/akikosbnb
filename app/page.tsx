@@ -28,21 +28,21 @@ export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const slides = [
     {
-      image: "/images/buddha-statue.png",
+      image: "/homescreen/jungle1.JPG",
       title: "Sacred Sanctuary",
       subtitle: "Where ancient wisdom meets island tranquility",
       imageStyle: "object-cover",
     },
     {
-      image: "/images/court.png",
-      title: "Zen Garden Retreat",
-      subtitle: "Find your center in our sacred meditation spaces",
+      image: "/images/buddha-statue.png",
+      title: "Grounded Simplicity",
+      subtitle: `Learn to dance with the slower rhythms of an 'older' Hawaiʻi`,
       imageStyle: "object-cover",
     },
     {
-      image: "/images/looking-out.png",
-      title: "Natural Connection",
-      subtitle: "Immerse yourself in Hawaii's sacred nature",
+      image: "/homescreen/red-flower.JPG",
+      title: "Deep Connection",
+      subtitle: `Immerse authentically in Hawaiʻi's sacred ʻāina (land) as well as those you encounter`,
       imageStyle: "object-cover",
     },
   ];
@@ -255,48 +255,55 @@ export default function Home() {
           </h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             <Link href="/banana-patch">
-              <Card className="overflow-hidden hover:shadow-lg transition-shadow cursor-pointer bg-white/90 backdrop-blur-sm">
+              <Card className="group overflow-hidden hover:shadow-xl hover:scale-[1.02] transition-all duration-300 cursor-pointer bg-white/90 backdrop-blur-sm border-2 border-transparent hover:border-primary/20 h-full flex flex-col">
                 <div
-                  className="h-48 bg-muted bg-cover bg-center"
+                  className="h-48 bg-muted bg-cover bg-center group-hover:scale-105 transition-transform duration-300"
                   style={{
                     backgroundImage:
                       "url('/images/banana-patch-exterior.avif')",
                   }}
                 />
-                <CardHeader>
-                  <CardTitle className="font-['Yuji_Boku']">
+                <CardHeader className="flex-shrink-0">
+                  <CardTitle className="font-['Yuji_Boku'] group-hover:text-primary transition-colors duration-300">
                     Banana Patch Cottage
                   </CardTitle>
                   <CardDescription>
                     Cozy cottage in the Banana Patch forest for one person
                   </CardDescription>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="flex-grow flex flex-col">
                   <p className="text-sm text-muted-foreground mb-4">
                     Intimately nestled in a grove of banana trees. Hear the
                     winds, rain dancing on the tin roof, and falling mangoes
                     when in season.
                   </p>
-                  <div className="text-lg font-semibold text-primary">
-                    From $75/night
+                  <div className="mt-auto">
+                    <div className="flex items-center justify-between mb-2">
+                      <div className="text-lg font-semibold text-primary">
+                        From $75/night
+                      </div>
+                      <div className="text-primary/60 group-hover:text-primary transition-colors duration-300 text-sm font-medium">
+                        Learn More →
+                      </div>
+                    </div>
+                    <p className="text-xs text-muted-foreground">
+                      7 night minimum • Shared kitchen & bath
+                    </p>
                   </div>
-                  <p className="text-xs text-muted-foreground">
-                    7 night minimum • Shared kitchen & bath
-                  </p>
                 </CardContent>
               </Card>
             </Link>
 
             <Link href="/mango-tree">
-              <Card className="overflow-hidden hover:shadow-lg transition-shadow cursor-pointer bg-white/90 backdrop-blur-sm">
+              <Card className="group overflow-hidden hover:shadow-xl hover:scale-[1.02] transition-all duration-300 cursor-pointer bg-white/90 backdrop-blur-sm border-2 border-transparent hover:border-primary/20 h-full flex flex-col">
                 <div
-                  className="h-48 bg-muted bg-cover bg-center"
+                  className="h-48 bg-muted bg-cover bg-center group-hover:scale-105 transition-transform duration-300"
                   style={{
                     backgroundImage: "url('/images/mango-tree-exterior.avif')",
                   }}
                 />
-                <CardHeader>
-                  <CardTitle className="font-['Yuji_Boku']">
+                <CardHeader className="flex-shrink-0">
+                  <CardTitle className="font-['Yuji_Boku'] group-hover:text-primary transition-colors duration-300">
                     Mango Tree Cottage
                   </CardTitle>
                   <CardDescription>
@@ -304,32 +311,39 @@ export default function Home() {
                     persons
                   </CardDescription>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="flex-grow flex flex-col">
                   <p className="text-sm text-muted-foreground mb-4">
                     16 x 24 screened studio space, completely open to the
                     outdoors. Experience living harmony: being outdoors and
                     indoors simultaneously.
                   </p>
-                  <div className="text-lg font-semibold text-primary">
-                    From $85/night
+                  <div className="mt-auto">
+                    <div className="flex items-center justify-between mb-2">
+                      <div className="text-lg font-semibold text-primary">
+                        From $85/night
+                      </div>
+                      <div className="text-primary/60 group-hover:text-primary transition-colors duration-300 text-sm font-medium">
+                        Learn More →
+                      </div>
+                    </div>
+                    <p className="text-xs text-muted-foreground">
+                      7 night minimum • Queen bed • Shared kitchen & bath
+                    </p>
                   </div>
-                  <p className="text-xs text-muted-foreground">
-                    7 night minimum • Queen bed • Shared kitchen & bath
-                  </p>
                 </CardContent>
               </Card>
             </Link>
 
             <Link href="/puuhonua-house">
-              <Card className="overflow-hidden hover:shadow-lg transition-shadow cursor-pointer bg-white/90 backdrop-blur-sm">
+              <Card className="group overflow-hidden hover:shadow-xl hover:scale-[1.02] transition-all duration-300 cursor-pointer bg-white/90 backdrop-blur-sm border-2 border-transparent hover:border-primary/20 h-full flex flex-col">
                 <div
-                  className="h-48 bg-muted bg-cover bg-center"
+                  className="h-48 bg-muted bg-cover bg-center group-hover:scale-105 transition-transform duration-300"
                   style={{
                     backgroundImage: "url('/images/puuhonua-exterior.avif')",
                   }}
                 />
-                <CardHeader>
-                  <CardTitle className="font-['Yuji_Boku']">
+                <CardHeader className="flex-shrink-0">
+                  <CardTitle className="font-['Yuji_Boku'] group-hover:text-primary transition-colors duration-300">
                     Pu'uhonua House
                   </CardTitle>
                   <CardDescription>
@@ -337,32 +351,39 @@ export default function Home() {
                     this classic "old Hawaiian" plantation home
                   </CardDescription>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="flex-grow flex flex-col">
                   <p className="text-sm text-muted-foreground mb-4">
                     Our "community house" - a sanctuary where deep friendships
                     are built. 4-bedroom, 2-story classic with veranda
                     overlooking Hawaiian garden.
                   </p>
-                  <div className="text-lg font-semibold text-primary">
-                    From $75/night
+                  <div className="mt-auto">
+                    <div className="flex items-center justify-between mb-2">
+                      <div className="text-lg font-semibold text-primary">
+                        From $75/night
+                      </div>
+                      <div className="text-primary/60 group-hover:text-primary transition-colors duration-300 text-sm font-medium">
+                        Learn More →
+                      </div>
+                    </div>
+                    <p className="text-xs text-muted-foreground">
+                      7 night minimum • Shared spaces • 3 rooms available
+                    </p>
                   </div>
-                  <p className="text-xs text-muted-foreground">
-                    7 night minimum • Shared spaces • 3 rooms available
-                  </p>
                 </CardContent>
               </Card>
             </Link>
 
             <Link href="/hale-aloha">
-              <Card className="overflow-hidden hover:shadow-lg transition-shadow cursor-pointer bg-white/90 backdrop-blur-sm">
+              <Card className="group overflow-hidden hover:shadow-xl hover:scale-[1.02] transition-all duration-300 cursor-pointer bg-white/90 backdrop-blur-sm border-2 border-transparent hover:border-primary/20 h-full flex flex-col">
                 <div
-                  className="h-48 bg-muted bg-cover bg-center"
+                  className="h-48 bg-muted bg-cover bg-center group-hover:scale-105 transition-transform duration-300"
                   style={{
                     backgroundImage: "url('/images/hale-aloha-exterior.avif')",
                   }}
                 />
-                <CardHeader>
-                  <CardTitle className="font-['Yuji_Boku']">
+                <CardHeader className="flex-shrink-0">
+                  <CardTitle className="font-['Yuji_Boku'] group-hover:text-primary transition-colors duration-300">
                     Hale Aloha
                   </CardTitle>
                   <CardDescription>
@@ -370,18 +391,25 @@ export default function Home() {
                     windows opening to beautiful flowers and gardens
                   </CardDescription>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="flex-grow flex flex-col">
                   <p className="text-sm text-muted-foreground mb-4">
                     Home of Aloha and Warmth. Beautiful 3-bedroom, 1½ bath home
                     surrounded by flowers and fruit trees. Sleeps up to 4
                     people.
                   </p>
-                  <div className="text-lg font-semibold text-primary">
-                    From $150/night
+                  <div className="mt-auto">
+                    <div className="flex items-center justify-between mb-2">
+                      <div className="text-lg font-semibold text-primary">
+                        From $150/night
+                      </div>
+                      <div className="text-primary/60 group-hover:text-primary transition-colors duration-300 text-sm font-medium">
+                        Learn More →
+                      </div>
+                    </div>
+                    <p className="text-xs text-muted-foreground">
+                      7 night minimum • Up to 4 guests • Private home
+                    </p>
                   </div>
-                  <p className="text-xs text-muted-foreground">
-                    7 night minimum • Up to 4 guests • Private home
-                  </p>
                 </CardContent>
               </Card>
             </Link>
@@ -619,14 +647,14 @@ export default function Home() {
       <section id="contact" className="py-20">
         <div className="container mx-auto px-4 max-w-4xl">
           <h3 className="font-['Yuji_Boku'] text-4xl font-light text-center mb-12 text-foreground">
-            Connect With Us
+            Connect With Us — Inquiry About Booking
           </h3>
 
           <div className="grid md:grid-cols-2 gap-12">
             <div className="space-y-8">
               <div>
                 <h4 className="font-['Yuji_Boku'] text-2xl font-medium mb-6">
-                  Get in Touch
+                  Please Contact Akiko to Book
                 </h4>
                 <div className="space-y-4">
                   <div className="flex items-center gap-3">
@@ -648,6 +676,13 @@ export default function Home() {
                     </span>
                   </div>
                 </div>
+                <div className="mt-6 p-4 bg-primary/10 rounded-lg">
+                  <p className="text-sm text-foreground font-medium">
+                    For reservations and inquiries, please call Akiko at (808)
+                    963-6422 or fill out the booking inquiry form. She will help
+                    you find the perfect retreat space for your stay.
+                  </p>
+                </div>
               </div>
 
               <div>
@@ -666,11 +701,11 @@ export default function Home() {
             <Card className="bg-white/90 backdrop-blur-sm">
               <CardHeader>
                 <CardTitle className="font-['Yuji_Boku']">
-                  Send a Message
+                  Send a Booking Inquiry
                 </CardTitle>
                 <CardDescription>
                   {
-                    "We'd love to hear from you and answer any questions about your stay."
+                    "Please contact Akiko directly for reservations. Use this form to send your booking inquiry and preferred dates."
                   }
                 </CardDescription>
               </CardHeader>
@@ -705,7 +740,7 @@ export default function Home() {
                   />
                 </div>
                 <Button className="w-full bg-primary hover:bg-primary/90">
-                  Send Message
+                  Send Booking Inquiry
                 </Button>
               </CardContent>
             </Card>

@@ -1,46 +1,79 @@
-"use client"
+"use client";
 
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { ArrowLeft, Wifi, Coffee, Leaf, Mountain, ChevronLeft, ChevronRight } from "lucide-react"
-import Link from "next/link"
-import { useState, useEffect } from "react"
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import {
+  ArrowLeft,
+  Wifi,
+  Coffee,
+  Leaf,
+  Mountain,
+  ChevronLeft,
+  ChevronRight,
+} from "lucide-react";
+import Link from "next/link";
+import { useState, useEffect } from "react";
 
 export default function BananaPatchCottage() {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0)
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const images = [
-    { src: "/images/banana-patch-exterior.avif", alt: "Banana Patch Cottage exterior nestled in tropical vegetation" },
-    { src: "/images/banana-patch-interior-1.avif", alt: "Cozy interior with bed and natural lighting" },
-    { src: "/images/banana-patch-interior-2.avif", alt: "Sleeping area with rustic wooden walls" },
-    { src: "/images/banana-patch-bathroom.avif", alt: "Simple bathroom facilities" },
-  ]
+    {
+      src: "/images/banana-patch-exterior.avif",
+      alt: "Banana Patch Cottage exterior nestled in tropical vegetation",
+    },
+    {
+      src: "/images/banana-patch-interior-1.avif",
+      alt: "Cozy interior with bed and natural lighting",
+    },
+    {
+      src: "/images/banana-patch-interior-2.avif",
+      alt: "Sleeping area with rustic wooden walls",
+    },
+    {
+      src: "/images/banana-patch-bathroom.avif",
+      alt: "Simple bathroom facilities",
+    },
+  ];
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentImageIndex((prev) => (prev + 1) % images.length)
-    }, 8000)
-    return () => clearInterval(timer)
-  }, [images.length])
+      setCurrentImageIndex((prev) => (prev + 1) % images.length);
+    }, 8000);
+    return () => clearInterval(timer);
+  }, [images.length]);
 
   const nextImage = () => {
-    setCurrentImageIndex((prev) => (prev + 1) % images.length)
-  }
+    setCurrentImageIndex((prev) => (prev + 1) % images.length);
+  };
 
   const prevImage = () => {
-    setCurrentImageIndex((prev) => (prev - 1 + images.length) % images.length)
-  }
+    setCurrentImageIndex((prev) => (prev - 1 + images.length) % images.length);
+  };
 
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
       <header className="border-b border-border bg-card/50 backdrop-blur-sm sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2 text-foreground hover:text-primary transition-colors">
+          <Link
+            href="/"
+            className="flex items-center gap-2 text-foreground hover:text-primary transition-colors"
+          >
             <ArrowLeft className="h-5 w-5" />
             <span>Back to Buddhist B&B</span>
           </Link>
           <div className="flex items-center gap-4">
-            <img src="/images/akiko-full-logo.png" alt="Akiko's Buddhist B&B" className="h-10 w-auto" />
+            <img
+              src="/images/akiko-full-logo.png"
+              alt="Akiko's Buddhist B&B"
+              className="h-10 w-auto"
+            />
           </div>
         </div>
       </header>
@@ -54,7 +87,11 @@ export default function BananaPatchCottage() {
                 index === currentImageIndex ? "opacity-100" : "opacity-0"
               }`}
             >
-              <img src={image.src || "/placeholder.svg"} alt={image.alt} className="w-full h-full object-cover" />
+              <img
+                src={image.src || "/placeholder.svg"}
+                alt={image.alt}
+                className="w-full h-full object-cover"
+              />
               <div className="absolute inset-0 bg-black/30" />
             </div>
           ))}
@@ -92,7 +129,9 @@ export default function BananaPatchCottage() {
         {/* Text overlay */}
         <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
           <div className="text-center text-white">
-            <h1 className="font-serif text-5xl font-light mb-4">Banana Patch Cottage</h1>
+            <h1 className="font-serif text-5xl font-light mb-4">
+              Banana Patch Cottage
+            </h1>
             <p className="text-xl">Personal retreat in the banana grove</p>
           </div>
         </div>
@@ -103,25 +142,31 @@ export default function BananaPatchCottage() {
         <div className="grid md:grid-cols-3 gap-12">
           <div className="md:col-span-2 space-y-8">
             <div>
-              <h2 className="font-serif text-3xl font-light mb-6">A Sacred Retreat Space</h2>
+              <h2 className="font-serif text-3xl font-light mb-6">
+                A Sacred Retreat Space
+              </h2>
               <div className="prose prose-lg text-muted-foreground leading-relaxed space-y-4">
                 <p>
-                  The Banana Patch is for someone seeking personal retreat time, quiet, yoga, tai chi and zazen
-                  practices, plus working remotely, and many opportunities to explore Hawai'i.
+                  The Banana Patch is for someone seeking personal retreat time,
+                  quiet, yoga, tai chi and zazen practices, plus working
+                  remotely, and many opportunities to explore Hawai'i.
                 </p>
                 <p>
-                  The 12x12 cottage is intimately nestled in a grove of banana trees. Hear & feel the winds, the rain
-                  dancing on the tin roof, the cascading leaves, the coqui frogs, and the falling "torpedo" avos &
-                  mango, when in season.
+                  The 12x12 cottage is intimately nestled in a grove of banana
+                  trees. Hear & feel the winds, the rain dancing on the tin
+                  roof, the cascading leaves, the coqui frogs, and the falling
+                  "torpedo" avos & mango, when in season.
                 </p>
                 <p>
-                  Sleep on a bamboo frame bed or sit on the comfy reading chair enjoying the wide variety of books.
-                  Journal daily when arising early with the coming of the early morning light. Go deeply within while
-                  opening to the Great Wild Natural Rainforest.
+                  Sleep on a bamboo frame bed or sit on the comfy reading chair
+                  enjoying the wide variety of books. Journal daily when arising
+                  early with the coming of the early morning light. Go deeply
+                  within while opening to the Great Wild Natural Rainforest.
                 </p>
                 <p>
-                  Return to simple naturalness. Calm & settle the soul. Just 15 miles north of Hilo along the luscious
-                  Hamakua coast on the Big Island of Hawaii.
+                  Return to simple naturalness. Calm & settle the soul. Just 15
+                  miles north of Hilo along the luscious Hamakua coast on the
+                  Big Island of Hawaii.
                 </p>
               </div>
             </div>
@@ -131,7 +176,9 @@ export default function BananaPatchCottage() {
               <div className="grid grid-cols-2 gap-4">
                 <div className="flex items-center gap-3">
                   <Leaf className="h-5 w-5 text-primary" />
-                  <span className="text-muted-foreground">Bamboo frame bed</span>
+                  <span className="text-muted-foreground">
+                    Bamboo frame bed
+                  </span>
                 </div>
                 <div className="flex items-center gap-3">
                   <Mountain className="h-5 w-5 text-primary" />
@@ -143,7 +190,9 @@ export default function BananaPatchCottage() {
                 </div>
                 <div className="flex items-center gap-3">
                   <Wifi className="h-5 w-5 text-primary" />
-                  <span className="text-muted-foreground">High-speed WiFi (88 Mbps)</span>
+                  <span className="text-muted-foreground">
+                    High-speed WiFi (88 Mbps)
+                  </span>
                 </div>
               </div>
             </div>
@@ -152,13 +201,19 @@ export default function BananaPatchCottage() {
           <div>
             <Card className="sticky top-24">
               <CardHeader>
-                <CardTitle className="font-serif text-2xl">Rates & Booking</CardTitle>
+                <CardTitle className="font-serif text-2xl">
+                  Rates & Booking
+                </CardTitle>
                 <CardDescription>All rates plus tax</CardDescription>
               </CardHeader>
               <CardContent className="space-y-6">
                 <div>
-                  <div className="text-3xl font-bold text-primary mb-2">$75/night</div>
-                  <p className="text-sm text-muted-foreground">Single occupancy</p>
+                  <div className="text-3xl font-bold text-primary mb-2">
+                    $75/night
+                  </div>
+                  <p className="text-sm text-muted-foreground">
+                    Single occupancy
+                  </p>
                 </div>
 
                 <div className="space-y-3">
@@ -168,28 +223,39 @@ export default function BananaPatchCottage() {
                   </div>
                   <div className="flex justify-between">
                     <span className="text-sm">2+ weeks</span>
-                    <span className="text-sm font-medium text-green-600">15% discount</span>
+                    <span className="text-sm font-medium text-green-600">
+                      15% discount
+                    </span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-sm">1+ month</span>
-                    <span className="text-sm font-medium text-green-600">30% discount</span>
+                    <span className="text-sm font-medium text-green-600">
+                      30% discount
+                    </span>
                   </div>
                 </div>
 
                 <div className="border-t pt-4">
                   <p className="text-xs text-muted-foreground mb-4">
-                    High-speed WiFi included. $40 additional fee for month-long stays. 60-day maximum stay.
+                    High-speed WiFi included. $40 additional fee for month-long
+                    stays. 60-day maximum stay.
                   </p>
                 </div>
 
                 <Button className="w-full bg-primary hover:bg-primary/90">
-                  <a href="/#contact">Book Your Retreat</a>
+                  <a href="/#contact">Call Akiko to Book</a>
                 </Button>
+                <div className="mt-4 p-3 bg-muted/50 rounded-lg">
+                  <p className="text-xs text-muted-foreground text-center">
+                    Please call Akiko at (808) 963-6422 or fill out the inquiry
+                    form to make your reservation
+                  </p>
+                </div>
               </CardContent>
             </Card>
           </div>
         </div>
       </div>
     </div>
-  )
+  );
 }

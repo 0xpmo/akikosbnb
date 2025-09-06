@@ -45,6 +45,11 @@ export const metadata: Metadata = {
   description:
     "A tranquil Buddhist bed and breakfast on the Hamakua Coast, offering spiritual retreat and natural beauty in authentic Hawaii.",
   generator: "v0.app",
+  icons: {
+    icon: "/AKIKOIcon.png",
+    shortcut: "/AKIKOIcon.png",
+    apple: "/AKIKOIcon.png",
+  },
 };
 
 export default function RootLayout({
