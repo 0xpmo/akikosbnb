@@ -131,18 +131,24 @@ export default function Facilities() {
     <div
       className="min-h-screen"
       style={{
-        backgroundImage: "url('/images/calligraphy-paper-bg-option.png')",
-        backgroundSize: "cover",
-        backgroundAttachment: "fixed",
+        backgroundImage:
+          "url('/homescreen/calligraphy-paper-bg.png'), url('/homescreen/calligraphy-paper-bg-option.png')",
+        backgroundSize: "cover, cover",
+        backgroundAttachment: "scroll, fixed",
+        backgroundRepeat: "no-repeat, no-repeat",
+        backgroundPosition: "center top, center top",
       }}
     >
       {/* Header */}
       <header
         className="backdrop-blur-sm sticky top-0 z-50 shadow-2xl"
-        style={{ backgroundColor: "#123233" }}
+        style={{ backgroundColor: "#1a5d52" }}
       >
         <div className="container mx-auto px-4 py-1 flex items-center justify-between">
-          <div className="flex items-center gap-4">
+          <Link
+            href="/"
+            className="flex items-center gap-4 hover:opacity-90 transition-opacity"
+          >
             <img
               src="/images/AKIKOSwhitetext.png"
               alt="Akiko's Buddhist B&B"
@@ -152,49 +158,39 @@ export default function Facilities() {
               <h1 className="font-['Yuji_Boku'] text-xl font-semibold text-white">
                 Buddhist B&B
               </h1>
-              <p className="text-sm text-white/70 font-['Noto_Sans']">
-                Wailea Village, Hamakua Coast
+              <p className="text-sm text-white/70 font-['Yuji_Boku']">
+                Hakalau, Hamakua Coast, Hawaii
               </p>
             </div>
-          </div>
+          </Link>
           <nav className="hidden md:flex items-center gap-6">
-            <Link
+            <a
+              href="/"
+              className="text-white hover:text-white/80 transition-colors font-['Yuji_Boku']"
+            >
+              Home
+            </a>
+            <a
               href="/#accommodations"
-              className="text-white hover:text-white/80 transition-colors font-['Noto_Sans']"
+              className="text-white hover:text-white/80 transition-colors font-['Yuji_Boku']"
             >
-              Stay
-            </Link>
+              Accommodations
+            </a>
             <Link
-              href="/#activities"
-              className="text-white hover:text-white/80 transition-colors font-['Noto_Sans']"
-            >
-              Activities
-            </Link>
-            <Link
-              href="/#facilities"
-              className="text-white hover:text-white/80 transition-colors font-['Noto_Sans']"
+              href="/facilities"
+              className="text-white hover:text-white/80 transition-colors font-['Yuji_Boku']"
             >
               Facilities & Grounds
             </Link>
             <Link
-              href="/#contact"
-              className="text-white hover:text-white/80 transition-colors font-['Noto_Sans']"
+              href="/contact"
+              className="text-white hover:text-white/80 transition-colors font-['Yuji_Boku']"
             >
               Contact
             </Link>
           </nav>
         </div>
       </header>
-
-      {/* Back Button */}
-      <div className="container mx-auto px-4 py-6">
-        <Link href="/">
-          <Button variant="outline" className="flex items-center gap-2">
-            <ArrowLeft className="h-4 w-4" />
-            Back to Home
-          </Button>
-        </Link>
-      </div>
 
       {/* Page Header */}
       <section className="py-12">
@@ -363,6 +359,26 @@ export default function Facilities() {
             reflection and connection with nature.
           </p>
         </div>
+
+        {/* Footer */}
+        <footer className="border-t border-white/20 py-12 mt-20">
+          <div className="container mx-auto px-4 text-center">
+            <div className="mb-6">
+              <img
+                src="/images/akiko-logo-no-white.png"
+                alt="Akiko's Buddhist B&B"
+                className="h-24 w-auto mx-auto mb-4"
+              />
+              <p className="text-muted-foreground max-w-md mx-auto">
+                In gratitude to our ancestors and in service to all who come
+                seeking awakening in Hawaii's sacred beauty.
+              </p>
+            </div>
+            <p className="text-sm text-muted-foreground">
+              © 2025 {"Akiko's Buddhist B&B"}. All rights reserved.
+            </p>
+          </div>
+        </footer>
       </section>
 
       {/* Image Modal with Navigation */}
@@ -423,26 +439,6 @@ export default function Facilities() {
           </div>
         </div>
       )}
-
-      {/* Footer */}
-      <footer className="border-t border-border bg-white/90 backdrop-blur-sm py-12">
-        <div className="container mx-auto px-4 text-center">
-          <div className="mb-6">
-            <img
-              src="/images/akiko-logo-no-white.png"
-              alt="Akiko's Buddhist B&B"
-              className="h-24 w-auto mx-auto mb-4"
-            />
-            <p className="text-muted-foreground max-w-md mx-auto">
-              In gratitude to our ancestors and in service to all who come
-              seeking awakening in Hawaii's sacred beauty.
-            </p>
-          </div>
-          <p className="text-sm text-muted-foreground">
-            © 2025 {"Akiko's Buddhist B&B"}. All rights reserved.
-          </p>
-        </div>
-      </footer>
     </div>
   );
 }

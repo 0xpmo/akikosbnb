@@ -66,24 +66,66 @@ export default function MangoTreeCottage() {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div
+      className="min-h-screen"
+      style={{
+        backgroundImage: "url('/homescreen/calligraphy-paper-bg-option.png')",
+        backgroundSize: "cover",
+        backgroundAttachment: "fixed",
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center top",
+      }}
+    >
       {/* Header */}
-      <header className="border-b border-border bg-card/50 backdrop-blur-sm sticky top-0 z-50">
-        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+      <header
+        className="backdrop-blur-sm sticky top-0 z-50 shadow-2xl"
+        style={{ backgroundColor: "#1a5d52" }}
+      >
+        <div className="container mx-auto px-4 py-1 flex items-center justify-between">
           <Link
             href="/"
-            className="flex items-center gap-2 text-foreground hover:text-primary transition-colors"
+            className="flex items-center gap-4 hover:opacity-90 transition-opacity"
           >
-            <ArrowLeft className="h-5 w-5" />
-            <span>Back to Buddhist B&B</span>
-          </Link>
-          <div className="flex items-center gap-4">
             <img
-              src="/images/akiko-full-logo.png"
+              src="/images/AKIKOSwhitetext.png"
               alt="Akiko's Buddhist B&B"
-              className="h-10 w-auto"
+              className="h-24 w-auto"
             />
-          </div>
+            <div>
+              <h1 className="font-['Yuji_Boku'] text-xl font-semibold text-white">
+                Buddhist B&B
+              </h1>
+              <p className="text-sm text-white/70 font-['Yuji_Boku']">
+                Hakalau, Hamakua Coast, Hawaii
+              </p>
+            </div>
+          </Link>
+          <nav className="hidden md:flex items-center gap-6">
+            <a
+              href="/"
+              className="text-white hover:text-white/80 transition-colors font-['Yuji_Boku']"
+            >
+              Home
+            </a>
+            <a
+              href="/#accommodations"
+              className="text-white hover:text-white/80 transition-colors font-['Yuji_Boku']"
+            >
+              Accommodations
+            </a>
+            <Link
+              href="/facilities"
+              className="text-white hover:text-white/80 transition-colors font-['Yuji_Boku']"
+            >
+              Facilities & Grounds
+            </Link>
+            <Link
+              href="/contact"
+              className="text-white hover:text-white/80 transition-colors font-['Yuji_Boku']"
+            >
+              Contact
+            </Link>
+          </nav>
         </div>
       </header>
 
@@ -255,7 +297,7 @@ export default function MangoTreeCottage() {
                 </div>
 
                 <Button className="w-full bg-primary hover:bg-primary/90">
-                  <a href="/#contact">Call Akiko to Book</a>
+                  <a href="/contact">Inquire to Book</a>
                 </Button>
                 <div className="mt-4 p-3 bg-muted/50 rounded-lg">
                   <p className="text-xs text-muted-foreground text-center">

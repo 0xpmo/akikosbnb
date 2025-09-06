@@ -43,7 +43,7 @@ const sawarabiMincho = Sawarabi_Mincho({
 export const metadata: Metadata = {
   title: "Akiko's Buddhist B&B - Hakalau, Hawaii",
   description:
-    "A tranquil Buddhist bed and breakfast on the Hamakua Coast, offering spiritual retreat and natural beauty in authentic Hawaii.",
+    "A tranquil Buddhist bed and breakfast on the Hamakua Coast of Hawaii, offering spiritual retreat and natural beauty in authentic Hawaii.",
   generator: "v0.app",
   icons: {
     icon: "/AKIKOIcon.png",
