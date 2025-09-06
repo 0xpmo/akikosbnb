@@ -20,12 +20,18 @@ import {
   Waves,
   ChevronLeft,
   ChevronRight,
+  X,
 } from "lucide-react";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 
 export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [selectedImageIndex, setSelectedImageIndex] = useState<number>(0);
+  const [currentFacilityImages, setCurrentFacilityImages] = useState<string[]>(
+    []
+  );
   const slides = [
     {
       image: "/homescreen/jungle1.JPG",
@@ -54,12 +60,60 @@ export default function Home() {
     return () => clearInterval(timer);
   }, [slides.length]);
 
+  // Keyboard navigation for image modal
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (!selectedImage || currentFacilityImages.length <= 1) return;
+
+      switch (event.key) {
+        case "ArrowLeft":
+          event.preventDefault();
+          prevImage();
+          break;
+        case "ArrowRight":
+          event.preventDefault();
+          nextImage();
+          break;
+        case "Escape":
+          event.preventDefault();
+          closeModal();
+          break;
+      }
+    };
+
+    if (selectedImage) {
+      document.addEventListener("keydown", handleKeyDown);
+      return () => document.removeEventListener("keydown", handleKeyDown);
+    }
+  }, [selectedImage, selectedImageIndex, currentFacilityImages.length]);
+
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % slides.length);
   };
 
   const prevSlide = () => {
     setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+  };
+
+  const nextImage = () => {
+    const nextIndex = (selectedImageIndex + 1) % currentFacilityImages.length;
+    setSelectedImageIndex(nextIndex);
+    setSelectedImage(currentFacilityImages[nextIndex]);
+  };
+
+  const prevImage = () => {
+    const prevIndex =
+      selectedImageIndex === 0
+        ? currentFacilityImages.length - 1
+        : selectedImageIndex - 1;
+    setSelectedImageIndex(prevIndex);
+    setSelectedImage(currentFacilityImages[prevIndex]);
+  };
+
+  const closeModal = () => {
+    setSelectedImage(null);
+    setSelectedImageIndex(0);
+    setCurrentFacilityImages([]);
   };
 
   return (
@@ -603,37 +657,51 @@ export default function Home() {
             <h4 className="font-['Sawarabi_Mincho'] text-2xl font-light text-center mb-8 text-foreground">
               Two-Acre Tropical Paradise
             </h4>
-            <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-4 max-w-6xl mx-auto">
-              <div
-                className="h-32 bg-muted bg-cover bg-center rounded-lg"
-                style={{
-                  backgroundImage: "url('/images/property-garden-1.avif')",
-                }}
-              />
-              <div
-                className="h-32 bg-muted bg-cover bg-center rounded-lg"
-                style={{
-                  backgroundImage: "url('/images/property-garden-2.avif')",
-                }}
-              />
-              <div
-                className="h-32 bg-muted bg-cover bg-center rounded-lg"
-                style={{
-                  backgroundImage: "url('/images/property-garden-3.avif')",
-                }}
-              />
-              <div
-                className="h-32 bg-muted bg-cover bg-center rounded-lg"
-                style={{
-                  backgroundImage: "url('/images/property-garden-4.avif')",
-                }}
-              />
-              <div
-                className="h-32 bg-muted bg-cover bg-center rounded-lg"
-                style={{
-                  backgroundImage: "url('/images/property-garden-5.avif')",
-                }}
-              />
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 max-w-6xl mx-auto">
+              {[
+                "/grounds/akiko-entrance-road.avif",
+                "/grounds/akiko-kitchen.JPG",
+                "/grounds/akiko-pick-flower.JPG",
+                "/grounds/akiko-walk-jungle.JPG",
+                "/grounds/blue-house-jungle.JPG",
+                "/grounds/front-door.JPG",
+                "/grounds/grass-and-jungle.JPG",
+                "/grounds/main-entrance.JPG",
+                "/grounds/statue-yellow.avif",
+                "/grounds/temple.avif",
+                "/grounds/tree-tops.JPG",
+                "/grounds/zendo-alleyway.avif",
+              ].map((image, index) => (
+                <div
+                  key={index}
+                  className="group cursor-pointer"
+                  onClick={() => {
+                    setSelectedImage(image);
+                    setSelectedImageIndex(index);
+                    setCurrentFacilityImages([
+                      "/grounds/akiko-entrance-road.avif",
+                      "/grounds/akiko-kitchen.JPG",
+                      "/grounds/akiko-pick-flower.JPG",
+                      "/grounds/akiko-walk-jungle.JPG",
+                      "/grounds/blue-house-jungle.JPG",
+                      "/grounds/front-door.JPG",
+                      "/grounds/grass-and-jungle.JPG",
+                      "/grounds/main-entrance.JPG",
+                      "/grounds/statue-yellow.avif",
+                      "/grounds/temple.avif",
+                      "/grounds/tree-tops.JPG",
+                      "/grounds/zendo-alleyway.avif",
+                    ]);
+                  }}
+                >
+                  <div
+                    className="h-48 lg:h-56 bg-muted bg-cover bg-center rounded-xl group-hover:scale-105 transition-transform duration-300 shadow-lg group-hover:shadow-xl"
+                    style={{
+                      backgroundImage: `url('${image}')`,
+                    }}
+                  />
+                </div>
+              ))}
             </div>
             <p className="text-center text-muted-foreground mt-6 max-w-3xl mx-auto">
               Wander through our lush tropical gardens featuring native Hawaiian
@@ -749,6 +817,65 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Image Modal with Navigation */}
+      {selectedImage && (
+        <div
+          className="fixed inset-0 bg-black/90 flex items-center justify-center z-50 p-4"
+          onClick={closeModal}
+        >
+          <div className="relative max-w-6xl max-h-full w-full h-full flex items-center justify-center">
+            {/* Close Button */}
+            <button
+              onClick={closeModal}
+              className="absolute top-4 right-4 z-10 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-colors"
+            >
+              <X className="h-6 w-6" />
+            </button>
+
+            {/* Previous Button */}
+            {currentFacilityImages.length > 1 && (
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  prevImage();
+                }}
+                className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-colors"
+              >
+                <ChevronLeft className="h-8 w-8" />
+              </button>
+            )}
+
+            {/* Next Button */}
+            {currentFacilityImages.length > 1 && (
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  nextImage();
+                }}
+                className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-colors"
+              >
+                <ChevronRight className="h-8 w-8" />
+              </button>
+            )}
+
+            {/* Image Counter */}
+            {currentFacilityImages.length > 1 && (
+              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 bg-black/50 text-white px-4 py-2 rounded-full text-sm">
+                {selectedImageIndex + 1} / {currentFacilityImages.length}
+              </div>
+            )}
+
+            {/* Image */}
+            <img
+              src={selectedImage}
+              alt="Grounds image"
+              className="max-w-full max-h-full object-contain rounded-lg"
+              onClick={(e) => e.stopPropagation()}
+            />
+          </div>
+        </div>
+      )}
 
       {/* Footer */}
       <footer className="border-t border-border bg-white/90 backdrop-blur-sm py-12">

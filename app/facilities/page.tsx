@@ -298,43 +298,65 @@ export default function Facilities() {
 
       {/* Grounds Section */}
       <section className="py-12">
-        <div className="container mx-auto px-4 max-w-4xl">
+        <div className="container mx-auto px-4 max-w-6xl">
           <h3 className="font-['Sawarabi_Mincho'] text-3xl font-light text-center mb-8 text-foreground drop-shadow-sm">
             Two-Acre Tropical Paradise
           </h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-4 mb-8">
-            <div
-              className="h-32 bg-muted bg-cover bg-center rounded-lg"
-              style={{
-                backgroundImage: "url('/images/property-garden-1.avif')",
-              }}
-            />
-            <div
-              className="h-32 bg-muted bg-cover bg-center rounded-lg"
-              style={{
-                backgroundImage: "url('/images/property-garden-2.avif')",
-              }}
-            />
-            <div
-              className="h-32 bg-muted bg-cover bg-center rounded-lg"
-              style={{
-                backgroundImage: "url('/images/property-garden-3.avif')",
-              }}
-            />
-            <div
-              className="h-32 bg-muted bg-cover bg-center rounded-lg"
-              style={{
-                backgroundImage: "url('/images/property-garden-4.avif')",
-              }}
-            />
-            <div
-              className="h-32 bg-muted bg-cover bg-center rounded-lg"
-              style={{
-                backgroundImage: "url('/images/property-garden-5.avif')",
-              }}
-            />
+
+          {/* Grounds Gallery */}
+          <div className="space-y-6 mb-8">
+            <h4 className="font-['Sawarabi_Mincho'] text-2xl font-medium text-center text-foreground drop-shadow-sm">
+              Grounds Gallery
+            </h4>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+              {[
+                "/grounds/akiko-entrance-road.avif",
+                "/grounds/akiko-kitchen.JPG",
+                "/grounds/akiko-pick-flower.JPG",
+                "/grounds/akiko-walk-jungle.JPG",
+                "/grounds/blue-house-jungle.JPG",
+                "/grounds/front-door.JPG",
+                "/grounds/grass-and-jungle.JPG",
+                "/grounds/main-entrance.JPG",
+                "/grounds/statue-yellow.avif",
+                "/grounds/temple.avif",
+                "/grounds/tree-tops.JPG",
+                "/grounds/zendo-alleyway.avif",
+              ].map((image, index) => (
+                <div
+                  key={index}
+                  className="group cursor-pointer"
+                  onClick={() => {
+                    setSelectedImage(image);
+                    setSelectedImageIndex(index);
+                    setCurrentFacilityImages([
+                      "/grounds/akiko-entrance-road.avif",
+                      "/grounds/akiko-kitchen.JPG",
+                      "/grounds/akiko-pick-flower.JPG",
+                      "/grounds/akiko-walk-jungle.JPG",
+                      "/grounds/blue-house-jungle.JPG",
+                      "/grounds/front-door.JPG",
+                      "/grounds/grass-and-jungle.JPG",
+                      "/grounds/main-entrance.JPG",
+                      "/grounds/statue-yellow.avif",
+                      "/grounds/temple.avif",
+                      "/grounds/tree-tops.JPG",
+                      "/grounds/zendo-alleyway.avif",
+                    ]);
+                  }}
+                >
+                  <div
+                    className="h-48 lg:h-56 bg-muted bg-cover bg-center rounded-xl group-hover:scale-105 transition-transform duration-300 shadow-lg group-hover:shadow-xl"
+                    style={{
+                      backgroundImage: `url('${image}')`,
+                    }}
+                  />
+                </div>
+              ))}
+            </div>
           </div>
-          <p className="text-center text-foreground leading-relaxed drop-shadow-sm">
+
+          <p className="text-center text-foreground leading-relaxed drop-shadow-sm max-w-3xl mx-auto">
             Wander through our lush tropical gardens featuring native Hawaiian
             plants, fruit trees, and peaceful pathways. The grounds include
             citrus orchards, breadfruit groves, and countless quiet spots for
