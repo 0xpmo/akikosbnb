@@ -213,7 +213,20 @@ export default function Home() {
                   person to buy in this quiet, peaceful country village in 35
                   years. Wailea is a wee, still-intact, plantation village with
                   about 12 households which have seen very little change—a
-                  fleeting flashback in time.
+                  fleeting flashback in time. Please come and discover the peace
+                  and kindness here.
+                </p>
+                <p className="text-sm text-muted-foreground italic mt-4">
+                  <a
+                    href="https://www.youtube.com/watch?v=toee4I0AhaE"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-primary hover:text-primary/80 underline"
+                  >
+                    Watch the trailer for "August at Akiko's"
+                  </a>{" "}
+                  — a film that was shot right here at our property, capturing
+                  the unique spirit of this special place.
                 </p>
               </div>
             </div>
