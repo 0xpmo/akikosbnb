@@ -182,16 +182,16 @@ export default function Home() {
 
       {/* About Akiko Section */}
       <section id="about" className="py-20">
-        <div className="container mx-auto px-4 max-w-4xl">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
+        <div className="container mx-auto px-4 max-w-5xl">
+          <div className="grid md:grid-cols-5 gap-12 items-center">
+            <div className="md:col-span-3">
               <img
                 src="/images/hostess-about-us.png"
                 alt="Akiko Masuda in her garden"
                 className="w-full rounded-lg shadow-lg"
               />
             </div>
-            <div>
+            <div className="md:col-span-2">
               <h3 className="font-['Yuji_Boku'] text-4xl font-light mb-6 text-foreground drop-shadow-sm">
                 Aloha & Welcome
               </h3>
@@ -248,7 +248,7 @@ export default function Home() {
             </p>
             <p className="text-lg mb-6">
               {
-                "Yin and yang dance together: the dynamic interplay of soft and hard, cold and hot, silky and bumpy, modest and wild. Here you'll find both hot yoga and zazen stillness, the rhythm of older Hawaii—slower, more humane."
+                "Yin and yang dance together: the dynamic interplay of soft and hard, cold and hot, silky and bumpy, modest and wild. Here you'll find both yoga and zazen stillness, the rhythm of older Hawaii—slower, more humane."
               }
             </p>
             <p className="text-lg">
@@ -264,7 +264,7 @@ export default function Home() {
       <section id="accommodations" className="py-20">
         <div className="container mx-auto px-4">
           <h3 className="font-['Yuji_Boku'] text-4xl font-light text-center mb-12 text-foreground">
-            Sacred Spaces
+            Accommodations
           </h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             <Link href="/banana-patch">
@@ -537,77 +537,66 @@ export default function Home() {
             Sacred Facilities & Grounds
           </h3>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {/* Dojo/Yoga Studio */}
-            <Card className="overflow-hidden bg-white/90 backdrop-blur-sm">
-              <div
-                className="h-48 bg-muted bg-cover bg-center"
-                style={{
-                  backgroundImage: "url('/images/dojo-yoga-studio.jpeg')",
-                }}
-              />
-              <CardHeader>
-                <CardTitle className="font-['Yuji_Boku']">
-                  Dojo & Yoga Studio
-                </CardTitle>
-                <CardDescription>
-                  Spacious movement and meditation space
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-muted-foreground">
-                  Large, open studio with wooden floors and natural lighting,
-                  perfect for yoga, tai chi, and movement practices. Features
-                  exposed beam ceiling and views of tropical gardens.
-                </p>
-              </CardContent>
-            </Card>
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {/* Yoga Studio */}
+            <Link href="/facilities">
+              <Card className="group overflow-hidden hover:shadow-xl hover:scale-[1.02] transition-all duration-300 cursor-pointer bg-white/90 backdrop-blur-sm border-2 border-transparent hover:border-primary/20">
+                <div
+                  className="h-48 bg-muted bg-cover bg-center group-hover:scale-105 transition-transform duration-300"
+                  style={{
+                    backgroundImage:
+                      "url('/facilities/yoga-studio/yoga-room.jpeg')",
+                  }}
+                />
+                <CardHeader>
+                  <CardTitle className="font-['Yuji_Boku'] group-hover:text-primary transition-colors duration-300">
+                    Yoga Studio
+                  </CardTitle>
+                  <CardDescription>
+                    Spacious movement and meditation space
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-muted-foreground">
+                    Large, open studio with wooden floors and natural lighting,
+                    perfect for yoga, tai chi, and movement practices. Features
+                    exposed beam ceiling and views of tropical gardens.
+                  </p>
+                  <div className="mt-4 text-primary/60 group-hover:text-primary transition-colors duration-300 text-sm font-medium">
+                    View All Facilities →
+                  </div>
+                </CardContent>
+              </Card>
+            </Link>
 
-            {/* Meditation Room */}
-            <Card className="overflow-hidden bg-white/90 backdrop-blur-sm">
-              <div
-                className="h-48 bg-muted bg-cover bg-center"
-                style={{
-                  backgroundImage: "url('/images/meditation-room.jpeg')",
-                }}
-              />
-              <CardHeader>
-                <CardTitle className="font-['Yuji_Boku']">
-                  Meditation Room
-                </CardTitle>
-                <CardDescription>Quiet contemplation space</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-muted-foreground">
-                  Serene indoor space with large windows overlooking lush
-                  tropical gardens. Perfect for group meditation, quiet
-                  reflection, and intimate gatherings.
-                </p>
-              </CardContent>
-            </Card>
-
-            {/* Temple of Gratitude */}
-            <Card className="overflow-hidden bg-white/90 backdrop-blur-sm">
-              <div
-                className="h-48 bg-muted bg-cover bg-center"
-                style={{
-                  backgroundImage: "url('/images/temple-gratitude-sign.jpeg')",
-                }}
-              />
-              <CardHeader>
-                <CardTitle className="font-['Yuji_Boku']">
-                  Temple of Gratitude
-                </CardTitle>
-                <CardDescription>Sacred outdoor sanctuary</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-muted-foreground">
-                  A special meditation area nestled within the tropical gardens,
-                  marked by our welcoming sign. A place for deeper spiritual
-                  practice and connection with nature.
-                </p>
-              </CardContent>
-            </Card>
+            {/* Zendo */}
+            <Link href="/facilities">
+              <Card className="group overflow-hidden hover:shadow-xl hover:scale-[1.02] transition-all duration-300 cursor-pointer bg-white/90 backdrop-blur-sm border-2 border-transparent hover:border-primary/20">
+                <div
+                  className="h-48 bg-muted bg-cover bg-center group-hover:scale-105 transition-transform duration-300"
+                  style={{
+                    backgroundImage:
+                      "url('/facilities/zendo/zendo-inside.jpg')",
+                  }}
+                />
+                <CardHeader>
+                  <CardTitle className="font-['Yuji_Boku'] group-hover:text-primary transition-colors duration-300">
+                    Zendo
+                  </CardTitle>
+                  <CardDescription>Sacred meditation space</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-muted-foreground">
+                    Traditional meditation hall for zazen practice and quiet
+                    contemplation. A serene space designed for deep spiritual
+                    practice and group meditation sessions.
+                  </p>
+                  <div className="mt-4 text-primary/60 group-hover:text-primary transition-colors duration-300 text-sm font-medium">
+                    View All Facilities →
+                  </div>
+                </CardContent>
+              </Card>
+            </Link>
           </div>
 
           <div className="mt-16">
