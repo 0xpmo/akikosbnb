@@ -98,7 +98,7 @@ export default function MangoTreeCottage() {
       className="min-h-screen"
       style={{
         backgroundImage:
-          "url('/homescreen/calligraphy-paper-bg.png'), url('/homescreen/calligraphy-paper-bg-option.png')",
+          "url('/homescreen/calligraphy-paper-bg.webp'), url('/homescreen/calligraphy-paper-bg-option.webp')",
         backgroundSize: "cover, cover",
         backgroundAttachment: "scroll, scroll",
         backgroundRepeat: "no-repeat, no-repeat",
@@ -124,7 +124,7 @@ export default function MangoTreeCottage() {
               <h1 className="font-['Yuji_Boku'] text-xl font-semibold text-white">
                 Buddhist B&B
               </h1>
-              <p className="text-sm text-white/70 font-['Yuji_Boku']">
+              <p className="hidden lg:block text-sm text-white/70 font-['Yuji_Boku']">
                 Hakalau, Hamakua Coast, Hawaii
               </p>
             </div>
@@ -146,7 +146,7 @@ export default function MangoTreeCottage() {
               href="/facilities"
               className="text-white hover:text-white/80 transition-colors font-['Yuji_Boku']"
             >
-              Facilities & Grounds
+              Amenities
             </Link>
             <Link
               href="/reviews"
@@ -202,7 +202,7 @@ export default function MangoTreeCottage() {
                 className="text-white hover:text-white/80 transition-colors font-['Yuji_Boku'] py-2"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                Facilities & Grounds
+                Amenities
               </Link>
               <Link
                 href="/reviews"
@@ -353,9 +353,9 @@ export default function MangoTreeCottage() {
               className="rounded-none border-none shadow-none"
               style={{
                 backgroundImage:
-                  "url('/homescreen/calligraphy-paper-bg-option.png')",
+                  "url('/homescreen/calligraphy-paper-bg-option.webp')",
                 backgroundSize: "cover",
-                backgroundPosition: "top -6px center",
+                backgroundPosition: "top -9px center",
               }}
             >
               <CardHeader>

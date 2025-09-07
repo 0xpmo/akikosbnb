@@ -126,7 +126,7 @@ export default function Facilities() {
       className="min-h-screen"
       style={{
         backgroundImage:
-          "url('/homescreen/calligraphy-paper-bg.png'), url('/homescreen/calligraphy-paper-bg-option.png')",
+          "url('/homescreen/calligraphy-paper-bg.webp'), url('/homescreen/calligraphy-paper-bg-option.webp')",
         backgroundSize: "cover, cover",
         backgroundAttachment: "scroll, fixed",
         backgroundRepeat: "no-repeat, no-repeat",
@@ -152,12 +152,12 @@ export default function Facilities() {
               <h1 className="font-['Yuji_Boku'] text-xl font-semibold text-white">
                 Buddhist B&B
               </h1>
-              <p className="text-sm text-white/70 font-['Yuji_Boku']">
+              <p className="hidden lg:block text-sm text-white/70 font-['Yuji_Boku']">
                 Hakalau, Hamakua Coast, Hawaii
               </p>
             </div>
           </Link>
-          <nav className="hidden md:flex items-center gap-6">
+          <nav className="hidden md:flex items-center gap-4 lg:gap-6">
             <a
               href="/"
               className="text-white hover:text-white/80 transition-colors font-['Yuji_Boku']"
@@ -174,7 +174,7 @@ export default function Facilities() {
               href="/facilities"
               className="text-white hover:text-white/80 transition-colors font-['Yuji_Boku'] border-b border-white/40"
             >
-              Facilities & Grounds
+              Amenities
             </Link>
             <Link
               href="/reviews"
@@ -230,7 +230,7 @@ export default function Facilities() {
                 className="text-white hover:text-white/80 transition-colors font-['Yuji_Boku'] py-2 border-b border-white/40 pb-3"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                Facilities & Grounds
+                Amenities
               </Link>
               <Link
                 href="/reviews"
@@ -255,7 +255,7 @@ export default function Facilities() {
       <section className="py-12">
         <div className="container mx-auto px-4 text-center">
           <h2 className="font-['Yuji_Boku'] text-5xl font-light mb-6 text-foreground drop-shadow-sm">
-            Sacred Facilities & Grounds
+            Sacred Amenities
           </h2>
           <p className="text-xl text-foreground max-w-3xl mx-auto leading-relaxed drop-shadow-sm">
             Discover our sacred spaces designed for meditation, movement, and
@@ -289,9 +289,9 @@ export default function Facilities() {
                   className="inline-block px-8 py-10 shadow-lg"
                   style={{
                     backgroundImage:
-                      "url('/homescreen/calligraphy-paper-bg-option.png')",
+                      "url('/homescreen/calligraphy-paper-bg-option.webp')",
                     backgroundSize: "cover",
-                    backgroundPosition: "top -6px center",
+                    backgroundPosition: "top -9px center",
                   }}
                 >
                   <h4 className="font-['Sawarabi_Mincho'] text-2xl font-medium text-foreground mb-4 drop-shadow-sm">

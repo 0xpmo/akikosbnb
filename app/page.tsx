@@ -23,6 +23,7 @@ import {
 } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { openEmailClient, BookingInquiryData } from "@/lib/email";
 
 export default function Home() {
@@ -39,7 +40,10 @@ export default function Home() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  // const videoRef = useRef<HTMLVideoElement>(null);
+  const [isVideoInView, setIsVideoInView] = useState(false);
+  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const videoContainerRef = useRef<HTMLDivElement>(null);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
   const slides = [
     {
@@ -90,13 +94,55 @@ export default function Home() {
     };
   }, [slides.length]);
 
-  // Restart video when it becomes active
-  // useEffect(() => {
-  //   if (videoRef.current && slides[currentSlide].type === "video") {
-  //     videoRef.current.currentTime = 0;
-  //     videoRef.current.play();
-  //   }
-  // }, [currentSlide, slides]);
+  // Intersection Observer for video
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVideoInView(true);
+            // Load video when it comes into view
+            if (videoRef.current && !isVideoLoaded) {
+              videoRef.current.load();
+              setIsVideoLoaded(true);
+            }
+          } else {
+            setIsVideoInView(false);
+            // Pause video when it goes out of view
+            if (videoRef.current) {
+              videoRef.current.pause();
+            }
+          }
+        });
+      },
+      {
+        threshold: 0.5, // Trigger when 50% of video is visible
+        rootMargin: "0px 0px -10% 0px", // Start loading slightly before it's fully visible
+      }
+    );
+
+    if (videoContainerRef.current) {
+      observer.observe(videoContainerRef.current);
+    }
+
+    return () => {
+      if (videoContainerRef.current) {
+        observer.unobserve(videoContainerRef.current);
+      }
+    };
+  }, [isVideoLoaded]);
+
+  // Handle video play/pause when slide changes
+  useEffect(() => {
+    if (videoRef.current && slides[currentSlide].type === "video") {
+      if (isVideoInView && isVideoLoaded) {
+        videoRef.current.currentTime = 0;
+        videoRef.current.play().catch(console.error);
+      } else {
+        videoRef.current.pause();
+      }
+    }
+  }, [currentSlide, isVideoInView, isVideoLoaded]);
 
   // Keyboard navigation for image modal
   useEffect(() => {
@@ -194,7 +240,7 @@ export default function Home() {
     <div
       className="min-h-screen"
       style={{
-        backgroundImage: "url('/homescreen/calligraphy-paper-bg-option.png')",
+        backgroundImage: "url('/homescreen/calligraphy-paper-bg-option.webp')",
         backgroundSize: "cover",
         backgroundAttachment: "fixed",
         backgroundRepeat: "no-repeat",
@@ -211,21 +257,24 @@ export default function Home() {
             href="/"
             className="flex items-center gap-4 hover:opacity-90 transition-opacity"
           >
-            <img
+            <Image
               src="/images/AKIKOSwhitetext.png"
               alt="Akiko's Buddhist B&B"
+              width={200}
+              height={96}
               className="h-24 w-auto"
+              priority
             />
             <div>
               <h1 className="font-['Yuji_Boku'] text-xl font-semibold text-white">
                 Buddhist B&B
               </h1>
-              <p className="text-sm text-white/70 font-['Yuji_Boku']">
+              <p className="hidden lg:block text-sm text-white/70 font-['Yuji_Boku']">
                 Hakalau, Hamakua Coast, Hawaii
               </p>
             </div>
           </Link>
-          <nav className="hidden md:flex items-center gap-6">
+          <nav className="hidden md:flex items-center gap-4 lg:gap-6">
             <a
               href="#"
               className="text-white hover:text-white/80 transition-colors font-['Yuji_Boku'] border-b border-white/40"
@@ -242,7 +291,7 @@ export default function Home() {
               href="/facilities"
               className="text-white hover:text-white/80 transition-colors font-['Yuji_Boku']"
             >
-              Facilities & Grounds
+              Amenities
             </Link>
             <Link
               href="/reviews"
@@ -298,7 +347,7 @@ export default function Home() {
                 className="text-white hover:text-white/80 transition-colors font-['Yuji_Boku'] py-2"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                Facilities & Grounds
+                Amenities
               </Link>
               <Link
                 href="/reviews"
@@ -330,19 +379,23 @@ export default function Home() {
               }`}
             >
               {slide.type === "video" ? (
-                <video
-                  // ref={videoRef}
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  className="w-full h-full object-cover"
-                  style={{ objectPosition: "center 40%" }}
-                  // poster={slide.poster}
-                >
-                  <source src={slide.video} type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
+                <div ref={videoContainerRef} className="w-full h-full">
+                  <video
+                    ref={videoRef}
+                    muted
+                    loop
+                    playsInline
+                    preload="metadata"
+                    className="w-full h-full object-cover"
+                    style={{ objectPosition: "center 40%" }}
+                    poster="/homescreen/akiko-stairs.JPG"
+                  >
+                    {isVideoLoaded && (
+                      <source src={slide.video} type="video/mp4" />
+                    )}
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
               ) : (
                 <>
                   <div
@@ -406,7 +459,7 @@ export default function Home() {
         className="py-20"
         style={{
           backgroundImage:
-            "url('/homescreen/calligraphy-paper-bg.png'), url('/homescreen/calligraphy-paper-bg-option.png')",
+            "url('/homescreen/calligraphy-paper-bg.webp'), url('/homescreen/calligraphy-paper-bg-option.webp')",
           backgroundSize: "cover, cover",
           backgroundAttachment: "scroll, fixed",
           backgroundRepeat: "no-repeat, no-repeat",
@@ -416,10 +469,13 @@ export default function Home() {
         <div className="container mx-auto px-4 max-w-5xl">
           <div className="grid sm:grid-cols-1 md:grid-cols-5 gap-8 sm:gap-12 items-center">
             <div className="md:col-span-3">
-              <img
+              <Image
                 src="/homescreen/akiko-statue.JPG"
                 alt="Buddha statue in the garden"
+                width={600}
+                height={400}
                 className="w-full h-48 sm:h-64 md:h-80 object-cover rounded-lg shadow-lg"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
             </div>
             <div className="md:col-span-2">
@@ -502,18 +558,20 @@ export default function Home() {
                   className="group overflow-hidden hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer h-full flex flex-col bg-transparent rounded-none border-none shadow-none"
                   style={{
                     backgroundImage:
-                      "url('/homescreen/calligraphy-paper-bg-option.png')",
+                      "url('/homescreen/calligraphy-paper-bg-option.webp')",
                     backgroundSize: "cover",
                     backgroundPosition: "top -6px center",
                   }}
                 >
-                  <div
-                    className="h-48 bg-muted bg-cover bg-center mx-4 mt-4"
-                    style={{
-                      backgroundImage:
-                        "url('/images/banana-patch-exterior.avif')",
-                    }}
-                  />
+                  <div className="h-48 bg-muted bg-center mx-4 mt-4 relative overflow-hidden">
+                    <Image
+                      src="/images/banana-patch-exterior.avif"
+                      alt="Banana Patch Cottage exterior"
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                    />
+                  </div>
                   <CardHeader className="flex-shrink-0 bg-transparent">
                     <CardTitle className="font-['Yuji_Boku'] group-hover:text-primary transition-colors duration-300">
                       Banana Patch Cottage
@@ -550,18 +608,20 @@ export default function Home() {
                   className="group overflow-hidden hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer h-full flex flex-col bg-transparent rounded-none border-none shadow-none"
                   style={{
                     backgroundImage:
-                      "url('/homescreen/calligraphy-paper-bg-option.png')",
+                      "url('/homescreen/calligraphy-paper-bg-option.webp')",
                     backgroundSize: "cover",
                     backgroundPosition: "top -6px center",
                   }}
                 >
-                  <div
-                    className="h-48 bg-muted bg-cover bg-center mx-4 mt-4"
-                    style={{
-                      backgroundImage:
-                        "url('/images/mango-tree-exterior.avif')",
-                    }}
-                  />
+                  <div className="h-48 bg-muted bg-center mx-4 mt-4 relative overflow-hidden">
+                    <Image
+                      src="/images/mango-tree-exterior.avif"
+                      alt="Mango Tree Cottage exterior"
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                    />
+                  </div>
                   <CardHeader className="flex-shrink-0 bg-transparent">
                     <CardTitle className="font-['Yuji_Boku'] group-hover:text-primary transition-colors duration-300">
                       Mango Tree Cottage
@@ -599,18 +659,20 @@ export default function Home() {
                   className="group overflow-hidden hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer h-full flex flex-col bg-transparent rounded-none border-none shadow-none"
                   style={{
                     backgroundImage:
-                      "url('/homescreen/calligraphy-paper-bg-option.png')",
+                      "url('/homescreen/calligraphy-paper-bg-option.webp')",
                     backgroundSize: "cover",
                     backgroundPosition: "top -6px center",
                   }}
                 >
-                  <div
-                    className="h-48 bg-muted bg-cover bg-center mx-4 mt-4"
-                    style={{
-                      backgroundImage:
-                        "url('/puuhonua/puuhonua-exterior.avif')",
-                    }}
-                  />
+                  <div className="h-48 bg-muted bg-center mx-4 mt-4 relative overflow-hidden">
+                    <Image
+                      src="/puuhonua/puuhonua-exterior.avif"
+                      alt="Pu'uhonua House exterior"
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                    />
+                  </div>
                   <CardHeader className="flex-shrink-0 bg-transparent">
                     <CardTitle className="font-['Yuji_Boku'] group-hover:text-primary transition-colors duration-300">
                       Pu'uhonua House
@@ -648,18 +710,20 @@ export default function Home() {
                   className="group overflow-hidden hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer h-full flex flex-col bg-transparent rounded-none border-none shadow-none"
                   style={{
                     backgroundImage:
-                      "url('/homescreen/calligraphy-paper-bg-option.png')",
+                      "url('/homescreen/calligraphy-paper-bg-option.webp')",
                     backgroundSize: "cover",
                     backgroundPosition: "top -6px center",
                   }}
                 >
-                  <div
-                    className="h-48 bg-muted bg-cover bg-center mx-4 mt-4"
-                    style={{
-                      backgroundImage:
-                        "url('/images/hale-aloha-exterior.avif')",
-                    }}
-                  />
+                  <div className="h-48 bg-muted bg-center mx-4 mt-4 relative overflow-hidden">
+                    <Image
+                      src="/images/hale-aloha-exterior.avif"
+                      alt="Hale Aloha exterior"
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                    />
+                  </div>
                   <CardHeader className="flex-shrink-0 bg-transparent">
                     <CardTitle className="font-['Yuji_Boku'] group-hover:text-primary transition-colors duration-300">
                       Hale Aloha
@@ -770,11 +834,11 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Facilities & Grounds */}
+        {/* Amenities */}
         <div className="py-20">
           <div className="container mx-auto px-4">
             <h3 className="font-['Yuji_Boku'] text-3xl sm:text-4xl font-light text-center mb-12 text-foreground">
-              Sacred Facilities & Grounds
+              Sacred Amenities
             </h3>
 
             <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-4xl mx-auto">
@@ -784,18 +848,20 @@ export default function Home() {
                   className="group overflow-hidden hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer rounded-none border-none shadow-none"
                   style={{
                     backgroundImage:
-                      "url('/homescreen/calligraphy-paper-bg-option.png')",
+                      "url('/homescreen/calligraphy-paper-bg-option.webp')",
                     backgroundSize: "cover",
-                    backgroundPosition: "top -6px center",
+                    backgroundPosition: "top -9px center",
                   }}
                 >
-                  <div
-                    className="h-48 bg-muted bg-cover bg-center mx-4 mt-4"
-                    style={{
-                      backgroundImage:
-                        "url('/facilities/yoga-studio/yoga-room.jpeg')",
-                    }}
-                  />
+                  <div className="h-48 bg-muted bg-center mx-4 mt-4 relative overflow-hidden">
+                    <Image
+                      src="/facilities/yoga-studio/yoga-room.jpeg"
+                      alt="Yoga Studio"
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                    />
+                  </div>
                   <CardHeader>
                     <CardTitle className="font-['Yuji_Boku'] group-hover:text-primary transition-colors duration-300">
                       Yoga Studio
@@ -824,18 +890,20 @@ export default function Home() {
                   className="group overflow-hidden hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer rounded-none border-none shadow-none"
                   style={{
                     backgroundImage:
-                      "url('/homescreen/calligraphy-paper-bg-option.png')",
+                      "url('/homescreen/calligraphy-paper-bg-option.webp')",
                     backgroundSize: "cover",
-                    backgroundPosition: "top -6px center",
+                    backgroundPosition: "top -9px center",
                   }}
                 >
-                  <div
-                    className="h-48 bg-muted bg-cover bg-center mx-4 mt-4"
-                    style={{
-                      backgroundImage:
-                        "url('/facilities/zendo/zendo-inside.jpg')",
-                    }}
-                  />
+                  <div className="h-48 bg-muted bg-center mx-4 mt-4 relative overflow-hidden">
+                    <Image
+                      src="/facilities/zendo/zendo-inside.jpg"
+                      alt="Zendo meditation space"
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                    />
+                  </div>
                   <CardHeader>
                     <CardTitle className="font-['Yuji_Boku'] group-hover:text-primary transition-colors duration-300">
                       Zendo
@@ -897,12 +965,15 @@ export default function Home() {
                       ]);
                     }}
                   >
-                    <div
-                      className="h-32 sm:h-40 md:h-48 lg:h-56 bg-muted bg-cover bg-center rounded-xl group-hover:scale-105 transition-transform duration-300 shadow-lg group-hover:shadow-xl"
-                      style={{
-                        backgroundImage: `url('${image}')`,
-                      }}
-                    />
+                    <div className="h-32 sm:h-40 md:h-48 lg:h-56 bg-muted bg-center rounded-xl group-hover:scale-105 transition-transform duration-300 shadow-lg group-hover:shadow-xl relative overflow-hidden">
+                      <Image
+                        src={image}
+                        alt="Grounds image"
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 640px) 50vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                      />
+                    </div>
                   </div>
                 ))}
               </div>
@@ -922,7 +993,7 @@ export default function Home() {
         className="py-20"
         style={{
           backgroundImage:
-            "url('/homescreen/calligraphy-paper-bg.png'), url('/homescreen/calligraphy-paper-bg-option.png')",
+            "url('/homescreen/calligraphy-paper-bg.webp'), url('/homescreen/calligraphy-paper-bg-option.webp')",
           backgroundSize: "cover, cover",
           backgroundAttachment: "scroll, fixed",
           backgroundRepeat: "no-repeat, no-repeat",
@@ -946,7 +1017,7 @@ export default function Home() {
               className="group border-none shadow-lg hover:shadow-xl transition-all duration-300"
               style={{
                 backgroundImage:
-                  "url('/homescreen/calligraphy-paper-bg-option.png')",
+                  "url('/homescreen/calligraphy-paper-bg-option.webp')",
                 backgroundSize: "cover",
                 backgroundPosition: "center",
               }}
@@ -973,7 +1044,7 @@ export default function Home() {
               className="group border-none shadow-lg hover:shadow-xl transition-all duration-300"
               style={{
                 backgroundImage:
-                  "url('/homescreen/calligraphy-paper-bg-option.png')",
+                  "url('/homescreen/calligraphy-paper-bg-option.webp')",
                 backgroundSize: "cover",
                 backgroundPosition: "center",
               }}
@@ -1016,7 +1087,7 @@ export default function Home() {
         className="py-20"
         style={{
           backgroundImage:
-            "url('/homescreen/calligraphy-paper-bg.png'), url('/homescreen/calligraphy-paper-bg-option.png')",
+            "url('/homescreen/calligraphy-paper-bg.webp'), url('/homescreen/calligraphy-paper-bg-option.webp')",
           backgroundSize: "cover, cover",
           backgroundAttachment: "scroll, fixed",
           backgroundRepeat: "no-repeat, no-repeat",
@@ -1093,9 +1164,9 @@ export default function Home() {
               className="rounded-none border-none shadow-none"
               style={{
                 backgroundImage:
-                  "url('/homescreen/calligraphy-paper-bg-option.png')",
+                  "url('/homescreen/calligraphy-paper-bg-option.webp')",
                 backgroundSize: "cover",
-                backgroundPosition: "top -6px center",
+                backgroundPosition: "top -9px center",
               }}
             >
               <CardHeader>
@@ -1167,9 +1238,11 @@ export default function Home() {
         <footer className="py-12 mt-20">
           <div className="container mx-auto px-4 text-center">
             <div className="mb-6">
-              <img
+              <Image
                 src="/images/akiko-logo-no-white.png"
                 alt="Akiko's Buddhist B&B"
+                width={200}
+                height={96}
                 className="h-24 w-auto mx-auto mb-4"
               />
               <p className="text-muted-foreground max-w-md mx-auto">
@@ -1233,11 +1306,14 @@ export default function Home() {
             )}
 
             {/* Image */}
-            <img
+            <Image
               src={selectedImage}
               alt="Grounds image"
+              width={1200}
+              height={800}
               className="max-w-full max-h-full object-contain rounded-lg"
               onClick={(e) => e.stopPropagation()}
+              sizes="90vw"
             />
           </div>
         </div>

@@ -53,7 +53,7 @@ export default function ReviewsPage() {
     <div
       className="min-h-screen"
       style={{
-        backgroundImage: "url('/homescreen/calligraphy-paper-bg-option.png')",
+        backgroundImage: "url('/homescreen/calligraphy-paper-bg-option.webp')",
         backgroundSize: "cover",
         backgroundAttachment: "fixed",
         backgroundRepeat: "no-repeat",
@@ -79,7 +79,7 @@ export default function ReviewsPage() {
               <h1 className="font-['Yuji_Boku'] text-xl font-semibold text-white">
                 Buddhist B&B
               </h1>
-              <p className="text-sm text-white/70 font-['Yuji_Boku']">
+              <p className="hidden lg:block text-sm text-white/70 font-['Yuji_Boku']">
                 Hakalau, Hamakua Coast, Hawaii
               </p>
             </div>
@@ -101,7 +101,7 @@ export default function ReviewsPage() {
               href="/facilities"
               className="text-white hover:text-white/80 transition-colors font-['Yuji_Boku']"
             >
-              Facilities & Grounds
+              Amenities
             </Link>
             <Link
               href="/reviews"
@@ -157,7 +157,7 @@ export default function ReviewsPage() {
                 className="text-white hover:text-white/80 transition-colors font-['Yuji_Boku'] py-2"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                Facilities & Grounds
+                Amenities
               </Link>
               <Link
                 href="/reviews"
@@ -183,7 +183,7 @@ export default function ReviewsPage() {
         className="pb-20"
         style={{
           backgroundImage:
-            "url('/homescreen/calligraphy-paper-bg.png'), url('/homescreen/calligraphy-paper-bg-option.png')",
+            "url('/homescreen/calligraphy-paper-bg.webp'), url('/homescreen/calligraphy-paper-bg-option.webp')",
           backgroundSize: "cover, cover",
           backgroundAttachment: "scroll, fixed",
           backgroundRepeat: "no-repeat, no-repeat",
@@ -214,7 +214,7 @@ export default function ReviewsPage() {
                 }`}
                 style={{
                   backgroundImage:
-                    "url('/homescreen/calligraphy-paper-bg-option.png')",
+                    "url('/homescreen/calligraphy-paper-bg-option.webp')",
                   backgroundSize: "cover",
                   backgroundPosition: "center",
                 }}
@@ -260,7 +260,7 @@ export default function ReviewsPage() {
               className="max-w-4xl mx-auto border-none shadow-lg"
               style={{
                 backgroundImage:
-                  "url('/homescreen/calligraphy-paper-bg-option.png')",
+                  "url('/homescreen/calligraphy-paper-bg-option.webp')",
                 backgroundSize: "cover",
                 backgroundPosition: "center",
               }}
