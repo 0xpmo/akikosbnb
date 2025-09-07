@@ -13,11 +13,11 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Mail, Phone, MapPin, Menu, X } from "lucide-react";
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { openEmailClient, BookingInquiryData } from "@/lib/email";
 
-export default function Contact() {
+function ContactForm() {
   const searchParams = useSearchParams();
   const [formData, setFormData] = useState<BookingInquiryData>({
     name: "",
@@ -420,5 +420,22 @@ export default function Contact() {
         </footer>
       </section>
     </div>
+  );
+}
+
+export default function Contact() {
+  return (
+    <Suspense
+      fallback={
+        <div className="min-h-screen flex items-center justify-center">
+          <div className="text-center">
+            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary mx-auto mb-4"></div>
+            <p className="text-muted-foreground">Loading...</p>
+          </div>
+        </div>
+      }
+    >
+      <ContactForm />
+    </Suspense>
   );
 }
