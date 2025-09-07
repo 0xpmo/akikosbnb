@@ -18,6 +18,8 @@ import {
   ChevronLeft,
   ChevronRight,
   X,
+  Quote,
+  Menu,
 } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
@@ -36,13 +38,14 @@ export default function Home() {
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const videoRef = useRef<HTMLVideoElement>(null);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  // const videoRef = useRef<HTMLVideoElement>(null);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
   const slides = [
     {
       type: "video",
       video: "/homescreen/akiko-walking-stairs-trimmed.mp4",
-      poster: "/homescreen/akiko-stairs.JPG",
+      // poster: "/homescreen/akiko-stairs.JPG",
       title: "Aloha & Welcome",
       subtitle: "to Akiko's Buddhist Bed & Breakfast",
     },
@@ -88,12 +91,12 @@ export default function Home() {
   }, [slides.length]);
 
   // Restart video when it becomes active
-  useEffect(() => {
-    if (videoRef.current && slides[currentSlide].type === "video") {
-      videoRef.current.currentTime = 0;
-      videoRef.current.play();
-    }
-  }, [currentSlide, slides]);
+  // useEffect(() => {
+  //   if (videoRef.current && slides[currentSlide].type === "video") {
+  //     videoRef.current.currentTime = 0;
+  //     videoRef.current.play();
+  //   }
+  // }, [currentSlide, slides]);
 
   // Keyboard navigation for image modal
   useEffect(() => {
@@ -225,7 +228,7 @@ export default function Home() {
           <nav className="hidden md:flex items-center gap-6">
             <a
               href="#"
-              className="text-white hover:text-white/80 transition-colors font-['Yuji_Boku']"
+              className="text-white hover:text-white/80 transition-colors font-['Yuji_Boku'] border-b border-white/40"
             >
               Home
             </a>
@@ -242,13 +245,78 @@ export default function Home() {
               Facilities & Grounds
             </Link>
             <Link
+              href="/reviews"
+              className="text-white hover:text-white/80 transition-colors font-['Yuji_Boku']"
+            >
+              Reviews
+            </Link>
+            <Link
               href="/contact"
               className="text-white hover:text-white/80 transition-colors font-['Yuji_Boku']"
             >
               Contact
             </Link>
           </nav>
+
+          {/* Mobile menu button */}
+          <button
+            className="md:hidden text-white p-2"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle menu"
+          >
+            {mobileMenuOpen ? (
+              <X className="h-6 w-6" />
+            ) : (
+              <Menu className="h-6 w-6" />
+            )}
+          </button>
         </div>
+
+        {/* Mobile Navigation Menu */}
+        {mobileMenuOpen && (
+          <div
+            className="md:hidden bg-[#153025] border-t border-white/20"
+            style={{ backgroundColor: "#153025" }}
+          >
+            <nav className="container mx-auto px-4 py-4 flex flex-col gap-4">
+              <a
+                href="#"
+                className="text-white hover:text-white/80 transition-colors font-['Yuji_Boku'] py-2 border-b border-white/40 pb-3"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Home
+              </a>
+              <a
+                href="#accommodations"
+                className="text-white hover:text-white/80 transition-colors font-['Yuji_Boku'] py-2"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Accommodations
+              </a>
+              <Link
+                href="/facilities"
+                className="text-white hover:text-white/80 transition-colors font-['Yuji_Boku'] py-2"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Facilities & Grounds
+              </Link>
+              <Link
+                href="/reviews"
+                className="text-white hover:text-white/80 transition-colors font-['Yuji_Boku'] py-2"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Reviews
+              </Link>
+              <Link
+                href="/contact"
+                className="text-white hover:text-white/80 transition-colors font-['Yuji_Boku'] py-2"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Contact
+              </Link>
+            </nav>
+          </div>
+        )}
       </header>
 
       {/* Hero Section with Slideshow */}
@@ -263,14 +331,14 @@ export default function Home() {
             >
               {slide.type === "video" ? (
                 <video
-                  ref={videoRef}
+                  // ref={videoRef}
                   autoPlay
                   muted
                   loop
                   playsInline
                   className="w-full h-full object-cover"
                   style={{ objectPosition: "center 40%" }}
-                  poster={slide.poster}
+                  // poster={slide.poster}
                 >
                   <source src={slide.video} type="video/mp4" />
                   Your browser does not support the video tag.
@@ -1320,6 +1388,99 @@ export default function Home() {
               citrus orchards, breadfruit groves, and countless quiet spots for
               reflection and connection with nature.
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Guest Reviews Section */}
+      <section
+        className="py-20"
+        style={{
+          backgroundImage:
+            "url('/homescreen/calligraphy-paper-bg.png'), url('/homescreen/calligraphy-paper-bg-option.png')",
+          backgroundSize: "cover, cover",
+          backgroundAttachment: "scroll, fixed",
+          backgroundRepeat: "no-repeat, no-repeat",
+          backgroundPosition: "center top, center top",
+        }}
+      >
+        <div className="container mx-auto px-4 max-w-6xl">
+          <div className="text-center mb-16" style={{ paddingTop: "7px" }}>
+            <h3 className="font-['Yuji_Boku'] text-4xl font-light mb-6 text-foreground drop-shadow-sm">
+              Guest Reflections
+            </h3>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+              Voices from the hearts of those who have experienced the
+              transformative power of this sacred sanctuary
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 mb-12">
+            {/* Featured Review 1 */}
+            <Card
+              className="group border-none shadow-lg hover:shadow-xl transition-all duration-300"
+              style={{
+                backgroundImage:
+                  "url('/homescreen/calligraphy-paper-bg-option.png')",
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
+            >
+              <CardContent className="p-8">
+                <div className="mb-4">
+                  <Quote className="h-8 w-8 text-primary/40" />
+                </div>
+                <blockquote className="text-base leading-relaxed text-foreground font-['Sawarabi_Mincho'] italic mb-6">
+                  "To stay at Akiko's Buddhist B&B is to step into Old Hawai'i,
+                  a place and time and way of life that is a wonder to discover.
+                  The sounds of gentle wind chimes and waterfalls, the
+                  fragrances of gardenia and meditation incense... invite a
+                  feeling of reverence for life's simplest gifts."
+                </blockquote>
+                <cite className="text-sm font-medium text-primary not-italic font-['Yuji_Boku']">
+                  — Katy Fogg
+                </cite>
+              </CardContent>
+            </Card>
+
+            {/* Featured Review 2 */}
+            <Card
+              className="group border-none shadow-lg hover:shadow-xl transition-all duration-300"
+              style={{
+                backgroundImage:
+                  "url('/homescreen/calligraphy-paper-bg-option.png')",
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
+            >
+              <CardContent className="p-8">
+                <div className="mb-4">
+                  <Quote className="h-8 w-8 text-primary/40" />
+                </div>
+                <blockquote className="text-base leading-relaxed text-foreground font-['Sawarabi_Mincho'] italic mb-6">
+                  "Being a guest at Akiko's Buddhist B&B is a blessing. The
+                  surroundings support peace, love and a deep respect for the
+                  beauty of the environment. It offered me a space for
+                  reflection and an opportunity to 'slow down' the pace of my
+                  busy life."
+                </blockquote>
+                <cite className="text-sm font-medium text-primary not-italic font-['Yuji_Boku']">
+                  — Deb Keyes, Harbor Springs, Michigan
+                </cite>
+              </CardContent>
+            </Card>
+          </div>
+
+          <div className="text-center">
+            <Link href="/reviews">
+              <Button
+                variant="outline"
+                size="lg"
+                className="font-['Yuji_Boku'] px-8 cursor-pointer bg-primary text-white border-primary hover:bg-primary/90 hover:border-primary/90 transition-colors"
+              >
+                Read All Guest Reflections →
+              </Button>
+            </Link>
           </div>
         </div>
       </section>

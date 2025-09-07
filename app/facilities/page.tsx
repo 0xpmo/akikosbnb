@@ -8,7 +8,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { ArrowLeft, ChevronLeft, ChevronRight, X } from "lucide-react";
+import { ArrowLeft, ChevronLeft, ChevronRight, X, Menu } from "lucide-react";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 
@@ -18,6 +18,7 @@ export default function Facilities() {
   const [currentFacilityImages, setCurrentFacilityImages] = useState<string[]>(
     []
   );
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const nextImage = () => {
     const nextIndex = (selectedImageIndex + 1) % currentFacilityImages.length;
@@ -135,7 +136,7 @@ export default function Facilities() {
       {/* Header */}
       <header
         className="backdrop-blur-sm sticky top-0 z-50 shadow-2xl"
-        style={{ backgroundColor: "#1a4d3a" }}
+        style={{ backgroundColor: "#153025" }}
       >
         <div className="container mx-auto px-4 py-1 flex items-center justify-between">
           <Link
@@ -171,9 +172,15 @@ export default function Facilities() {
             </a>
             <Link
               href="/facilities"
-              className="text-white hover:text-white/80 transition-colors font-['Yuji_Boku']"
+              className="text-white hover:text-white/80 transition-colors font-['Yuji_Boku'] border-b border-white/40"
             >
               Facilities & Grounds
+            </Link>
+            <Link
+              href="/reviews"
+              className="text-white hover:text-white/80 transition-colors font-['Yuji_Boku']"
+            >
+              Reviews
             </Link>
             <Link
               href="/contact"
@@ -182,7 +189,66 @@ export default function Facilities() {
               Contact
             </Link>
           </nav>
+
+          {/* Mobile menu button */}
+          <button
+            className="md:hidden text-white p-2"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle menu"
+          >
+            {mobileMenuOpen ? (
+              <X className="h-6 w-6" />
+            ) : (
+              <Menu className="h-6 w-6" />
+            )}
+          </button>
         </div>
+
+        {/* Mobile Navigation Menu */}
+        {mobileMenuOpen && (
+          <div
+            className="md:hidden bg-[#153025] border-t border-white/20"
+            style={{ backgroundColor: "#153025" }}
+          >
+            <nav className="container mx-auto px-4 py-4 flex flex-col gap-4">
+              <Link
+                href="/"
+                className="text-white hover:text-white/80 transition-colors font-['Yuji_Boku'] py-2"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Home
+              </Link>
+              <a
+                href="/#accommodations"
+                className="text-white hover:text-white/80 transition-colors font-['Yuji_Boku'] py-2"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Accommodations
+              </a>
+              <Link
+                href="/facilities"
+                className="text-white hover:text-white/80 transition-colors font-['Yuji_Boku'] py-2 border-b border-white/40 pb-3"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Facilities & Grounds
+              </Link>
+              <Link
+                href="/reviews"
+                className="text-white hover:text-white/80 transition-colors font-['Yuji_Boku'] py-2"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Reviews
+              </Link>
+              <Link
+                href="/contact"
+                className="text-white hover:text-white/80 transition-colors font-['Yuji_Boku'] py-2"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Contact
+              </Link>
+            </nav>
+          </div>
+        )}
       </header>
 
       {/* Page Header */}

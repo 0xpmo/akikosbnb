@@ -11,7 +11,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin, Menu, X } from "lucide-react";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
@@ -27,6 +27,7 @@ export default function Contact() {
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const accommodations = [
     "Banana Patch Cottage",
@@ -104,7 +105,7 @@ export default function Contact() {
       {/* Header */}
       <header
         className="backdrop-blur-sm sticky top-0 z-50 shadow-2xl"
-        style={{ backgroundColor: "#1a4d3a" }}
+        style={{ backgroundColor: "#153025" }}
       >
         <div className="container mx-auto px-4 py-1 flex items-center justify-between">
           <Link
@@ -145,13 +146,78 @@ export default function Contact() {
               Facilities & Grounds
             </Link>
             <Link
-              href="/contact"
+              href="/reviews"
               className="text-white hover:text-white/80 transition-colors font-['Yuji_Boku']"
+            >
+              Reviews
+            </Link>
+            <Link
+              href="/contact"
+              className="text-white hover:text-white/80 transition-colors font-['Yuji_Boku'] border-b border-white/40"
             >
               Contact
             </Link>
           </nav>
+
+          {/* Mobile menu button */}
+          <button
+            className="md:hidden text-white p-2"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle menu"
+          >
+            {mobileMenuOpen ? (
+              <X className="h-6 w-6" />
+            ) : (
+              <Menu className="h-6 w-6" />
+            )}
+          </button>
         </div>
+
+        {/* Mobile Navigation Menu */}
+        {mobileMenuOpen && (
+          <div
+            className="md:hidden bg-[#153025] border-t border-white/20"
+            style={{ backgroundColor: "#153025" }}
+          >
+            <nav className="container mx-auto px-4 py-4 flex flex-col gap-4">
+              <Link
+                href="/"
+                className="text-white hover:text-white/80 transition-colors font-['Yuji_Boku'] py-2"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Home
+              </Link>
+              <a
+                href="/#accommodations"
+                className="text-white hover:text-white/80 transition-colors font-['Yuji_Boku'] py-2"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Accommodations
+              </a>
+              <Link
+                href="/facilities"
+                className="text-white hover:text-white/80 transition-colors font-['Yuji_Boku'] py-2"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Facilities & Grounds
+              </Link>
+              <Link
+                href="/reviews"
+                className="text-white hover:text-white/80 transition-colors font-['Yuji_Boku'] py-2"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Reviews
+              </Link>
+              <Link
+                href="/contact"
+                className="text-white hover:text-white/80 transition-colors font-['Yuji_Boku'] py-2 border-b border-white/40 pb-3"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Contact
+              </Link>
+            </nav>
+          </div>
+        )}
       </header>
 
       {/* Contact Section */}

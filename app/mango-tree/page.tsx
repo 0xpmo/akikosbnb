@@ -8,7 +8,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { ChevronLeft, ChevronRight, X } from "lucide-react";
+import { ChevronLeft, ChevronRight, X, Menu } from "lucide-react";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 
@@ -16,6 +16,7 @@ export default function MangoTreeCottage() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [selectedImageIndex, setSelectedImageIndex] = useState<number>(0);
   const [currentImages, setCurrentImages] = useState<string[]>([]);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const images = [
     {
@@ -107,7 +108,7 @@ export default function MangoTreeCottage() {
       {/* Header */}
       <header
         className="backdrop-blur-sm sticky top-0 z-50 shadow-2xl"
-        style={{ backgroundColor: "#1a4d3a" }}
+        style={{ backgroundColor: "#153025" }}
       >
         <div className="container mx-auto px-4 py-1 flex items-center justify-between">
           <Link
@@ -137,7 +138,7 @@ export default function MangoTreeCottage() {
             </a>
             <a
               href="/#accommodations"
-              className="text-white hover:text-white/80 transition-colors font-['Yuji_Boku']"
+              className="text-white hover:text-white/80 transition-colors font-['Yuji_Boku'] border-b border-white/40"
             >
               Accommodations
             </a>
@@ -148,13 +149,78 @@ export default function MangoTreeCottage() {
               Facilities & Grounds
             </Link>
             <Link
+              href="/reviews"
+              className="text-white hover:text-white/80 transition-colors font-['Yuji_Boku']"
+            >
+              Reviews
+            </Link>
+            <Link
               href="/contact"
               className="text-white hover:text-white/80 transition-colors font-['Yuji_Boku']"
             >
               Contact
             </Link>
           </nav>
+
+          {/* Mobile menu button */}
+          <button
+            className="md:hidden text-white p-2"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle menu"
+          >
+            {mobileMenuOpen ? (
+              <X className="h-6 w-6" />
+            ) : (
+              <Menu className="h-6 w-6" />
+            )}
+          </button>
         </div>
+
+        {/* Mobile Navigation Menu */}
+        {mobileMenuOpen && (
+          <div
+            className="md:hidden bg-[#153025] border-t border-white/20"
+            style={{ backgroundColor: "#153025" }}
+          >
+            <nav className="container mx-auto px-4 py-4 flex flex-col gap-4">
+              <Link
+                href="/"
+                className="text-white hover:text-white/80 transition-colors font-['Yuji_Boku'] py-2"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Home
+              </Link>
+              <a
+                href="/#accommodations"
+                className="text-white hover:text-white/80 transition-colors font-['Yuji_Boku'] py-2 border-b border-white/40 pb-3"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Accommodations
+              </a>
+              <Link
+                href="/facilities"
+                className="text-white hover:text-white/80 transition-colors font-['Yuji_Boku'] py-2"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Facilities & Grounds
+              </Link>
+              <Link
+                href="/reviews"
+                className="text-white hover:text-white/80 transition-colors font-['Yuji_Boku'] py-2"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Reviews
+              </Link>
+              <Link
+                href="/contact"
+                className="text-white hover:text-white/80 transition-colors font-['Yuji_Boku'] py-2"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Contact
+              </Link>
+            </nav>
+          </div>
+        )}
       </header>
 
       {/* Image Gallery */}
@@ -345,6 +411,85 @@ export default function MangoTreeCottage() {
                 </Button>
               </CardContent>
             </Card>
+          </div>
+        </div>
+      </div>
+
+      {/* Guest Reviews Section */}
+      <div className="py-16 bg-muted/20">
+        <div className="container mx-auto px-4 max-w-4xl">
+          <div className="text-center mb-12">
+            <h3 className="font-serif text-3xl font-light mb-4 text-foreground">
+              Guest Experiences
+            </h3>
+            <p className="text-muted-foreground leading-relaxed">
+              Discover what guests love about the harmonious blend of indoor and
+              outdoor living
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            <Card className="border-none shadow-lg">
+              <CardContent className="p-6">
+                <div className="mb-4">
+                  <div className="text-primary/40 mb-2">
+                    <svg
+                      className="h-8 w-8"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M14,17H17L19,13V7H13V13H16M6,17H9L11,13V7H5V13H8L6,17Z" />
+                    </svg>
+                  </div>
+                </div>
+                <blockquote className="text-base leading-relaxed text-foreground italic mb-4">
+                  "To stay at Akiko's Buddhist B&B is to step into Old
+                  Hawai'i... The sounds of gentle wind chimes and waterfalls,
+                  the fragrances of gardenia and meditation incense invite a
+                  feeling of reverence for life's simplest gifts."
+                </blockquote>
+                <cite className="text-sm font-medium text-primary not-italic">
+                  — Katy Fogg
+                </cite>
+              </CardContent>
+            </Card>
+
+            <Card className="border-none shadow-lg">
+              <CardContent className="p-6">
+                <div className="mb-4">
+                  <div className="text-primary/40 mb-2">
+                    <svg
+                      className="h-8 w-8"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M14,17H17L19,13V7H13V13H16M6,17H9L11,13V7H5V13H8L6,17Z" />
+                    </svg>
+                  </div>
+                </div>
+                <blockquote className="text-base leading-relaxed text-foreground italic mb-4">
+                  "It is a place infused with the spirit of old Hawaii and an
+                  understanding of the nuances of aloha. I have travelled many
+                  places and gathered many memories, but rarely have I
+                  encountered a place so affecting."
+                </blockquote>
+                <cite className="text-sm font-medium text-primary not-italic">
+                  — Dave Millar
+                </cite>
+              </CardContent>
+            </Card>
+          </div>
+
+          <div className="text-center mt-8">
+            <Link href="/reviews">
+              <Button
+                variant="outline"
+                size="lg"
+                className="font-serif hover:bg-primary hover:text-white transition-colors"
+              >
+                Read More Guest Reflections →
+              </Button>
+            </Link>
           </div>
         </div>
       </div>
