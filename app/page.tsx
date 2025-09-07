@@ -1239,7 +1239,7 @@ export default function Home() {
           <div className="container mx-auto px-4 text-center">
             <div className="mb-6">
               <Image
-                src="/images/akiko-logo-no-white.png"
+                src="/akiko-black-logo.png"
                 alt="Akiko's Buddhist B&B"
                 width={200}
                 height={96}

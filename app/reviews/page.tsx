@@ -293,7 +293,7 @@ export default function ReviewsPage() {
             <div className="container mx-auto px-4 text-center">
               <div className="mb-6">
                 <img
-                  src="/images/akiko-logo-no-white.png"
+                  src="/akiko-black-logo.png"
                   alt="Akiko's Buddhist B&B"
                   className="h-24 w-auto mx-auto mb-4"
                 />
