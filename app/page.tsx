@@ -19,7 +19,7 @@ import {
   ChevronRight,
   X,
 } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { openEmailClient, BookingInquiryData } from "@/lib/email";
 
@@ -36,13 +36,15 @@ export default function Home() {
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const timerRef = useRef<NodeJS.Timeout | null>(null);
   const slides = [
     {
       type: "video",
-      video: "/homescreen/akiko-stair-walking.mp4",
+      video: "/homescreen/akiko-walking-stairs-trimmed.mp4",
       poster: "/homescreen/akiko-stairs.JPG",
       title: "Aloha & Welcome",
-      subtitle: "Where ancient wisdom meets island tranquility",
+      subtitle: "to Akiko's Buddhist Bed & Breakfast",
     },
     {
       type: "image",
@@ -67,12 +69,31 @@ export default function Home() {
     },
   ];
 
-  useEffect(() => {
-    const timer = setInterval(() => {
+  const startTimer = () => {
+    if (timerRef.current) {
+      clearInterval(timerRef.current);
+    }
+    timerRef.current = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 8000);
-    return () => clearInterval(timer);
+    }, 6100);
+  };
+
+  useEffect(() => {
+    startTimer();
+    return () => {
+      if (timerRef.current) {
+        clearInterval(timerRef.current);
+      }
+    };
   }, [slides.length]);
+
+  // Restart video when it becomes active
+  useEffect(() => {
+    if (videoRef.current && slides[currentSlide].type === "video") {
+      videoRef.current.currentTime = 0;
+      videoRef.current.play();
+    }
+  }, [currentSlide, slides]);
 
   // Keyboard navigation for image modal
   useEffect(() => {
@@ -103,10 +124,12 @@ export default function Home() {
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % slides.length);
+    startTimer(); // Reset timer when manually changing slides
   };
 
   const prevSlide = () => {
     setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+    startTimer(); // Reset timer when manually changing slides
   };
 
   const nextImage = () => {
@@ -178,7 +201,7 @@ export default function Home() {
       {/* Header */}
       <header
         className="backdrop-blur-sm sticky top-0 z-50 shadow-2xl"
-        style={{ backgroundColor: "#1a4d3a" }}
+        style={{ backgroundColor: "#153025" }}
       >
         <div className="container mx-auto px-4 py-1 flex items-center justify-between">
           <Link
@@ -240,6 +263,7 @@ export default function Home() {
             >
               {slide.type === "video" ? (
                 <video
+                  ref={videoRef}
                   autoPlay
                   muted
                   loop
@@ -258,7 +282,7 @@ export default function Home() {
                     style={{
                       backgroundImage: `url('${slide.image}')`,
                       backgroundSize: "cover",
-                      backgroundPosition: "top -6px center",
+                      backgroundPosition: "center center",
                       backgroundRepeat: "no-repeat",
                     }}
                   />
@@ -296,7 +320,10 @@ export default function Home() {
           {slides.map((_, index) => (
             <button
               key={index}
-              onClick={() => setCurrentSlide(index)}
+              onClick={() => {
+                setCurrentSlide(index);
+                startTimer(); // Reset timer when clicking slide indicators
+              }}
               className={`w-3 h-3 rounded-full transition-colors ${
                 index === currentSlide ? "bg-white" : "bg-white/50"
               }`}
@@ -404,7 +431,7 @@ export default function Home() {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
               <Link href="/banana-patch">
                 <Card
-                  className="group overflow-hidden hover:shadow-xl hover:scale-[1.02] transition-all duration-300 cursor-pointer h-full flex flex-col bg-transparent rounded-none border-none shadow-none"
+                  className="group overflow-hidden hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer h-full flex flex-col bg-transparent rounded-none border-none shadow-none"
                   style={{
                     backgroundImage:
                       "url('/homescreen/calligraphy-paper-bg-option.png')",
@@ -452,7 +479,7 @@ export default function Home() {
 
               <Link href="/mango-tree">
                 <Card
-                  className="group overflow-hidden hover:shadow-xl hover:scale-[1.02] transition-all duration-300 cursor-pointer h-full flex flex-col bg-transparent rounded-none border-none shadow-none"
+                  className="group overflow-hidden hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer h-full flex flex-col bg-transparent rounded-none border-none shadow-none"
                   style={{
                     backgroundImage:
                       "url('/homescreen/calligraphy-paper-bg-option.png')",
@@ -501,7 +528,7 @@ export default function Home() {
 
               <Link href="/puuhonua-house">
                 <Card
-                  className="group overflow-hidden hover:shadow-xl hover:scale-[1.02] transition-all duration-300 cursor-pointer h-full flex flex-col bg-transparent rounded-none border-none shadow-none"
+                  className="group overflow-hidden hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer h-full flex flex-col bg-transparent rounded-none border-none shadow-none"
                   style={{
                     backgroundImage:
                       "url('/homescreen/calligraphy-paper-bg-option.png')",
@@ -550,7 +577,7 @@ export default function Home() {
 
               <Link href="/hale-aloha">
                 <Card
-                  className="group overflow-hidden hover:shadow-xl hover:scale-[1.02] transition-all duration-300 cursor-pointer h-full flex flex-col bg-transparent rounded-none border-none shadow-none"
+                  className="group overflow-hidden hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer h-full flex flex-col bg-transparent rounded-none border-none shadow-none"
                   style={{
                     backgroundImage:
                       "url('/homescreen/calligraphy-paper-bg-option.png')",
@@ -686,7 +713,7 @@ export default function Home() {
               {/* Yoga Studio */}
               <Link href="/facilities">
                 <Card
-                  className="group overflow-hidden hover:shadow-xl hover:scale-[1.02] transition-all duration-300 cursor-pointer rounded-none border-none shadow-none"
+                  className="group overflow-hidden hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer rounded-none border-none shadow-none"
                   style={{
                     backgroundImage:
                       "url('/homescreen/calligraphy-paper-bg-option.png')",
@@ -726,7 +753,7 @@ export default function Home() {
               {/* Zendo */}
               <Link href="/facilities">
                 <Card
-                  className="group overflow-hidden hover:shadow-xl hover:scale-[1.02] transition-all duration-300 cursor-pointer rounded-none border-none shadow-none"
+                  className="group overflow-hidden hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer rounded-none border-none shadow-none"
                   style={{
                     backgroundImage:
                       "url('/homescreen/calligraphy-paper-bg-option.png')",
@@ -879,7 +906,7 @@ export default function Home() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             <Link href="/banana-patch">
               <Card
-                className="group overflow-hidden hover:shadow-xl hover:scale-[1.02] transition-all duration-300 cursor-pointer border border-amber-200/30 hover:border-amber-300/50 h-full flex flex-col"
+                className="group overflow-hidden hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer border border-amber-200/30 hover:border-amber-300/50 h-full flex flex-col"
                 style={{
                   backgroundImage:
                     "url('/homescreen/calligraphy-paper-bg.png')",
@@ -927,7 +954,7 @@ export default function Home() {
 
             <Link href="/mango-tree">
               <Card
-                className="group overflow-hidden hover:shadow-xl hover:scale-[1.02] transition-all duration-300 cursor-pointer border border-amber-200/30 hover:border-amber-300/50 h-full flex flex-col"
+                className="group overflow-hidden hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer border border-amber-200/30 hover:border-amber-300/50 h-full flex flex-col"
                 style={{
                   backgroundImage:
                     "url('/homescreen/calligraphy-paper-bg.png')",
@@ -975,7 +1002,7 @@ export default function Home() {
 
             <Link href="/puuhonua-house">
               <Card
-                className="group overflow-hidden hover:shadow-xl hover:scale-[1.02] transition-all duration-300 cursor-pointer border border-amber-200/30 hover:border-amber-300/50 h-full flex flex-col"
+                className="group overflow-hidden hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer border border-amber-200/30 hover:border-amber-300/50 h-full flex flex-col"
                 style={{
                   backgroundImage:
                     "url('/homescreen/calligraphy-paper-bg.png')",
@@ -1023,7 +1050,7 @@ export default function Home() {
 
             <Link href="/hale-aloha">
               <Card
-                className="group overflow-hidden hover:shadow-xl hover:scale-[1.02] transition-all duration-300 cursor-pointer border border-amber-200/30 hover:border-amber-300/50 h-full flex flex-col"
+                className="group overflow-hidden hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer border border-amber-200/30 hover:border-amber-300/50 h-full flex flex-col"
                 style={{
                   backgroundImage:
                     "url('/homescreen/calligraphy-paper-bg.png')",
@@ -1178,7 +1205,7 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {/* Yoga Studio */}
             <Link href="/facilities">
-              <Card className="group overflow-hidden hover:shadow-xl hover:scale-[1.02] transition-all duration-300 cursor-pointer bg-white/70 backdrop-blur-sm border border-white/20 hover:border-primary/20">
+              <Card className="group overflow-hidden hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer bg-white/70 backdrop-blur-sm border border-white/20 hover:border-primary/20">
                 <div
                   className="h-48 bg-muted bg-cover bg-center mx-4 mt-4"
                   style={{
@@ -1209,7 +1236,7 @@ export default function Home() {
 
             {/* Zendo */}
             <Link href="/facilities">
-              <Card className="group overflow-hidden hover:shadow-xl hover:scale-[1.02] transition-all duration-300 cursor-pointer bg-white/70 backdrop-blur-sm border border-white/20 hover:border-primary/20">
+              <Card className="group overflow-hidden hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer bg-white/70 backdrop-blur-sm border border-white/20 hover:border-primary/20">
                 <div
                   className="h-48 bg-muted bg-cover bg-center mx-4 mt-4"
                   style={{
