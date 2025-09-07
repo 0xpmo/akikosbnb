@@ -8,14 +8,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import {
-  ArrowLeft,
-  Leaf,
-  Mountain,
-  ChevronLeft,
-  ChevronRight,
-  X,
-} from "lucide-react";
+import { ArrowLeft, ChevronLeft, ChevronRight, X } from "lucide-react";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 
@@ -142,7 +135,7 @@ export default function Facilities() {
       {/* Header */}
       <header
         className="backdrop-blur-sm sticky top-0 z-50 shadow-2xl"
-        style={{ backgroundColor: "#1a5d52" }}
+        style={{ backgroundColor: "#1a4d3a" }}
       >
         <div className="container mx-auto px-4 py-1 flex items-center justify-between">
           <Link
@@ -226,7 +219,15 @@ export default function Facilities() {
 
               {/* Activity Times - Subtle Style */}
               <div className="text-center mb-12">
-                <div className="inline-block bg-white/20 backdrop-blur-sm border border-white/30 rounded-lg px-8 py-6 shadow-lg">
+                <div
+                  className="inline-block px-8 py-10 shadow-lg"
+                  style={{
+                    backgroundImage:
+                      "url('/homescreen/calligraphy-paper-bg-option.png')",
+                    backgroundSize: "cover",
+                    backgroundPosition: "top -6px center",
+                  }}
+                >
                   <h4 className="font-['Sawarabi_Mincho'] text-2xl font-medium text-foreground mb-4 drop-shadow-sm">
                     Weekly Practice Schedule
                   </h4>

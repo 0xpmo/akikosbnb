@@ -96,17 +96,18 @@ export default function MangoTreeCottage() {
     <div
       className="min-h-screen"
       style={{
-        backgroundImage: "url('/homescreen/calligraphy-paper-bg-option.png')",
-        backgroundSize: "cover",
-        backgroundAttachment: "fixed",
-        backgroundRepeat: "no-repeat",
-        backgroundPosition: "center top",
+        backgroundImage:
+          "url('/homescreen/calligraphy-paper-bg.png'), url('/homescreen/calligraphy-paper-bg-option.png')",
+        backgroundSize: "cover, cover",
+        backgroundAttachment: "scroll, scroll",
+        backgroundRepeat: "no-repeat, no-repeat",
+        backgroundPosition: "center top, center top",
       }}
     >
       {/* Header */}
       <header
         className="backdrop-blur-sm sticky top-0 z-50 shadow-2xl"
-        style={{ backgroundColor: "#1a5d52" }}
+        style={{ backgroundColor: "#1a4d3a" }}
       >
         <div className="container mx-auto px-4 py-1 flex items-center justify-between">
           <Link
@@ -197,8 +198,8 @@ export default function MangoTreeCottage() {
 
       {/* Content */}
       <div className="container mx-auto px-4 py-16 max-w-4xl">
-        <div className="grid md:grid-cols-3 gap-12">
-          <div className="md:col-span-2 space-y-8">
+        <div className="grid md:grid-cols-2 gap-12">
+          <div className="md:col-span-1 space-y-8">
             <div>
               <h2 className="font-serif text-3xl font-light mb-6">
                 Being Outdoors, Being Indoors, Simultaneously
@@ -282,7 +283,15 @@ export default function MangoTreeCottage() {
           </div>
 
           <div>
-            <Card className="sticky top-24">
+            <Card
+              className="rounded-none border-none shadow-none"
+              style={{
+                backgroundImage:
+                  "url('/homescreen/calligraphy-paper-bg-option.png')",
+                backgroundSize: "cover",
+                backgroundPosition: "top -6px center",
+              }}
+            >
               <CardHeader>
                 <CardTitle className="font-serif text-2xl">
                   Rates & Booking
@@ -310,19 +319,19 @@ export default function MangoTreeCottage() {
                   </div>
                   <div className="flex justify-between">
                     <span className="text-sm">2+ weeks</span>
-                    <span className="text-sm font-medium text-green-600">
+                    <span className="text-sm font-medium text-primary">
                       15% discount
                     </span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-sm">1+ month</span>
-                    <span className="text-sm font-medium text-green-600">
+                    <span className="text-sm font-medium text-primary">
                       30% discount
                     </span>
                   </div>
                 </div>
 
-                <div className="border-t pt-4">
+                <div className="border-t subtle-border pt-4">
                   <p className="text-xs text-muted-foreground mb-4">
                     High-speed WiFi included. $40 additional fee for month-long
                     stays. 60-day maximum stay.
@@ -330,14 +339,10 @@ export default function MangoTreeCottage() {
                 </div>
 
                 <Button className="w-full bg-primary hover:bg-primary/90">
-                  <a href="/contact">Inquire to Book</a>
+                  <Link href="/contact?accommodation=Mango Tree Cottage">
+                    Inquire to Book
+                  </Link>
                 </Button>
-                <div className="mt-4 p-3 bg-muted/50 rounded-lg">
-                  <p className="text-xs text-muted-foreground text-center">
-                    Please call Akiko at (808) 963-6422 or fill out the inquiry
-                    form to make your reservation
-                  </p>
-                </div>
               </CardContent>
             </Card>
           </div>

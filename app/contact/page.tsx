@@ -13,8 +13,83 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Mail, Phone, MapPin } from "lucide-react";
 import Link from "next/link";
+import { useState, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
+import { openEmailClient, BookingInquiryData } from "@/lib/email";
 
 export default function Contact() {
+  const searchParams = useSearchParams();
+  const [formData, setFormData] = useState<BookingInquiryData>({
+    name: "",
+    accommodation: searchParams.get("accommodation") || "",
+    dates: "",
+    message: "",
+  });
+  const [errors, setErrors] = useState<Record<string, string>>({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const accommodations = [
+    "Banana Patch Cottage",
+    "Mango Tree Cottage",
+    "Pu'uhonua House",
+    "Hale Aloha",
+  ];
+
+  const handleInputChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+    // Clear error when user starts typing
+    if (errors[name]) {
+      setErrors((prev) => ({ ...prev, [name]: "" }));
+    }
+  };
+
+  const validateForm = () => {
+    const newErrors: Record<string, string> = {};
+
+    if (!formData.name.trim()) {
+      newErrors.name = "Name is required";
+    }
+
+    if (!formData.message.trim()) {
+      newErrors.message = "Message is required";
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!validateForm()) {
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      // Open native email client with pre-filled form data
+      openEmailClient(formData);
+
+      // Reset form
+      setFormData({
+        name: "",
+        accommodation: "",
+        dates: "",
+        message: "",
+      });
+    } catch (error) {
+      console.error("Error opening email client:", error);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <div
       className="min-h-screen"
@@ -29,7 +104,7 @@ export default function Contact() {
       {/* Header */}
       <header
         className="backdrop-blur-sm sticky top-0 z-50 shadow-2xl"
-        style={{ backgroundColor: "#1a5d52" }}
+        style={{ backgroundColor: "#1a4d3a" }}
       >
         <div className="container mx-auto px-4 py-1 flex items-center justify-between">
           <Link
@@ -106,15 +181,21 @@ export default function Contact() {
                 <div className="space-y-4">
                   <div className="flex items-center gap-3">
                     <Mail className="h-5 w-5 text-primary" />
-                    <span className="text-muted-foreground">
+                    <a
+                      href="mailto:akikobandb@gmail.com?subject=Booking Inquiry"
+                      className="text-muted-foreground hover:text-primary transition-colors"
+                    >
                       akikobandb@gmail.com
-                    </span>
+                    </a>
                   </div>
                   <div className="flex items-center gap-3">
                     <Phone className="h-5 w-5 text-primary" />
-                    <span className="text-muted-foreground">
+                    <a
+                      href="tel:+18089636422"
+                      className="text-muted-foreground hover:text-primary transition-colors"
+                    >
                       (808) 963-6422
-                    </span>
+                    </a>
                   </div>
                   <div className="flex items-center gap-3">
                     <MapPin className="h-5 w-5 text-primary" />
@@ -123,11 +204,17 @@ export default function Contact() {
                     </span>
                   </div>
                 </div>
-                <div className="mt-6 p-4 bg-primary/10 rounded-lg">
+                <div className="mt-6">
                   <p className="text-sm text-foreground font-medium">
-                    For reservations and inquiries, please call Akiko at (808)
-                    963-6422 or fill out the booking inquiry form. She will help
-                    you find the perfect retreat space for your stay.
+                    For reservations and inquiries, please call Akiko at{" "}
+                    <a
+                      href="tel:+18089636422"
+                      className="text-primary hover:text-primary/80 transition-colors"
+                    >
+                      (808) 963-6422
+                    </a>{" "}
+                    or fill out the booking inquiry form. She will help you find
+                    the perfect retreat space for your stay.
                   </p>
                 </div>
               </div>
@@ -145,7 +232,15 @@ export default function Contact() {
               </div>
             </div>
 
-            <Card className="bg-white/70 backdrop-blur-sm border border-white/20">
+            <Card
+              className="rounded-none border-none shadow-none"
+              style={{
+                backgroundImage:
+                  "url('/homescreen/calligraphy-paper-bg-option.png')",
+                backgroundSize: "cover",
+                backgroundPosition: "top -6px center",
+              }}
+            >
               <CardHeader>
                 <CardTitle className="font-['Yuji_Boku']">
                   Send a Booking Inquiry
@@ -157,38 +252,82 @@ export default function Contact() {
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <Label htmlFor="name">Name</Label>
-                    <Input id="name" placeholder="Your name" />
-                  </div>
-                  <div>
-                    <Label htmlFor="email">Email</Label>
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <div className="form-field-container">
+                    <Label htmlFor="name">Name *</Label>
                     <Input
-                      id="email"
-                      type="email"
-                      placeholder="your@email.com"
+                      id="name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      placeholder="Your name"
+                      className="form-input"
+                      required
+                    />
+                    {errors.name && (
+                      <p className="text-sm text-red-500 mt-1">{errors.name}</p>
+                    )}
+                  </div>
+                  <div className="form-field-container">
+                    <Label htmlFor="accommodation">
+                      Accommodation Interest
+                    </Label>
+                    <select
+                      id="accommodation"
+                      name="accommodation"
+                      value={formData.accommodation}
+                      onChange={handleInputChange}
+                      className="w-full px-3 py-2 rounded-md form-select"
+                    >
+                      <option value="">Select an accommodation</option>
+                      {accommodations.map((acc) => (
+                        <option key={acc} value={acc}>
+                          {acc}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                  <div className="form-field-container">
+                    <Label htmlFor="dates">Preferred Dates</Label>
+                    <Input
+                      id="dates"
+                      name="dates"
+                      value={formData.dates}
+                      onChange={handleInputChange}
+                      placeholder="When would you like to visit?"
+                      className="form-input"
                     />
                   </div>
-                </div>
-                <div>
-                  <Label htmlFor="dates">Preferred Dates</Label>
-                  <Input
-                    id="dates"
-                    placeholder="When would you like to visit?"
-                  />
-                </div>
-                <div>
-                  <Label htmlFor="message">Message</Label>
-                  <Textarea
-                    id="message"
-                    placeholder="Tell us about your intentions for this retreat..."
-                    className="min-h-[100px]"
-                  />
-                </div>
-                <Button className="w-full bg-primary hover:bg-primary/90">
-                  Send Booking Inquiry
-                </Button>
+                  <div className="form-field-container">
+                    <Label htmlFor="message">Message *</Label>
+                    <Textarea
+                      id="message"
+                      name="message"
+                      value={formData.message}
+                      onChange={handleInputChange}
+                      placeholder="Tell us about your intentions for this retreat..."
+                      className="min-h-[100px] form-textarea"
+                      required
+                    />
+                    {errors.message && (
+                      <p className="text-sm text-red-500 mt-1">
+                        {errors.message}
+                      </p>
+                    )}
+                  </div>
+                  <Button
+                    type="submit"
+                    className="w-full bg-primary hover:bg-primary/90"
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? "Opening Email..." : "Send Booking Inquiry"}
+                  </Button>
+
+                  <p className="text-sm text-muted-foreground text-center">
+                    This will open your email client with a pre-filled message
+                    to Akiko.
+                  </p>
+                </form>
               </CardContent>
             </Card>
           </div>

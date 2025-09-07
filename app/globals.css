@@ -11,7 +11,7 @@
   --card-foreground: oklch(0.35 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.35 0 0);
-  --primary: oklch(0.55 0.15 160); /* Emerald green */
+  --primary: oklch(0.35 0.18 140); /* Lighter forest green */
   --primary-foreground: oklch(1 0 0);
   --secondary: oklch(0.75 0.12 85); /* Warm gold */
   --secondary-foreground: oklch(1 0 0);
@@ -21,10 +21,10 @@
   --accent-foreground: oklch(1 0 0);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(1 0 0);
-  --border: oklch(0.92 0.01 120);
-  --input: oklch(1 0 0);
-  --ring: oklch(0.55 0.15 160 / 0.5);
-  --chart-1: oklch(0.55 0.15 160);
+  --border: oklch(0.75 0.08 140); /* Forest green border */
+  --input: oklch(0.95 0.02 120); /* Slightly tinted input background */
+  --ring: oklch(0.35 0.15 140 / 0.5);
+  --chart-1: oklch(0.35 0.15 140);
   --chart-2: oklch(0.75 0.12 85);
   --chart-3: oklch(0.577 0.245 27.325);
   --chart-4: oklch(0.6 0.15 200);
@@ -32,12 +32,12 @@
   --radius: 0.5rem;
   --sidebar: oklch(0.97 0.01 120);
   --sidebar-foreground: oklch(0.45 0 0);
-  --sidebar-primary: oklch(0.55 0.15 160);
+  --sidebar-primary: oklch(0.35 0.15 140);
   --sidebar-primary-foreground: oklch(1 0 0);
   --sidebar-accent: oklch(0.75 0.12 85);
   --sidebar-accent-foreground: oklch(1 0 0);
-  --sidebar-border: oklch(0.92 0.01 120);
-  --sidebar-ring: oklch(0.55 0.15 160 / 0.5);
+  --sidebar-border: oklch(0.75 0.08 140);
+  --sidebar-ring: oklch(0.35 0.15 140 / 0.5);
 }
 
 .dark {
@@ -47,7 +47,7 @@
   --card-foreground: oklch(0.95 0 0);
   --popover: oklch(0.15 0 0);
   --popover-foreground: oklch(0.95 0 0);
-  --primary: oklch(0.65 0.15 160);
+  --primary: oklch(0.35 0.18 140); /* Forest green for dark mode */
   --primary-foreground: oklch(0.15 0 0);
   --secondary: oklch(0.25 0 0);
   --secondary-foreground: oklch(0.95 0 0);
@@ -57,22 +57,22 @@
   --accent-foreground: oklch(0.15 0 0);
   --destructive: oklch(0.396 0.141 25.723);
   --destructive-foreground: oklch(0.95 0 0);
-  --border: oklch(0.25 0 0);
+  --border: oklch(0.45 0.08 140); /* Forest green border for dark mode */
   --input: oklch(0.25 0 0);
-  --ring: oklch(0.65 0.15 160 / 0.5);
-  --chart-1: oklch(0.65 0.15 160);
+  --ring: oklch(0.45 0.18 140 / 0.5);
+  --chart-1: oklch(0.45 0.18 140);
   --chart-2: oklch(0.75 0.12 85);
   --chart-3: oklch(0.577 0.245 27.325);
   --chart-4: oklch(0.7 0.15 200);
   --chart-5: oklch(0.7 0 0);
   --sidebar: oklch(0.18 0 0);
   --sidebar-foreground: oklch(0.95 0 0);
-  --sidebar-primary: oklch(0.65 0.15 160);
+  --sidebar-primary: oklch(0.45 0.18 140);
   --sidebar-primary-foreground: oklch(0.15 0 0);
   --sidebar-accent: oklch(0.25 0 0);
   --sidebar-accent-foreground: oklch(0.95 0 0);
-  --sidebar-border: oklch(0.25 0 0);
-  --sidebar-ring: oklch(0.65 0.15 160 / 0.5);
+  --sidebar-border: oklch(0.45 0.08 140);
+  --sidebar-ring: oklch(0.45 0.18 140 / 0.5);
 }
 
 @theme inline {
@@ -115,7 +115,8 @@
   /* Added custom font variables for Manrope headings */
   --font-sans: var(--font-geist-sans);
   --font-serif: var(--font-manrope);
-  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
 }
 
 @layer base {
@@ -124,5 +125,46 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+/* Custom form styling for better integration with calligraphy background */
+@layer components {
+  .form-input {
+    @apply bg-amber-50/20 backdrop-blur-sm;
+    @apply focus:border-primary/50 focus:ring-primary/20;
+    @apply placeholder:text-amber-700/50;
+    @apply mb-4;
+    border-color: #374151 !important; /* gray-700 */
+  }
+
+  .form-textarea {
+    @apply bg-amber-50/20 backdrop-blur-sm;
+    @apply focus:border-primary/50 focus:ring-primary/20;
+    @apply placeholder:text-amber-700/50;
+    @apply mb-4;
+    border-color: #374151 !important; /* gray-700 */
+  }
+
+  .form-select {
+    @apply bg-amber-50/20 backdrop-blur-sm;
+    @apply focus:border-primary/50 focus:ring-primary/20;
+    @apply placeholder:text-amber-700/50;
+    @apply mb-4;
+    border: 1px solid #374151 !important; /* gray-700 */
+  }
+
+  /* Increased gap between labels and form fields */
+  .form-field-container {
+    @apply space-y-2;
+  }
+
+  .reservation-text {
+    @apply bg-amber-50/20 backdrop-blur-sm border border-amber-200/30;
+    @apply text-amber-800/80;
+  }
+
+  .subtle-border {
+    @apply border-gray-300/20;
   }
 }
