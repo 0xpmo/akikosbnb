@@ -376,10 +376,10 @@ export default function Home() {
         </button>
 
         <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-4">
-          <h2 className="font-['Yuji_Boku'] text-5xl md:text-7xl font-light mb-6 leading-tight">
+          <h2 className="font-['Yuji_Boku'] text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light mb-6 leading-tight">
             {slides[currentSlide].title}
           </h2>
-          <p className="text-xl md:text-2xl font-light mb-8 leading-relaxed font-['Sawarabi_Mincho']">
+          <p className="text-lg sm:text-xl md:text-2xl font-light mb-8 leading-relaxed font-['Sawarabi_Mincho']">
             {slides[currentSlide].subtitle}
           </p>
         </div>
@@ -414,16 +414,16 @@ export default function Home() {
         }}
       >
         <div className="container mx-auto px-4 max-w-5xl">
-          <div className="grid md:grid-cols-5 gap-12 items-center">
+          <div className="grid sm:grid-cols-1 md:grid-cols-5 gap-8 sm:gap-12 items-center">
             <div className="md:col-span-3">
               <img
                 src="/homescreen/akiko-statue.JPG"
                 alt="Buddha statue in the garden"
-                className="w-full h-64 md:h-80 object-cover rounded-lg shadow-lg"
+                className="w-full h-48 sm:h-64 md:h-80 object-cover rounded-lg shadow-lg"
               />
             </div>
             <div className="md:col-span-2">
-              <h3 className="font-['Yuji_Boku'] text-4xl font-light mb-6 text-foreground drop-shadow-sm">
+              <h3 className="font-['Yuji_Boku'] text-3xl sm:text-4xl font-light mb-6 text-foreground drop-shadow-sm">
                 About Akiko
               </h3>
               <div className="prose prose-lg text-foreground leading-relaxed space-y-4 drop-shadow-sm">
@@ -464,24 +464,24 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Philosophy Section - Mobile: separate, Desktop: combined */}
-        <div className="py-20 md:py-20 lg:py-20">
+        {/* Philosophy Section */}
+        <div className="py-20">
           <div className="container mx-auto px-4 max-w-4xl text-center">
-            <h3 className="font-['Yuji_Boku'] text-4xl font-light mb-8 text-foreground drop-shadow-sm">
+            <h3 className="font-['Yuji_Boku'] text-3xl sm:text-4xl font-light mb-8 text-foreground drop-shadow-sm">
               The Spirit of This Place
             </h3>
             <div className="prose prose-lg mx-auto text-foreground leading-relaxed drop-shadow-sm">
-              <p className="text-xl mb-6">
+              <p className="text-lg sm:text-xl mb-6">
                 {
                   "Our deep love for Hawaii flows through every moment here—its beauty, its human naturalness, its modesty and magnificent contrasts."
                 }
               </p>
-              <p className="text-lg mb-6">
+              <p className="text-base sm:text-lg mb-6">
                 {
                   "Yin and yang dance together: the dynamic interplay of soft and hard, cold and hot, silky and bumpy, modest and wild. Here you'll find both yoga and zazen stillness, the rhythm of older Hawaii—slower, more humane."
                 }
               </p>
-              <p className="text-lg">
+              <p className="text-base sm:text-lg">
                 {
                   "We welcome those whose lives could deepen and transform, who seek awakening to simplicity and authentic human connection. In gratitude to our ancestors and in service to all who come."
                 }
@@ -493,10 +493,10 @@ export default function Home() {
         {/* Accommodations */}
         <div id="accommodations" className="py-20">
           <div className="container mx-auto px-4">
-            <h3 className="font-['Yuji_Boku'] text-4xl font-light text-center mb-12 text-foreground">
+            <h3 className="font-['Yuji_Boku'] text-3xl sm:text-4xl font-light text-center mb-12 text-foreground">
               Accommodations
             </h3>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-8 max-w-6xl mx-auto">
               <Link href="/banana-patch">
                 <Card
                   className="group overflow-hidden hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer h-full flex flex-col bg-transparent rounded-none border-none shadow-none"
@@ -698,10 +698,10 @@ export default function Home() {
         {/* Activities */}
         <div className="py-20">
           <div className="container mx-auto px-4">
-            <h3 className="font-['Yuji_Boku'] text-4xl font-light text-center mb-12 text-foreground drop-shadow-sm">
+            <h3 className="font-['Yuji_Boku'] text-3xl sm:text-4xl font-light text-center mb-12 text-foreground drop-shadow-sm">
               Activities & Experiences
             </h3>
-            <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+            <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 max-w-4xl mx-auto">
               <div className="space-y-8">
                 <div>
                   <h4 className="font-serif text-xl font-medium mb-3 drop-shadow-sm">
@@ -773,11 +773,11 @@ export default function Home() {
         {/* Facilities & Grounds */}
         <div className="py-20">
           <div className="container mx-auto px-4">
-            <h3 className="font-['Yuji_Boku'] text-4xl font-light text-center mb-12 text-foreground">
+            <h3 className="font-['Yuji_Boku'] text-3xl sm:text-4xl font-light text-center mb-12 text-foreground">
               Sacred Facilities & Grounds
             </h3>
 
-            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-4xl mx-auto">
               {/* Yoga Studio */}
               <Link href="/facilities">
                 <Card
@@ -857,10 +857,10 @@ export default function Home() {
             </div>
 
             <div className="mt-16">
-              <h4 className="font-['Sawarabi_Mincho'] text-2xl font-light text-center mb-8 text-foreground">
+              <h4 className="font-['Sawarabi_Mincho'] text-xl sm:text-2xl font-light text-center mb-8 text-foreground">
                 Two-Acre Tropical Paradise
               </h4>
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 max-w-6xl mx-auto">
+              <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 max-w-6xl mx-auto">
                 {[
                   "/grounds/akiko-entrance-road.avif",
                   "/grounds/akiko-kitchen.JPG",
@@ -898,7 +898,7 @@ export default function Home() {
                     }}
                   >
                     <div
-                      className="h-48 lg:h-56 bg-muted bg-cover bg-center rounded-xl group-hover:scale-105 transition-transform duration-300 shadow-lg group-hover:shadow-xl"
+                      className="h-32 sm:h-40 md:h-48 lg:h-56 bg-muted bg-cover bg-center rounded-xl group-hover:scale-105 transition-transform duration-300 shadow-lg group-hover:shadow-xl"
                       style={{
                         backgroundImage: `url('${image}')`,
                       }}
@@ -917,481 +917,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Philosophy Section - Mobile Only */}
-      <section
-        id="philosophy"
-        className="py-20 md:hidden"
-        style={{
-          backgroundImage:
-            "url('/homescreen/calligraphy-paper-bg.png'), url('/homescreen/calligraphy-paper-bg-option.png')",
-          backgroundSize: "cover, cover",
-          backgroundAttachment: "scroll, fixed",
-          backgroundRepeat: "no-repeat, no-repeat",
-          backgroundPosition: "center top, center top",
-        }}
-      >
-        <div className="container mx-auto px-4 max-w-4xl text-center">
-          <h3 className="font-['Yuji_Boku'] text-4xl font-light mb-8 text-foreground drop-shadow-sm">
-            The Spirit of This Place
-          </h3>
-          <div className="prose prose-lg mx-auto text-foreground leading-relaxed drop-shadow-sm">
-            <p className="text-xl mb-6">
-              {
-                "Our deep love for Hawaii flows through every moment here—its beauty, its human naturalness, its modesty and magnificent contrasts."
-              }
-            </p>
-            <p className="text-lg mb-6">
-              {
-                "Yin and yang dance together: the dynamic interplay of soft and hard, cold and hot, silky and bumpy, modest and wild. Here you'll find both yoga and zazen stillness, the rhythm of older Hawaii—slower, more humane."
-              }
-            </p>
-            <p className="text-lg">
-              {
-                "We welcome those whose lives could deepen and transform, who seek awakening to simplicity and authentic human connection. In gratitude to our ancestors and in service to all who come."
-              }
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Accommodations - Mobile Only */}
-      <section
-        id="accommodations"
-        className="py-20 md:hidden"
-        style={{
-          backgroundImage:
-            "url('/homescreen/calligraphy-paper-bg.png'), url('/homescreen/calligraphy-paper-bg-option.png')",
-          backgroundSize: "cover, cover",
-          backgroundAttachment: "scroll, fixed",
-          backgroundRepeat: "no-repeat, no-repeat",
-          backgroundPosition: "center top, center top",
-        }}
-      >
-        <div className="container mx-auto px-4">
-          <h3 className="font-['Yuji_Boku'] text-4xl font-light text-center mb-12 text-foreground">
-            Accommodations
-          </h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            <Link href="/banana-patch">
-              <Card
-                className="group overflow-hidden hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer border border-amber-200/30 hover:border-amber-300/50 h-full flex flex-col"
-                style={{
-                  backgroundImage:
-                    "url('/homescreen/calligraphy-paper-bg.png')",
-                  backgroundSize: "cover",
-                  backgroundPosition: "top center",
-                }}
-              >
-                <div
-                  className="h-48 bg-muted bg-cover bg-center mx-4 mt-4"
-                  style={{
-                    backgroundImage:
-                      "url('/images/banana-patch-exterior.avif')",
-                  }}
-                />
-                <CardHeader className="flex-shrink-0">
-                  <CardTitle className="font-['Yuji_Boku'] group-hover:text-primary transition-colors duration-300">
-                    Banana Patch Cottage
-                  </CardTitle>
-                  <CardDescription>
-                    Cozy cottage in the Banana Patch forest for one person
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="flex-grow flex flex-col">
-                  <p className="text-sm text-muted-foreground mb-4">
-                    Intimately nestled in a grove of banana trees. Hear the
-                    winds, rain dancing on the tin roof, and falling mangoes
-                    when in season.
-                  </p>
-                  <div className="mt-auto">
-                    <div className="flex items-center justify-between mb-2">
-                      <div className="text-lg font-semibold text-primary">
-                        From $75/night
-                      </div>
-                      <div className="text-primary/60 group-hover:text-primary transition-colors duration-300 text-sm font-medium">
-                        Learn More →
-                      </div>
-                    </div>
-                    <p className="text-xs text-muted-foreground">
-                      7 night minimum • Shared kitchen & bath
-                    </p>
-                  </div>
-                </CardContent>
-              </Card>
-            </Link>
-
-            <Link href="/mango-tree">
-              <Card
-                className="group overflow-hidden hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer border border-amber-200/30 hover:border-amber-300/50 h-full flex flex-col"
-                style={{
-                  backgroundImage:
-                    "url('/homescreen/calligraphy-paper-bg.png')",
-                  backgroundSize: "cover",
-                  backgroundPosition: "top center",
-                }}
-              >
-                <div
-                  className="h-48 bg-muted bg-cover bg-center mx-4 mt-4"
-                  style={{
-                    backgroundImage: "url('/images/mango-tree-exterior.avif')",
-                  }}
-                />
-                <CardHeader className="flex-shrink-0">
-                  <CardTitle className="font-['Yuji_Boku'] group-hover:text-primary transition-colors duration-300">
-                    Mango Tree Cottage
-                  </CardTitle>
-                  <CardDescription>
-                    Roomy, airy cottage under giant mango tree for one or two
-                    persons
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="flex-grow flex flex-col">
-                  <p className="text-sm text-muted-foreground mb-4">
-                    16 x 24 screened studio space, completely open to the
-                    outdoors. Experience living harmony: being outdoors and
-                    indoors simultaneously.
-                  </p>
-                  <div className="mt-auto">
-                    <div className="flex items-center justify-between mb-2">
-                      <div className="text-lg font-semibold text-primary">
-                        From $85/night
-                      </div>
-                      <div className="text-primary/60 group-hover:text-primary transition-colors duration-300 text-sm font-medium">
-                        Learn More →
-                      </div>
-                    </div>
-                    <p className="text-xs text-muted-foreground">
-                      7 night minimum • Queen bed • Shared kitchen & bath
-                    </p>
-                  </div>
-                </CardContent>
-              </Card>
-            </Link>
-
-            <Link href="/puuhonua-house">
-              <Card
-                className="group overflow-hidden hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer border border-amber-200/30 hover:border-amber-300/50 h-full flex flex-col"
-                style={{
-                  backgroundImage:
-                    "url('/homescreen/calligraphy-paper-bg.png')",
-                  backgroundSize: "cover",
-                  backgroundPosition: "top center",
-                }}
-              >
-                <div
-                  className="h-48 bg-muted bg-cover bg-center mx-4 mt-4"
-                  style={{
-                    backgroundImage: "url('/puuhonua/puuhonua-exterior.avif')",
-                  }}
-                />
-                <CardHeader className="flex-shrink-0">
-                  <CardTitle className="font-['Yuji_Boku'] group-hover:text-primary transition-colors duration-300">
-                    Pu'uhonua House
-                  </CardTitle>
-                  <CardDescription>
-                    Private cozy bedrooms, shared bathrooms and full kitchen in
-                    this classic "old Hawaiian" plantation home
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="flex-grow flex flex-col">
-                  <p className="text-sm text-muted-foreground mb-4">
-                    Our "community house" - a sanctuary where deep friendships
-                    are built. 4-bedroom, 2-story classic with veranda
-                    overlooking Hawaiian garden.
-                  </p>
-                  <div className="mt-auto">
-                    <div className="flex items-center justify-between mb-2">
-                      <div className="text-lg font-semibold text-primary">
-                        From $75/night
-                      </div>
-                      <div className="text-primary/60 group-hover:text-primary transition-colors duration-300 text-sm font-medium">
-                        Learn More →
-                      </div>
-                    </div>
-                    <p className="text-xs text-muted-foreground">
-                      7 night minimum • Shared spaces • 3 rooms available
-                    </p>
-                  </div>
-                </CardContent>
-              </Card>
-            </Link>
-
-            <Link href="/hale-aloha">
-              <Card
-                className="group overflow-hidden hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer border border-amber-200/30 hover:border-amber-300/50 h-full flex flex-col"
-                style={{
-                  backgroundImage:
-                    "url('/homescreen/calligraphy-paper-bg.png')",
-                  backgroundSize: "cover",
-                  backgroundPosition: "top center",
-                }}
-              >
-                <div
-                  className="h-48 bg-muted bg-cover bg-center mx-4 mt-4"
-                  style={{
-                    backgroundImage: "url('/images/hale-aloha-exterior.avif')",
-                  }}
-                />
-                <CardHeader className="flex-shrink-0">
-                  <CardTitle className="font-['Yuji_Boku'] group-hover:text-primary transition-colors duration-300">
-                    Hale Aloha
-                  </CardTitle>
-                  <CardDescription>
-                    Spacious & airy plantation style home with large picture
-                    windows opening to beautiful flowers and gardens
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="flex-grow flex flex-col">
-                  <p className="text-sm text-muted-foreground mb-4">
-                    Home of Aloha and Warmth. Beautiful 3-bedroom, 1½ bath home
-                    surrounded by flowers and fruit trees. Sleeps up to 4
-                    people.
-                  </p>
-                  <div className="mt-auto">
-                    <div className="flex items-center justify-between mb-2">
-                      <div className="text-lg font-semibold text-primary">
-                        From $150/night
-                      </div>
-                      <div className="text-primary/60 group-hover:text-primary transition-colors duration-300 text-sm font-medium">
-                        Learn More →
-                      </div>
-                    </div>
-                    <p className="text-xs text-muted-foreground">
-                      7 night minimum • Up to 4 guests • Private home
-                    </p>
-                  </div>
-                </CardContent>
-              </Card>
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Activities - Mobile Only */}
-      <section
-        id="activities"
-        className="py-20 md:hidden"
-        style={{
-          backgroundImage:
-            "url('/homescreen/calligraphy-paper-bg.png'), url('/homescreen/calligraphy-paper-bg-option.png')",
-          backgroundSize: "cover, cover",
-          backgroundAttachment: "scroll, fixed",
-          backgroundRepeat: "no-repeat, no-repeat",
-          backgroundPosition: "center top, center top",
-        }}
-      >
-        <div className="container mx-auto px-4">
-          <h3 className="font-['Yuji_Boku'] text-4xl font-light text-center mb-12 text-foreground drop-shadow-sm">
-            Activities & Experiences
-          </h3>
-          <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
-            <div className="space-y-8">
-              <div>
-                <h4 className="font-serif text-xl font-medium mb-3 drop-shadow-sm">
-                  Zazen Meditation
-                </h4>
-                <p className="text-foreground drop-shadow-sm">
-                  Sit Zazen meditation Wednesday & Friday nights—7:00-8:15 p.m.
-                  in our peaceful meditation space.
-                </p>
-              </div>
-
-              <div>
-                <h4 className="font-serif text-xl font-medium mb-3 drop-shadow-sm">
-                  Yoga & Tai Chi
-                </h4>
-                <p className="text-foreground drop-shadow-sm">
-                  Practice restorative yoga 6-7:30pm Monday & Thursday, and
-                  attend tai chi & chi gong classes at Hakalau Jodo Mission.
-                </p>
-              </div>
-
-              <div>
-                <h4 className="font-serif text-xl font-medium mb-3 drop-shadow-sm">
-                  Japanese Folk Dance
-                </h4>
-                <p className="text-foreground drop-shadow-sm">
-                  Join Japanese Folk dance practice and connect with the
-                  cultural heritage of the islands.
-                </p>
-              </div>
-            </div>
-
-            <div className="space-y-6">
-              <div>
-                <h4 className="font-serif text-xl font-medium mb-4 drop-shadow-sm">
-                  Community Activities
-                </h4>
-                <ul className="space-y-2 text-foreground drop-shadow-sm">
-                  <li>• Hakalau Farmers Market & FoodSHARE</li>
-                  <li>• Work in the gardens on 2-acre grounds</li>
-                  <li>• Occasional dinners and movies with guests</li>
-                  <li>• Explore the citrus orchard and breadfruit grove</li>
-                  <li>• Island exploration and cultural sites</li>
-                </ul>
-              </div>
-
-              <div>
-                <h4 className="font-serif text-xl font-medium mb-4 drop-shadow-sm">
-                  The Hamakua Coast
-                </h4>
-                <p className="text-foreground mb-4 drop-shadow-sm">
-                  The drive to Akiko's on Highway 19 is a colorful panorama of
-                  small plantation communities with small rusted tin roof
-                  houses, mom and pop stores, sweeping ocean vistas, farmlands,
-                  pastures, rushing streams and breathtaking waterfalls.
-                </p>
-                <p className="text-foreground drop-shadow-sm">
-                  All that make our Hamakua Coast so extraordinary: a Special
-                  Place, whose spirit, cultural history, values, land, and
-                  peoples are honored and perpetuated.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Facilities - Mobile Only */}
-      <section
-        id="facilities"
-        className="py-20 md:hidden"
-        style={{
-          backgroundImage:
-            "url('/homescreen/calligraphy-paper-bg.png'), url('/homescreen/calligraphy-paper-bg-option.png')",
-          backgroundSize: "cover, cover",
-          backgroundAttachment: "scroll, fixed",
-          backgroundRepeat: "no-repeat, no-repeat",
-          backgroundPosition: "center top, center top",
-        }}
-      >
-        <div className="container mx-auto px-4">
-          <h3 className="font-['Yuji_Boku'] text-4xl font-light text-center mb-12 text-foreground">
-            Sacred Facilities & Grounds
-          </h3>
-
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {/* Yoga Studio */}
-            <Link href="/facilities">
-              <Card className="group overflow-hidden hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer bg-white/70 backdrop-blur-sm border border-white/20 hover:border-primary/20">
-                <div
-                  className="h-48 bg-muted bg-cover bg-center mx-4 mt-4"
-                  style={{
-                    backgroundImage:
-                      "url('/facilities/yoga-studio/yoga-room.jpeg')",
-                  }}
-                />
-                <CardHeader>
-                  <CardTitle className="font-['Yuji_Boku'] group-hover:text-primary transition-colors duration-300">
-                    Yoga Studio
-                  </CardTitle>
-                  <CardDescription>
-                    Spacious movement and meditation space
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-muted-foreground">
-                    Large, open studio with wooden floors and natural lighting,
-                    perfect for yoga, tai chi, and movement practices. Features
-                    exposed beam ceiling and views of tropical gardens.
-                  </p>
-                  <div className="mt-4 text-primary/60 group-hover:text-primary transition-colors duration-300 text-sm font-medium">
-                    View All Facilities →
-                  </div>
-                </CardContent>
-              </Card>
-            </Link>
-
-            {/* Zendo */}
-            <Link href="/facilities">
-              <Card className="group overflow-hidden hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer bg-white/70 backdrop-blur-sm border border-white/20 hover:border-primary/20">
-                <div
-                  className="h-48 bg-muted bg-cover bg-center mx-4 mt-4"
-                  style={{
-                    backgroundImage:
-                      "url('/facilities/zendo/zendo-inside.jpg')",
-                  }}
-                />
-                <CardHeader>
-                  <CardTitle className="font-['Yuji_Boku'] group-hover:text-primary transition-colors duration-300">
-                    Zendo
-                  </CardTitle>
-                  <CardDescription>Sacred meditation space</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-muted-foreground">
-                    Traditional meditation hall for zazen practice and quiet
-                    contemplation. A serene space designed for deep spiritual
-                    practice and group meditation sessions.
-                  </p>
-                  <div className="mt-4 text-primary/60 group-hover:text-primary transition-colors duration-300 text-sm font-medium">
-                    View All Facilities →
-                  </div>
-                </CardContent>
-              </Card>
-            </Link>
-          </div>
-
-          <div className="mt-16">
-            <h4 className="font-['Sawarabi_Mincho'] text-2xl font-light text-center mb-8 text-foreground">
-              Two-Acre Tropical Paradise
-            </h4>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 max-w-6xl mx-auto">
-              {[
-                "/grounds/akiko-entrance-road.avif",
-                "/grounds/akiko-kitchen.JPG",
-                "/grounds/akiko-pick-flower.JPG",
-                "/grounds/akiko-walk-jungle.JPG",
-                "/grounds/blue-house-jungle.JPG",
-                "/grounds/front-door.JPG",
-                "/grounds/grass-and-jungle.JPG",
-                "/grounds/main-entrance.JPG",
-                "/grounds/statue-yellow.avif",
-                "/grounds/temple.avif",
-                "/grounds/tree-tops.JPG",
-                "/grounds/zendo-alleyway.avif",
-              ].map((image, index) => (
-                <div
-                  key={index}
-                  className="group cursor-pointer"
-                  onClick={() => {
-                    setSelectedImage(image);
-                    setSelectedImageIndex(index);
-                    setCurrentFacilityImages([
-                      "/grounds/akiko-entrance-road.avif",
-                      "/grounds/akiko-kitchen.JPG",
-                      "/grounds/akiko-pick-flower.JPG",
-                      "/grounds/akiko-walk-jungle.JPG",
-                      "/grounds/blue-house-jungle.JPG",
-                      "/grounds/front-door.JPG",
-                      "/grounds/grass-and-jungle.JPG",
-                      "/grounds/main-entrance.JPG",
-                      "/grounds/statue-yellow.avif",
-                      "/grounds/temple.avif",
-                      "/grounds/tree-tops.JPG",
-                      "/grounds/zendo-alleyway.avif",
-                    ]);
-                  }}
-                >
-                  <div
-                    className="h-48 lg:h-56 bg-muted bg-cover bg-center rounded-xl group-hover:scale-105 transition-transform duration-300 shadow-lg group-hover:shadow-xl"
-                    style={{
-                      backgroundImage: `url('${image}')`,
-                    }}
-                  />
-                </div>
-              ))}
-            </div>
-            <p className="text-center text-muted-foreground mt-6 max-w-3xl mx-auto">
-              Wander through our lush tropical gardens featuring native Hawaiian
-              plants, fruit trees, and peaceful pathways. The grounds include
-              citrus orchards, breadfruit groves, and countless quiet spots for
-              reflection and connection with nature.
-            </p>
-          </div>
-        </div>
-      </section>
-
       {/* Guest Reviews Section */}
       <section
         className="py-20"
@@ -1406,16 +931,16 @@ export default function Home() {
       >
         <div className="container mx-auto px-4 max-w-6xl">
           <div className="text-center mb-16" style={{ paddingTop: "7px" }}>
-            <h3 className="font-['Yuji_Boku'] text-4xl font-light mb-6 text-foreground drop-shadow-sm">
+            <h3 className="font-['Yuji_Boku'] text-3xl sm:text-4xl font-light mb-6 text-foreground drop-shadow-sm">
               Guest Reflections
             </h3>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               Voices from the hearts of those who have experienced the
               transformative power of this sacred sanctuary
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 mb-12">
+          <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 mb-12">
             {/* Featured Review 1 */}
             <Card
               className="group border-none shadow-lg hover:shadow-xl transition-all duration-300"
@@ -1500,11 +1025,11 @@ export default function Home() {
         }}
       >
         <div className="container mx-auto px-4 max-w-4xl">
-          <h3 className="font-['Yuji_Boku'] text-4xl font-light text-center mb-12 text-foreground">
+          <h3 className="font-['Yuji_Boku'] text-3xl sm:text-4xl font-light text-center mb-12 text-foreground">
             Connect With Us — Inquiry About Booking
           </h3>
 
-          <div className="grid md:grid-cols-2 gap-12">
+          <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12">
             <div className="space-y-8">
               <div>
                 <h4 className="font-['Yuji_Boku'] text-2xl font-medium mb-6">
