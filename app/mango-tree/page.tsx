@@ -8,19 +8,15 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import {
-  ArrowLeft,
-  Wifi,
-  Coffee,
-  Leaf,
-  Mountain,
-  ChevronLeft,
-  ChevronRight,
-} from "lucide-react";
+import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 
 export default function MangoTreeCottage() {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [selectedImageIndex, setSelectedImageIndex] = useState<number>(0);
+  const [currentImages, setCurrentImages] = useState<string[]>([]);
+
   const images = [
     {
       src: "/images/mango-tree-exterior.avif",
@@ -48,22 +44,53 @@ export default function MangoTreeCottage() {
     },
   ];
 
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentImageIndex((prev) => (prev + 1) % images.length);
-    }, 8000);
-    return () => clearInterval(timer);
-  }, [images.length]);
-
   const nextImage = () => {
-    setCurrentImageIndex((prev) => (prev + 1) % images.length);
+    const nextIndex = (selectedImageIndex + 1) % currentImages.length;
+    setSelectedImageIndex(nextIndex);
+    setSelectedImage(currentImages[nextIndex]);
   };
 
   const prevImage = () => {
-    setCurrentImageIndex((prev) => (prev - 1 + images.length) % images.length);
+    const prevIndex =
+      selectedImageIndex === 0
+        ? currentImages.length - 1
+        : selectedImageIndex - 1;
+    setSelectedImageIndex(prevIndex);
+    setSelectedImage(currentImages[prevIndex]);
   };
+
+  const closeModal = () => {
+    setSelectedImage(null);
+    setSelectedImageIndex(0);
+    setCurrentImages([]);
+  };
+
+  // Keyboard navigation for image modal
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (!selectedImage || currentImages.length <= 1) return;
+
+      switch (event.key) {
+        case "ArrowLeft":
+          event.preventDefault();
+          prevImage();
+          break;
+        case "ArrowRight":
+          event.preventDefault();
+          nextImage();
+          break;
+        case "Escape":
+          event.preventDefault();
+          closeModal();
+          break;
+      }
+    };
+
+    if (selectedImage) {
+      document.addEventListener("keydown", handleKeyDown);
+      return () => document.removeEventListener("keydown", handleKeyDown);
+    }
+  }, [selectedImage, selectedImageIndex, currentImages.length]);
 
   return (
     <div
@@ -129,61 +156,41 @@ export default function MangoTreeCottage() {
         </div>
       </header>
 
-      <section className="relative h-96">
-        <div className="relative w-full h-full overflow-hidden">
-          {images.map((image, index) => (
-            <div
-              key={index}
-              className={`absolute inset-0 transition-opacity duration-1000 ${
-                index === currentImageIndex ? "opacity-100" : "opacity-0"
-              }`}
-            >
-              <img
-                src={image.src || "/placeholder.svg"}
-                alt={image.alt}
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-black/30" />
-            </div>
-          ))}
-
-          {/* Navigation buttons */}
-          <button
-            onClick={prevImage}
-            className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full p-2 transition-colors z-20 pointer-events-auto"
-            aria-label="Previous image"
-          >
-            <ChevronLeft className="h-6 w-6 text-white" />
-          </button>
-          <button
-            onClick={nextImage}
-            className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full p-2 transition-colors z-20 pointer-events-auto"
-            aria-label="Next image"
-          >
-            <ChevronRight className="h-6 w-6 text-white" />
-          </button>
-
-          {/* Image indicators */}
-          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-20">
-            {images.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentImageIndex(index)}
-                className={`w-2 h-2 rounded-full transition-colors pointer-events-auto ${
-                  index === currentImageIndex ? "bg-white" : "bg-white/50"
-                }`}
-                aria-label={`Go to image ${index + 1}`}
-              />
-            ))}
-          </div>
-        </div>
-
-        <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
-          <div className="text-center text-white">
-            <h1 className="font-serif text-5xl font-light mb-4">
+      {/* Image Gallery */}
+      <section className="relative py-16">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h1 className="font-serif text-4xl font-light mb-4 text-foreground">
               Mango Tree Cottage
             </h1>
-            <p className="text-xl">Living harmony under the giant mango</p>
+            <p className="text-lg text-muted-foreground">
+              Living harmony under the giant mango
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            {images.map((image, index) => (
+              <div
+                key={index}
+                className={`group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer ${
+                  index === 0 ? "md:col-span-2" : ""
+                }`}
+                onClick={() => {
+                  setSelectedImage(image.src);
+                  setSelectedImageIndex(index);
+                  setCurrentImages(images.map((img) => img.src));
+                }}
+              >
+                <img
+                  src={image.src || "/placeholder.svg"}
+                  alt={image.alt}
+                  className={`w-full object-cover group-hover:scale-105 transition-transform duration-300 ${
+                    index === 0 ? "h-80" : "h-64"
+                  }`}
+                />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -220,29 +227,55 @@ export default function MangoTreeCottage() {
             </div>
 
             <div>
-              <h3 className="font-serif text-2xl font-light mb-4">Amenities</h3>
-              <div className="grid grid-cols-2 gap-4">
-                <div className="flex items-center gap-3">
-                  <Leaf className="h-5 w-5 text-primary" />
-                  <span className="text-muted-foreground">Queen size bed</span>
+              <h3 className="font-serif text-2xl font-light mb-8">Amenities</h3>
+              <div className="space-y-6">
+                <div className="relative">
+                  <div className="absolute -left-4 top-0 w-1 h-full bg-gradient-to-b from-primary to-primary/50"></div>
+                  <div className="pl-8">
+                    <h4 className="font-serif text-xl font-light mb-2 text-foreground">
+                      Queen size bed
+                    </h4>
+                    <p className="text-muted-foreground leading-relaxed">
+                      Comfortable queen size bed for restful sleep in the
+                      open-air cottage.
+                    </p>
+                  </div>
                 </div>
-                <div className="flex items-center gap-3">
-                  <Mountain className="h-5 w-5 text-primary" />
-                  <span className="text-muted-foreground">
-                    Reading chair & work table
-                  </span>
+                <div className="relative">
+                  <div className="absolute -left-4 top-0 w-1 h-full bg-gradient-to-b from-primary to-primary/50"></div>
+                  <div className="pl-8">
+                    <h4 className="font-serif text-xl font-light mb-2 text-foreground">
+                      Reading chair & work table
+                    </h4>
+                    <p className="text-muted-foreground leading-relaxed">
+                      Comfortable reading chair and work table for study,
+                      writing, or remote work.
+                    </p>
+                  </div>
                 </div>
-                <div className="flex items-center gap-3">
-                  <Coffee className="h-5 w-5 text-primary" />
-                  <span className="text-muted-foreground">
-                    Shared kitchenette
-                  </span>
+                <div className="relative">
+                  <div className="absolute -left-4 top-0 w-1 h-full bg-gradient-to-b from-primary to-primary/50"></div>
+                  <div className="pl-8">
+                    <h4 className="font-serif text-xl font-light mb-2 text-foreground">
+                      Shared kitchenette
+                    </h4>
+                    <p className="text-muted-foreground leading-relaxed">
+                      Access to shared kitchenette facilities in the adjacent
+                      building.
+                    </p>
+                  </div>
                 </div>
-                <div className="flex items-center gap-3">
-                  <Wifi className="h-5 w-5 text-primary" />
-                  <span className="text-muted-foreground">
-                    High-speed WiFi (88 Mbps)
-                  </span>
+                <div className="relative">
+                  <div className="absolute -left-4 top-0 w-1 h-full bg-gradient-to-b from-primary to-primary/50"></div>
+                  <div className="pl-8">
+                    <h4 className="font-serif text-xl font-light mb-2 text-foreground">
+                      High-speed WiFi (88 Mbps)
+                    </h4>
+                    <p className="text-muted-foreground leading-relaxed">
+                      Reliable high-speed internet for staying connected while
+                      enjoying nature.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -310,6 +343,65 @@ export default function MangoTreeCottage() {
           </div>
         </div>
       </div>
+
+      {/* Image Modal with Navigation */}
+      {selectedImage && (
+        <div
+          className="fixed inset-0 bg-black/90 flex items-center justify-center z-50 p-4"
+          onClick={closeModal}
+        >
+          <div className="relative max-w-6xl max-h-full w-full h-full flex items-center justify-center">
+            {/* Close Button */}
+            <button
+              onClick={closeModal}
+              className="absolute top-4 right-4 z-10 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-colors"
+            >
+              <X className="h-6 w-6" />
+            </button>
+
+            {/* Previous Button */}
+            {currentImages.length > 1 && (
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  prevImage();
+                }}
+                className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-colors"
+              >
+                <ChevronLeft className="h-8 w-8" />
+              </button>
+            )}
+
+            {/* Next Button */}
+            {currentImages.length > 1 && (
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  nextImage();
+                }}
+                className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-colors"
+              >
+                <ChevronRight className="h-8 w-8" />
+              </button>
+            )}
+
+            {/* Image Counter */}
+            {currentImages.length > 1 && (
+              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 bg-black/50 text-white px-4 py-2 rounded-full text-sm">
+                {selectedImageIndex + 1} / {currentImages.length}
+              </div>
+            )}
+
+            {/* Image */}
+            <img
+              src={selectedImage}
+              alt="Accommodation image"
+              className="max-w-full max-h-full object-contain rounded-lg"
+              onClick={(e) => e.stopPropagation()}
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 }

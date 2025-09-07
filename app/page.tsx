@@ -358,7 +358,7 @@ export default function Home() {
         </div>
 
         {/* Accommodations */}
-        <div className="py-20">
+        <div id="accommodations" className="py-20">
           <div className="container mx-auto px-4">
             <h3 className="font-['Yuji_Boku'] text-4xl font-light text-center mb-12 text-foreground">
               Accommodations
@@ -450,7 +450,8 @@ export default function Home() {
                   <div
                     className="h-48 bg-muted bg-cover bg-center group-hover:scale-105 transition-transform duration-300"
                     style={{
-                      backgroundImage: "url('/images/puuhonua-exterior.avif')",
+                      backgroundImage:
+                        "url('/puuhonua/puuhonua-exterior.avif')",
                     }}
                   />
                   <CardHeader className="flex-shrink-0">
@@ -901,7 +902,7 @@ export default function Home() {
                 <div
                   className="h-48 bg-muted bg-cover bg-center group-hover:scale-105 transition-transform duration-300"
                   style={{
-                    backgroundImage: "url('/images/puuhonua-exterior.avif')",
+                    backgroundImage: "url('/puuhonua/puuhonua-exterior.avif')",
                   }}
                 />
                 <CardHeader className="flex-shrink-0">
