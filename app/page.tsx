@@ -220,7 +220,7 @@ export default function Home() {
                     style={{
                       backgroundImage: `url('${slide.image}')`,
                       backgroundSize: "cover",
-                      backgroundPosition: "center",
+                      backgroundPosition: "top center",
                       backgroundRepeat: "no-repeat",
                     }}
                   />
@@ -273,7 +273,7 @@ export default function Home() {
         className="py-20"
         style={{
           backgroundImage:
-            "url('/homescreen/calligraphy-paper-bg.png'), url('/homescreen/calligraphy-paper-bg-option.png')",
+            "url('/homescreen/calligraphy-paper-bg-option.png'), url('/homescreen/calligraphy-paper-bg.png')",
           backgroundSize: "cover, cover",
           backgroundAttachment: "scroll, fixed",
           backgroundRepeat: "no-repeat, no-repeat",
@@ -365,15 +365,23 @@ export default function Home() {
             </h3>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
               <Link href="/banana-patch">
-                <Card className="group overflow-hidden hover:shadow-xl hover:scale-[1.02] transition-all duration-300 cursor-pointer bg-white/70 backdrop-blur-sm border border-white/20 hover:border-primary/20 h-full flex flex-col">
+                <Card
+                  className="group hover:shadow-xl hover:scale-[1.02] transition-all duration-300 cursor-pointer h-full flex flex-col bg-transparent rounded-none border-none shadow-none"
+                  style={{
+                    backgroundImage:
+                      "url('/homescreen/calligraphy-paper-bg.png')",
+                    backgroundSize: "cover",
+                    backgroundPosition: "top center",
+                  }}
+                >
                   <div
-                    className="h-48 bg-muted bg-cover bg-center group-hover:scale-105 transition-transform duration-300"
+                    className="h-48 bg-muted bg-cover bg-center mx-4 mt-4"
                     style={{
                       backgroundImage:
                         "url('/images/banana-patch-exterior.avif')",
                     }}
                   />
-                  <CardHeader className="flex-shrink-0">
+                  <CardHeader className="flex-shrink-0 bg-transparent">
                     <CardTitle className="font-['Yuji_Boku'] group-hover:text-primary transition-colors duration-300">
                       Banana Patch Cottage
                     </CardTitle>
@@ -381,7 +389,7 @@ export default function Home() {
                       Cozy cottage in the Banana Patch forest for one person
                     </CardDescription>
                   </CardHeader>
-                  <CardContent className="flex-grow flex flex-col">
+                  <CardContent className="flex-grow flex flex-col bg-transparent">
                     <p className="text-sm text-muted-foreground mb-4">
                       Intimately nestled in a grove of banana trees. Hear the
                       winds, rain dancing on the tin roof, and falling mangoes
@@ -405,15 +413,23 @@ export default function Home() {
               </Link>
 
               <Link href="/mango-tree">
-                <Card className="group overflow-hidden hover:shadow-xl hover:scale-[1.02] transition-all duration-300 cursor-pointer bg-white/70 backdrop-blur-sm border border-white/20 hover:border-primary/20 h-full flex flex-col">
+                <Card
+                  className="group hover:shadow-xl hover:scale-[1.02] transition-all duration-300 cursor-pointer h-full flex flex-col bg-transparent rounded-none border-none shadow-none"
+                  style={{
+                    backgroundImage:
+                      "url('/homescreen/calligraphy-paper-bg.png')",
+                    backgroundSize: "cover",
+                    backgroundPosition: "top center",
+                  }}
+                >
                   <div
-                    className="h-48 bg-muted bg-cover bg-center group-hover:scale-105 transition-transform duration-300"
+                    className="h-48 bg-muted bg-cover bg-center mx-4 mt-4"
                     style={{
                       backgroundImage:
                         "url('/images/mango-tree-exterior.avif')",
                     }}
                   />
-                  <CardHeader className="flex-shrink-0">
+                  <CardHeader className="flex-shrink-0 bg-transparent">
                     <CardTitle className="font-['Yuji_Boku'] group-hover:text-primary transition-colors duration-300">
                       Mango Tree Cottage
                     </CardTitle>
@@ -422,7 +438,7 @@ export default function Home() {
                       persons
                     </CardDescription>
                   </CardHeader>
-                  <CardContent className="flex-grow flex flex-col">
+                  <CardContent className="flex-grow flex flex-col bg-transparent">
                     <p className="text-sm text-muted-foreground mb-4">
                       16 x 24 screened studio space, completely open to the
                       outdoors. Experience living harmony: being outdoors and
@@ -446,15 +462,23 @@ export default function Home() {
               </Link>
 
               <Link href="/puuhonua-house">
-                <Card className="group overflow-hidden hover:shadow-xl hover:scale-[1.02] transition-all duration-300 cursor-pointer bg-white/70 backdrop-blur-sm border border-white/20 hover:border-primary/20 h-full flex flex-col">
+                <Card
+                  className="group hover:shadow-xl hover:scale-[1.02] transition-all duration-300 cursor-pointer h-full flex flex-col bg-transparent rounded-none border-none shadow-none"
+                  style={{
+                    backgroundImage:
+                      "url('/homescreen/calligraphy-paper-bg.png')",
+                    backgroundSize: "cover",
+                    backgroundPosition: "top center",
+                  }}
+                >
                   <div
-                    className="h-48 bg-muted bg-cover bg-center group-hover:scale-105 transition-transform duration-300"
+                    className="h-48 bg-muted bg-cover bg-center mx-4 mt-4"
                     style={{
                       backgroundImage:
                         "url('/puuhonua/puuhonua-exterior.avif')",
                     }}
                   />
-                  <CardHeader className="flex-shrink-0">
+                  <CardHeader className="flex-shrink-0 bg-transparent">
                     <CardTitle className="font-['Yuji_Boku'] group-hover:text-primary transition-colors duration-300">
                       Pu'uhonua House
                     </CardTitle>
@@ -463,7 +487,7 @@ export default function Home() {
                       in this classic "old Hawaiian" plantation home
                     </CardDescription>
                   </CardHeader>
-                  <CardContent className="flex-grow flex flex-col">
+                  <CardContent className="flex-grow flex flex-col bg-transparent">
                     <p className="text-sm text-muted-foreground mb-4">
                       Our "community house" - a sanctuary where deep friendships
                       are built. 4-bedroom, 2-story classic with veranda
@@ -487,15 +511,23 @@ export default function Home() {
               </Link>
 
               <Link href="/hale-aloha">
-                <Card className="group overflow-hidden hover:shadow-xl hover:scale-[1.02] transition-all duration-300 cursor-pointer bg-white/70 backdrop-blur-sm border border-white/20 hover:border-primary/20 h-full flex flex-col">
+                <Card
+                  className="group hover:shadow-xl hover:scale-[1.02] transition-all duration-300 cursor-pointer h-full flex flex-col bg-transparent rounded-none border-none shadow-none"
+                  style={{
+                    backgroundImage:
+                      "url('/homescreen/calligraphy-paper-bg.png')",
+                    backgroundSize: "cover",
+                    backgroundPosition: "top center",
+                  }}
+                >
                   <div
-                    className="h-48 bg-muted bg-cover bg-center group-hover:scale-105 transition-transform duration-300"
+                    className="h-48 bg-muted bg-cover bg-center mx-4 mt-4"
                     style={{
                       backgroundImage:
                         "url('/images/hale-aloha-exterior.avif')",
                     }}
                   />
-                  <CardHeader className="flex-shrink-0">
+                  <CardHeader className="flex-shrink-0 bg-transparent">
                     <CardTitle className="font-['Yuji_Boku'] group-hover:text-primary transition-colors duration-300">
                       Hale Aloha
                     </CardTitle>
@@ -504,7 +536,7 @@ export default function Home() {
                       windows opening to beautiful flowers and gardens
                     </CardDescription>
                   </CardHeader>
-                  <CardContent className="flex-grow flex flex-col">
+                  <CardContent className="flex-grow flex flex-col bg-transparent">
                     <p className="text-sm text-muted-foreground mb-4">
                       Home of Aloha and Warmth. Beautiful 3-bedroom, 1½ bath
                       home surrounded by flowers and fruit trees. Sleeps up to 4
@@ -643,7 +675,7 @@ export default function Home() {
               <Link href="/facilities">
                 <Card className="group overflow-hidden hover:shadow-xl hover:scale-[1.02] transition-all duration-300 cursor-pointer bg-white/70 backdrop-blur-sm border border-white/20 hover:border-primary/20">
                   <div
-                    className="h-48 bg-muted bg-cover bg-center group-hover:scale-105 transition-transform duration-300"
+                    className="h-48 bg-muted bg-cover bg-center mx-4 mt-4"
                     style={{
                       backgroundImage:
                         "url('/facilities/yoga-studio/yoga-room.jpeg')",
@@ -675,7 +707,7 @@ export default function Home() {
               <Link href="/facilities">
                 <Card className="group overflow-hidden hover:shadow-xl hover:scale-[1.02] transition-all duration-300 cursor-pointer bg-white/70 backdrop-blur-sm border border-white/20 hover:border-primary/20">
                   <div
-                    className="h-48 bg-muted bg-cover bg-center group-hover:scale-105 transition-transform duration-300"
+                    className="h-48 bg-muted bg-cover bg-center mx-4 mt-4"
                     style={{
                       backgroundImage:
                         "url('/facilities/zendo/zendo-inside.jpg')",
@@ -768,7 +800,7 @@ export default function Home() {
         className="py-20 md:hidden"
         style={{
           backgroundImage:
-            "url('/homescreen/calligraphy-paper-bg.png'), url('/homescreen/calligraphy-paper-bg-option.png')",
+            "url('/homescreen/calligraphy-paper-bg-option.png'), url('/homescreen/calligraphy-paper-bg.png')",
           backgroundSize: "cover, cover",
           backgroundAttachment: "scroll, fixed",
           backgroundRepeat: "no-repeat, no-repeat",
@@ -805,7 +837,7 @@ export default function Home() {
         className="py-20 md:hidden"
         style={{
           backgroundImage:
-            "url('/homescreen/calligraphy-paper-bg.png'), url('/homescreen/calligraphy-paper-bg-option.png')",
+            "url('/homescreen/calligraphy-paper-bg-option.png'), url('/homescreen/calligraphy-paper-bg.png')",
           backgroundSize: "cover, cover",
           backgroundAttachment: "scroll, fixed",
           backgroundRepeat: "no-repeat, no-repeat",
@@ -818,9 +850,17 @@ export default function Home() {
           </h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             <Link href="/banana-patch">
-              <Card className="group overflow-hidden hover:shadow-xl hover:scale-[1.02] transition-all duration-300 cursor-pointer bg-white/70 backdrop-blur-sm border border-white/20 hover:border-primary/20 h-full flex flex-col">
+              <Card
+                className="group overflow-hidden hover:shadow-xl hover:scale-[1.02] transition-all duration-300 cursor-pointer border border-amber-200/30 hover:border-amber-300/50 h-full flex flex-col"
+                style={{
+                  backgroundImage:
+                    "url('/homescreen/calligraphy-paper-bg.png')",
+                  backgroundSize: "cover",
+                  backgroundPosition: "top center",
+                }}
+              >
                 <div
-                  className="h-48 bg-muted bg-cover bg-center group-hover:scale-105 transition-transform duration-300"
+                  className="h-48 bg-muted bg-cover bg-center mx-4 mt-4"
                   style={{
                     backgroundImage:
                       "url('/images/banana-patch-exterior.avif')",
@@ -858,9 +898,17 @@ export default function Home() {
             </Link>
 
             <Link href="/mango-tree">
-              <Card className="group overflow-hidden hover:shadow-xl hover:scale-[1.02] transition-all duration-300 cursor-pointer bg-white/70 backdrop-blur-sm border border-white/20 hover:border-primary/20 h-full flex flex-col">
+              <Card
+                className="group overflow-hidden hover:shadow-xl hover:scale-[1.02] transition-all duration-300 cursor-pointer border border-amber-200/30 hover:border-amber-300/50 h-full flex flex-col"
+                style={{
+                  backgroundImage:
+                    "url('/homescreen/calligraphy-paper-bg.png')",
+                  backgroundSize: "cover",
+                  backgroundPosition: "top center",
+                }}
+              >
                 <div
-                  className="h-48 bg-muted bg-cover bg-center group-hover:scale-105 transition-transform duration-300"
+                  className="h-48 bg-muted bg-cover bg-center mx-4 mt-4"
                   style={{
                     backgroundImage: "url('/images/mango-tree-exterior.avif')",
                   }}
@@ -898,9 +946,17 @@ export default function Home() {
             </Link>
 
             <Link href="/puuhonua-house">
-              <Card className="group overflow-hidden hover:shadow-xl hover:scale-[1.02] transition-all duration-300 cursor-pointer bg-white/70 backdrop-blur-sm border border-white/20 hover:border-primary/20 h-full flex flex-col">
+              <Card
+                className="group overflow-hidden hover:shadow-xl hover:scale-[1.02] transition-all duration-300 cursor-pointer border border-amber-200/30 hover:border-amber-300/50 h-full flex flex-col"
+                style={{
+                  backgroundImage:
+                    "url('/homescreen/calligraphy-paper-bg.png')",
+                  backgroundSize: "cover",
+                  backgroundPosition: "top center",
+                }}
+              >
                 <div
-                  className="h-48 bg-muted bg-cover bg-center group-hover:scale-105 transition-transform duration-300"
+                  className="h-48 bg-muted bg-cover bg-center mx-4 mt-4"
                   style={{
                     backgroundImage: "url('/puuhonua/puuhonua-exterior.avif')",
                   }}
@@ -938,9 +994,17 @@ export default function Home() {
             </Link>
 
             <Link href="/hale-aloha">
-              <Card className="group overflow-hidden hover:shadow-xl hover:scale-[1.02] transition-all duration-300 cursor-pointer bg-white/70 backdrop-blur-sm border border-white/20 hover:border-primary/20 h-full flex flex-col">
+              <Card
+                className="group overflow-hidden hover:shadow-xl hover:scale-[1.02] transition-all duration-300 cursor-pointer border border-amber-200/30 hover:border-amber-300/50 h-full flex flex-col"
+                style={{
+                  backgroundImage:
+                    "url('/homescreen/calligraphy-paper-bg.png')",
+                  backgroundSize: "cover",
+                  backgroundPosition: "top center",
+                }}
+              >
                 <div
-                  className="h-48 bg-muted bg-cover bg-center group-hover:scale-105 transition-transform duration-300"
+                  className="h-48 bg-muted bg-cover bg-center mx-4 mt-4"
                   style={{
                     backgroundImage: "url('/images/hale-aloha-exterior.avif')",
                   }}
@@ -997,7 +1061,7 @@ export default function Home() {
         className="py-20 md:hidden"
         style={{
           backgroundImage:
-            "url('/homescreen/calligraphy-paper-bg.png'), url('/homescreen/calligraphy-paper-bg-option.png')",
+            "url('/homescreen/calligraphy-paper-bg-option.png'), url('/homescreen/calligraphy-paper-bg.png')",
           backgroundSize: "cover, cover",
           backgroundAttachment: "scroll, fixed",
           backgroundRepeat: "no-repeat, no-repeat",
@@ -1097,7 +1161,7 @@ export default function Home() {
         className="py-20 md:hidden"
         style={{
           backgroundImage:
-            "url('/homescreen/calligraphy-paper-bg.png'), url('/homescreen/calligraphy-paper-bg-option.png')",
+            "url('/homescreen/calligraphy-paper-bg-option.png'), url('/homescreen/calligraphy-paper-bg.png')",
           backgroundSize: "cover, cover",
           backgroundAttachment: "scroll, fixed",
           backgroundRepeat: "no-repeat, no-repeat",
@@ -1114,7 +1178,7 @@ export default function Home() {
             <Link href="/facilities">
               <Card className="group overflow-hidden hover:shadow-xl hover:scale-[1.02] transition-all duration-300 cursor-pointer bg-white/70 backdrop-blur-sm border border-white/20 hover:border-primary/20">
                 <div
-                  className="h-48 bg-muted bg-cover bg-center group-hover:scale-105 transition-transform duration-300"
+                  className="h-48 bg-muted bg-cover bg-center mx-4 mt-4"
                   style={{
                     backgroundImage:
                       "url('/facilities/yoga-studio/yoga-room.jpeg')",
@@ -1145,7 +1209,7 @@ export default function Home() {
             <Link href="/facilities">
               <Card className="group overflow-hidden hover:shadow-xl hover:scale-[1.02] transition-all duration-300 cursor-pointer bg-white/70 backdrop-blur-sm border border-white/20 hover:border-primary/20">
                 <div
-                  className="h-48 bg-muted bg-cover bg-center group-hover:scale-105 transition-transform duration-300"
+                  className="h-48 bg-muted bg-cover bg-center mx-4 mt-4"
                   style={{
                     backgroundImage:
                       "url('/facilities/zendo/zendo-inside.jpg')",
@@ -1237,7 +1301,7 @@ export default function Home() {
         className="py-20"
         style={{
           backgroundImage:
-            "url('/homescreen/calligraphy-paper-bg.png'), url('/homescreen/calligraphy-paper-bg-option.png')",
+            "url('/homescreen/calligraphy-paper-bg-option.png'), url('/homescreen/calligraphy-paper-bg.png')",
           backgroundSize: "cover, cover",
           backgroundAttachment: "scroll, fixed",
           backgroundRepeat: "no-repeat, no-repeat",
