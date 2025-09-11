@@ -40,10 +40,7 @@ export default function Home() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [isVideoInView, setIsVideoInView] = useState(false);
-  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
-  const videoContainerRef = useRef<HTMLDivElement>(null);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
   const slides = [
     {
@@ -94,55 +91,17 @@ export default function Home() {
     };
   }, [slides.length]);
 
-  // Intersection Observer for video
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsVideoInView(true);
-            // Load video when it comes into view
-            if (videoRef.current && !isVideoLoaded) {
-              videoRef.current.load();
-              setIsVideoLoaded(true);
-            }
-          } else {
-            setIsVideoInView(false);
-            // Pause video when it goes out of view
-            if (videoRef.current) {
-              videoRef.current.pause();
-            }
-          }
-        });
-      },
-      {
-        threshold: 0.5, // Trigger when 50% of video is visible
-        rootMargin: "0px 0px -10% 0px", // Start loading slightly before it's fully visible
-      }
-    );
-
-    if (videoContainerRef.current) {
-      observer.observe(videoContainerRef.current);
-    }
-
-    return () => {
-      if (videoContainerRef.current) {
-        observer.unobserve(videoContainerRef.current);
-      }
-    };
-  }, [isVideoLoaded]);
-
   // Handle video play/pause when slide changes
   useEffect(() => {
-    if (videoRef.current && slides[currentSlide].type === "video") {
-      if (isVideoInView && isVideoLoaded) {
+    if (videoRef.current) {
+      if (slides[currentSlide].type === "video") {
         videoRef.current.currentTime = 0;
         videoRef.current.play().catch(console.error);
       } else {
         videoRef.current.pause();
       }
     }
-  }, [currentSlide, isVideoInView, isVideoLoaded]);
+  }, [currentSlide]);
 
   // Keyboard navigation for image modal
   useEffect(() => {
@@ -379,20 +338,18 @@ export default function Home() {
               }`}
             >
               {slide.type === "video" ? (
-                <div ref={videoContainerRef} className="w-full h-full">
+                <div className="w-full h-full">
                   <video
                     ref={videoRef}
                     muted
                     loop
                     playsInline
-                    preload="metadata"
+                    autoPlay
+                    preload="auto"
                     className="w-full h-full object-cover"
                     style={{ objectPosition: "center 40%" }}
-                    poster="/homescreen/akiko-stairs.JPG"
                   >
-                    {isVideoLoaded && (
-                      <source src={slide.video} type="video/mp4" />
-                    )}
+                    <source src={slide.video} type="video/mp4" />
                     Your browser does not support the video tag.
                   </video>
                 </div>
