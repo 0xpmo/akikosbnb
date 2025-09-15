@@ -33,8 +33,8 @@ export default function PuuhouaHouse() {
       alt: "Pu'uhonua House exterior - classic plantation style with veranda",
     },
     {
-      src: "/puuhonua/puuhonua-living-room.avif",
-      alt: "Living room with library and comfortable seating",
+      src: "/puuhonua/puuhonua-outdoor-porch.avif",
+      alt: "Outdoor porch with garden views",
     },
     {
       src: "/puuhonua/puuhonua-common-area.avif",
@@ -290,7 +290,7 @@ export default function PuuhouaHouse() {
         }}
       >
         <div className="container mx-auto px-4">
-          <div className="flex justify-center py-4">
+          <div className="flex justify-center pt-5 pb-4">
             <button
               onClick={() => {
                 setSelectedRoom("shared");
@@ -418,18 +418,10 @@ export default function PuuhouaHouse() {
 
             <div>
               <h3 className="font-serif text-2xl font-light mb-8">
-                {selectedRoom === "shared" ? "Overview" : "Room Details"}
+                {selectedRoom === "shared" ? "" : "Room Details"}
               </h3>
               {selectedRoom === "shared" ? (
-                <div className="prose prose-lg text-muted-foreground leading-relaxed">
-                  <p>
-                    The Pu'uhonua House features beautiful shared spaces where
-                    guests can gather, relax, and build community. These areas
-                    include the living room with library, fully-equipped
-                    kitchen, common areas, and the exterior spaces that showcase
-                    the natural beauty of the property.
-                  </p>
-                </div>
+                <></>
               ) : (
                 <div className="space-y-8">
                   {selectedRoom === "sunrise" && (
@@ -501,7 +493,7 @@ export default function PuuhouaHouse() {
                 Shared Amenities
               </h3>
               <div className="space-y-6">
-                <div className="relative">
+                {/* <div className="relative">
                   <div className="absolute -left-4 top-0 w-1 h-full bg-gradient-to-b from-primary to-primary/50"></div>
                   <div className="pl-8">
                     <h4 className="font-serif text-xl font-light mb-2 text-foreground">
@@ -512,7 +504,7 @@ export default function PuuhouaHouse() {
                       creating a peaceful space for contemplation and learning.
                     </p>
                   </div>
-                </div>
+                </div> */}
                 <div className="relative">
                   <div className="absolute -left-4 top-0 w-1 h-full bg-gradient-to-b from-primary to-primary/50"></div>
                   <div className="pl-8">

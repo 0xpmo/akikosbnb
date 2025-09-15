@@ -25,20 +25,20 @@ export default function MangoTreeCottage() {
     },
     {
       src: "/mango/mango-tree-inside.avif",
-      alt: "Shared bathroom and kitchenette facilities",
+      alt: "Interior view showing bed and screened open-air design",
     },
     {
       src: "/mango/mango-tree-garden-path.webp",
       alt: "Tropical garden path with red anthurium flowers leading to cottage",
     },
     {
-      src: "/mango/mango-tree-interior-1.avif",
-      alt: "Interior view showing bed and screened open-air design",
+      src: "/mango/mango-tree-outside-statues.avif",
+      alt: "Outside view of the cottage with statues",
     },
-    {
-      src: "/mango/mango-tree-interior-2.avif",
-      alt: "Another interior view of the airy cottage space",
-    },
+    // {
+    //   src: "/mango/mango-tree-interior-2.avif",
+    //   alt: "Another interior view of the airy cottage space",
+    // },
     // {
     //   src: "/mango/mango-tree-meditation-room.avif",
     //   alt: "Morning sun streaming into Puja/Prayer meditation room under ancient guava tree",

@@ -538,11 +538,11 @@ export default function Home() {
                     </CardDescription>
                   </CardHeader>
                   <CardContent className="flex-grow flex flex-col bg-transparent">
-                    <p className="text-sm text-muted-foreground mb-4">
+                    {/* <p className="text-sm text-muted-foreground mb-4">
                       Intimately nestled in a grove of banana trees. Hear the
                       winds, rain dancing on the tin roof, and falling mangoes
                       when in season.
-                    </p>
+                    </p> */}
                     <div className="mt-auto">
                       <div className="flex items-center justify-between mb-2">
                         <div className="text-lg font-semibold text-primary">
@@ -589,11 +589,11 @@ export default function Home() {
                     </CardDescription>
                   </CardHeader>
                   <CardContent className="flex-grow flex flex-col bg-transparent">
-                    <p className="text-sm text-muted-foreground mb-4">
+                    {/* <p className="text-sm text-muted-foreground mb-4">
                       16 x 24 screened studio space, completely open to the
                       outdoors. Experience living harmony: being outdoors and
                       indoors simultaneously.
-                    </p>
+                    </p> */}
                     <div className="mt-auto">
                       <div className="flex items-center justify-between mb-2">
                         <div className="text-lg font-semibold text-primary">
@@ -640,11 +640,11 @@ export default function Home() {
                     </CardDescription>
                   </CardHeader>
                   <CardContent className="flex-grow flex flex-col bg-transparent">
-                    <p className="text-sm text-muted-foreground mb-4">
+                    {/* <p className="text-sm text-muted-foreground mb-4">
                       Our "community house" - a sanctuary where deep friendships
                       are built. 4-bedroom, 2-story classic with veranda
                       overlooking Hawaiian garden.
-                    </p>
+                    </p> */}
                     <div className="mt-auto">
                       <div className="flex items-center justify-between mb-2">
                         <div className="text-lg font-semibold text-primary">
@@ -691,11 +691,11 @@ export default function Home() {
                     </CardDescription>
                   </CardHeader>
                   <CardContent className="flex-grow flex flex-col bg-transparent">
-                    <p className="text-sm text-muted-foreground mb-4">
+                    {/* <p className="text-sm text-muted-foreground mb-4">
                       Home of Aloha and Warmth. Beautiful 3-bedroom, 1½ bath
                       home surrounded by flowers and fruit trees. Sleeps up to 4
                       people.
-                    </p>
+                    </p> */}
                     <div className="mt-auto">
                       <div className="flex items-center justify-between mb-2">
                         <div className="text-lg font-semibold text-primary">
