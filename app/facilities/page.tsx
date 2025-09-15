@@ -340,6 +340,10 @@ export default function Facilities() {
                         className="h-64 lg:h-80 bg-muted bg-cover bg-center rounded-xl group-hover:scale-105 transition-transform duration-300 shadow-lg group-hover:shadow-xl"
                         style={{
                           backgroundImage: `url('${image.src}')`,
+                          transform:
+                            image.src === "/facilities/zendo/zendo-outside.webp"
+                              ? "rotate(90deg)"
+                              : "none",
                         }}
                       />
                     </div>

@@ -24,16 +24,20 @@ export default function BananaPatchCottage() {
       alt: "Banana Patch Cottage exterior nestled in tropical vegetation",
     },
     {
-      src: "/banana/banana-patch-interior-1.avif",
-      alt: "Cozy interior with bed and natural lighting",
+      src: "/banana/banana-patch-shared-kitchen.avif",
+      alt: "Shared kitchen space with gas stove, small fridge, and cooking essentials",
+    },
+    {
+      src: "/banana/banana-patch-chair.avif",
+      alt: "Comfortable reading chair in the cottage for quiet contemplation",
+    },
+    {
+      src: "/banana/banana-patch-interior-1.jpg",
+      alt: "Interior view of the 12x12 cottage showing the bamboo frame bed and natural lighting",
     },
     {
       src: "/banana/banana-patch-interior-2.avif",
-      alt: "Sleeping area with rustic wooden walls",
-    },
-    {
-      src: "/banana/banana-patch-bathroom.avif",
-      alt: "Simple bathroom facilities",
+      alt: "Cozy interior space with bamboo bed frame and rustic wooden elements",
     },
   ];
 
@@ -244,7 +248,7 @@ export default function BananaPatchCottage() {
                   src={image.src || "/placeholder.svg"}
                   alt={image.alt}
                   className={`w-full object-cover group-hover:scale-105 transition-transform duration-300 ${
-                    index === 0 ? "h-80" : "h-64"
+                    index === 0 ? "h-96 object-top" : "h-64"
                   }`}
                 />
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
@@ -279,11 +283,14 @@ export default function BananaPatchCottage() {
                   enjoying the wide variety of books. Journal daily when arising
                   early with the coming of the early morning light. Go deeply
                   within while opening to the Great Wild Natural Rainforest.
+                  Shower, toilet and kitchen are in an adjacent building, and
+                  shared with the guest in the Mango Tree Cottage. The kitchen
+                  has a gas stove, small fridge, pots, tea kettle and dishes.
                 </p>
+                <p>Return to simple naturalness. Calm & settle the soul.</p>
                 <p>
-                  Return to simple naturalness. Calm & settle the soul. Just 15
-                  miles north of Hilo along the luscious Hamakua coast on the
-                  island of Hawaii.
+                  Just 15 miles north of Hilo along the luscious Hamakua coast
+                  on the island of Hawaii.
                 </p>
               </div>
             </div>
