@@ -20,29 +20,29 @@ export default function MangoTreeCottage() {
 
   const images = [
     {
-      src: "/images/mango-tree-exterior.avif",
+      src: "/mango/mango-exterior.jpeg",
       alt: "Mango Tree Cottage exterior with screened walls",
     },
     {
-      src: "/images/mango-tree-garden-path.jpeg",
-      alt: "Tropical garden path with red anthurium flowers leading to cottage",
-    },
-    {
-      src: "/images/mango-tree-interior-1.avif",
-      alt: "Interior view showing bed and screened open-air design",
-    },
-    {
-      src: "/images/mango-tree-interior-2.avif",
-      alt: "Another interior view of the airy cottage space",
-    },
-    {
-      src: "/images/mango-tree-amenities.avif",
+      src: "/mango/mango-tree-inside.avif",
       alt: "Shared bathroom and kitchenette facilities",
     },
     {
-      src: "/images/mango-tree-meditation-room.avif",
-      alt: "Morning sun streaming into Puja/Prayer meditation room under ancient guava tree",
+      src: "/mango/mango-tree-garden-path.jpeg",
+      alt: "Tropical garden path with red anthurium flowers leading to cottage",
     },
+    {
+      src: "/mango/mango-tree-interior-1.avif",
+      alt: "Interior view showing bed and screened open-air design",
+    },
+    {
+      src: "/mango/mango-tree-interior-2.avif",
+      alt: "Another interior view of the airy cottage space",
+    },
+    // {
+    //   src: "/images/mango-tree-meditation-room.avif",
+    //   alt: "Morning sun streaming into Puja/Prayer meditation room under ancient guava tree",
+    // },
   ];
 
   const nextImage = () => {
@@ -235,12 +235,12 @@ export default function MangoTreeCottage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto items-start">
             {images.map((image, index) => (
               <div
                 key={index}
                 className={`group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer ${
-                  index === 0 ? "md:col-span-2" : ""
+                  index === 0 ? "md:col-span-1" : ""
                 }`}
                 onClick={() => {
                   setSelectedImage(image.src);

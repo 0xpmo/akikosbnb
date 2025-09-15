@@ -44,6 +44,19 @@ export default function PuuhouaHouse() {
       src: "/puuhonua/puuhonua-kitchen.avif",
       alt: "Fully-equipped kitchen and dining area",
     },
+    // First photo from each room
+    {
+      src: "/puuhonua/sunrise/puuhonua-sunrise-room.avif",
+      alt: "The Sunrise Room with first morning light streaming through windows",
+    },
+    {
+      src: "/puuhonua/elegant-tree/bed-tree-top-room.jpg",
+      alt: "Elegant Tree Tops Room bed with beautiful canopy views",
+    },
+    {
+      src: "/puuhonua/rainforest/bed-rainforest.jpg",
+      alt: "Rainforest Room bed surrounded by lush tropical vegetation",
+    },
   ];
 
   const roomImages = {
@@ -267,45 +280,65 @@ export default function PuuhouaHouse() {
       </header>
 
       {/* Room Selection Tabs - Fixed at top */}
-      <div className="border-b border-white/20">
+      <div
+        className="border-b border-white/20 backdrop-blur-sm sticky top-[92px] z-40 shadow-lg"
+        style={{
+          backgroundImage:
+            "url('/homescreen/calligraphy-paper-bg-option.webp')",
+          backgroundSize: "cover",
+          backgroundPosition: "top -9px center",
+        }}
+      >
         <div className="container mx-auto px-4">
-          <div className="flex justify-center space-x-8 py-6">
+          <div className="flex justify-center py-4">
             <button
-              onClick={() => setSelectedRoom("shared")}
-              className={`px-4 py-2 font-medium transition-colors font-['Yuji_Boku'] text-lg border-b-2 cursor-pointer ${
+              onClick={() => {
+                setSelectedRoom("shared");
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }}
+              className={`px-6 py-3 font-medium transition-all duration-200 font-['Yuji_Boku'] text-lg rounded-lg cursor-pointer ${
                 selectedRoom === "shared"
-                  ? "text-primary border-primary"
-                  : "text-muted-foreground border-transparent hover:text-foreground hover:border-muted-foreground"
+                  ? "text-white bg-primary shadow-lg transform scale-105"
+                  : "text-gray-800 bg-white/80 hover:bg-primary/10 hover:text-primary border border-gray-300 hover:border-primary/50 hover:shadow-md backdrop-blur-sm"
               }`}
             >
-              Shared Areas
+              Overview
             </button>
             <button
-              onClick={() => setSelectedRoom("sunrise")}
-              className={`px-4 py-2 font-medium transition-colors font-['Yuji_Boku'] text-lg border-b-2 cursor-pointer ${
+              onClick={() => {
+                setSelectedRoom("sunrise");
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }}
+              className={`px-6 py-3 font-medium transition-all duration-200 font-['Yuji_Boku'] text-lg rounded-lg cursor-pointer ml-2 ${
                 selectedRoom === "sunrise"
-                  ? "text-primary border-primary"
-                  : "text-muted-foreground border-transparent hover:text-foreground hover:border-muted-foreground"
+                  ? "text-white bg-primary shadow-lg transform scale-105"
+                  : "text-gray-800 bg-white/80 hover:bg-primary/10 hover:text-primary border border-gray-300 hover:border-primary/50 hover:shadow-md backdrop-blur-sm"
               }`}
             >
               Sunrise Room
             </button>
             <button
-              onClick={() => setSelectedRoom("elegantTree")}
-              className={`px-4 py-2 font-medium transition-colors font-['Yuji_Boku'] text-lg border-b-2 cursor-pointer ${
+              onClick={() => {
+                setSelectedRoom("elegantTree");
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }}
+              className={`px-6 py-3 font-medium transition-all duration-200 font-['Yuji_Boku'] text-lg rounded-lg cursor-pointer ml-2 ${
                 selectedRoom === "elegantTree"
-                  ? "text-primary border-primary"
-                  : "text-muted-foreground border-transparent hover:text-foreground hover:border-muted-foreground"
+                  ? "text-white bg-primary shadow-lg transform scale-105"
+                  : "text-gray-800 bg-white/80 hover:bg-primary/10 hover:text-primary border border-gray-300 hover:border-primary/50 hover:shadow-md backdrop-blur-sm"
               }`}
             >
               Elegant Tree Tops Room
             </button>
             <button
-              onClick={() => setSelectedRoom("rainforest")}
-              className={`px-4 py-2 font-medium transition-colors font-['Yuji_Boku'] text-lg border-b-2 cursor-pointer ${
+              onClick={() => {
+                setSelectedRoom("rainforest");
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }}
+              className={`px-6 py-3 font-medium transition-all duration-200 font-['Yuji_Boku'] text-lg rounded-lg cursor-pointer ml-2 ${
                 selectedRoom === "rainforest"
-                  ? "text-primary border-primary"
-                  : "text-muted-foreground border-transparent hover:text-foreground hover:border-muted-foreground"
+                  ? "text-white bg-primary shadow-lg transform scale-105"
+                  : "text-gray-800 bg-white/80 hover:bg-primary/10 hover:text-primary border border-gray-300 hover:border-primary/50 hover:shadow-md backdrop-blur-sm"
               }`}
             >
               Rainforest Room
@@ -385,7 +418,7 @@ export default function PuuhouaHouse() {
 
             <div>
               <h3 className="font-serif text-2xl font-light mb-8">
-                {selectedRoom === "shared" ? "Shared Areas" : "Room Details"}
+                {selectedRoom === "shared" ? "Overview" : "Room Details"}
               </h3>
               {selectedRoom === "shared" ? (
                 <div className="prose prose-lg text-muted-foreground leading-relaxed">

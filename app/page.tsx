@@ -570,9 +570,9 @@ export default function Home() {
                     backgroundPosition: "top -6px center",
                   }}
                 >
-                  <div className="h-48 bg-muted bg-center mx-4 mt-4 relative overflow-hidden">
+                  <div className="h-56 bg-muted bg-center mx-4 mt-4 relative overflow-hidden">
                     <Image
-                      src="/images/mango-tree-exterior.avif"
+                      src="/mango/mango-exterior.jpeg"
                       alt="Mango Tree Cottage exterior"
                       fill
                       className="object-cover"
