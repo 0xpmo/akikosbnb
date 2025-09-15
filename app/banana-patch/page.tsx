@@ -20,19 +20,19 @@ export default function BananaPatchCottage() {
 
   const images = [
     {
-      src: "/images/banana-patch-exterior.avif",
+      src: "/banana/banana-patch-exterior.avif",
       alt: "Banana Patch Cottage exterior nestled in tropical vegetation",
     },
     {
-      src: "/images/banana-patch-interior-1.avif",
+      src: "/banana/banana-patch-interior-1.avif",
       alt: "Cozy interior with bed and natural lighting",
     },
     {
-      src: "/images/banana-patch-interior-2.avif",
+      src: "/banana/banana-patch-interior-2.avif",
       alt: "Sleeping area with rustic wooden walls",
     },
     {
-      src: "/images/banana-patch-bathroom.avif",
+      src: "/banana/banana-patch-bathroom.avif",
       alt: "Simple bathroom facilities",
     },
   ];
@@ -108,7 +108,7 @@ export default function BananaPatchCottage() {
             className="flex items-center gap-4 hover:opacity-90 transition-opacity"
           >
             <img
-              src="/images/AKIKOSwhitetext.png"
+              src="/AKIKOSwhitetext.png"
               alt="Akiko's Buddhist B&B"
               className="h-24 w-auto"
             />

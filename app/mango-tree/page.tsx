@@ -40,7 +40,7 @@ export default function MangoTreeCottage() {
       alt: "Another interior view of the airy cottage space",
     },
     // {
-    //   src: "/images/mango-tree-meditation-room.avif",
+    //   src: "/mango/mango-tree-meditation-room.avif",
     //   alt: "Morning sun streaming into Puja/Prayer meditation room under ancient guava tree",
     // },
   ];
@@ -116,7 +116,7 @@ export default function MangoTreeCottage() {
             className="flex items-center gap-4 hover:opacity-90 transition-opacity"
           >
             <img
-              src="/images/AKIKOSwhitetext.png"
+              src="/AKIKOSwhitetext.png"
               alt="Akiko's Buddhist B&B"
               className="h-24 w-auto"
             />

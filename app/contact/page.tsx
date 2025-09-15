@@ -113,7 +113,7 @@ function ContactForm() {
             className="flex items-center gap-4 hover:opacity-90 transition-opacity"
           >
             <img
-              src="/images/AKIKOSwhitetext.png"
+              src="/AKIKOSwhitetext.png"
               alt="Akiko's Buddhist B&B"
               className="h-24 w-auto"
             />

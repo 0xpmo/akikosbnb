@@ -20,47 +20,47 @@ export default function HaleAloha() {
 
   const images = [
     {
-      src: "/images/hale-aloha-exterior.avif",
+      src: "/hale/hale-aloha-exterior.avif",
       alt: "Hale Aloha exterior - beautiful plantation-style home",
     },
     {
-      src: "/images/hale-aloha-living-room.avif",
+      src: "/hale/hale-aloha-living-room.avif",
       alt: "Living room with large picture windows",
     },
     {
-      src: "/images/hale-aloha-living-space.avif",
+      src: "/hale/hale-aloha-living-space.avif",
       alt: "Spacious living area with natural light",
     },
     {
-      src: "/images/hale-aloha-bedroom-1.avif",
+      src: "/hale/hale-aloha-bedroom-1.avif",
       alt: "Comfortable bedroom with natural lighting",
     },
     {
-      src: "/images/hale-aloha-bedroom-2.avif",
+      src: "/hale/hale-aloha-bedroom-2.avif",
       alt: "Second bedroom with plantation style charm",
     },
     {
-      src: "/images/hale-aloha-kitchen.avif",
+      src: "/hale/hale-aloha-kitchen.avif",
       alt: "Spacious kitchen cooled by trade winds",
     },
     {
-      src: "/images/hale-aloha-dining.avif",
+      src: "/hale/hale-aloha-dining.avif",
       alt: "Dining area with comfortable seating",
     },
     {
-      src: "/images/hale-aloha-bathroom.avif",
+      src: "/hale/hale-aloha-bathroom.avif",
       alt: "Clean, functional bathroom",
     },
     {
-      src: "/images/hale-aloha-interior-1.avif",
+      src: "/hale/hale-aloha-interior-1.avif",
       alt: "Interior hallway and living spaces",
     },
     {
-      src: "/images/hale-aloha-interior-2.avif",
+      src: "/hale/hale-aloha-interior-2.avif",
       alt: "Additional interior view",
     },
     {
-      src: "/images/hale-aloha-interior-3.avif",
+      src: "/hale/hale-aloha-interior-3.avif",
       alt: "Another interior perspective of the home",
     },
   ];
@@ -136,7 +136,7 @@ export default function HaleAloha() {
             className="flex items-center gap-4 hover:opacity-90 transition-opacity"
           >
             <img
-              src="/images/AKIKOSwhitetext.png"
+              src="/AKIKOSwhitetext.png"
               alt="Akiko's Buddhist B&B"
               className="h-24 w-auto"
             />

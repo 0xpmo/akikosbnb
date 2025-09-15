@@ -59,7 +59,7 @@ export default function Home() {
     },
     {
       type: "image",
-      image: "/images/buddha-statue.png",
+      image: "/homescreen/buddha-statue.png",
       title: "Grounded Simplicity",
       subtitle: `Learn to dance with the slower rhythms of an 'older' Hawaiʻi`,
       imageStyle: "object-cover",
@@ -217,7 +217,7 @@ export default function Home() {
             className="flex items-center gap-4 hover:opacity-90 transition-opacity"
           >
             <Image
-              src="/images/AKIKOSwhitetext.png"
+              src="/AKIKOSwhitetext.png"
               alt="Akiko's Buddhist B&B"
               width={200}
               height={96}
@@ -522,7 +522,7 @@ export default function Home() {
                 >
                   <div className="h-48 bg-muted bg-center mx-4 mt-4 relative overflow-hidden">
                     <Image
-                      src="/images/banana-patch-exterior.avif"
+                      src="/banana/banana-patch-exterior.avif"
                       alt="Banana Patch Cottage exterior"
                       fill
                       className="object-cover"
@@ -674,7 +674,7 @@ export default function Home() {
                 >
                   <div className="h-48 bg-muted bg-center mx-4 mt-4 relative overflow-hidden">
                     <Image
-                      src="/images/hale-aloha-exterior.avif"
+                      src="/hale/hale-aloha-exterior.avif"
                       alt="Hale Aloha exterior"
                       fill
                       className="object-cover"
