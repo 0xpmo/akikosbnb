@@ -108,7 +108,7 @@ export default function BananaPatchCottage() {
             className="flex items-center gap-4 hover:opacity-90 transition-opacity"
           >
             <img
-              src="/AKIKOSwhitetext.png"
+              src="/AKIKOSwhitetext.webp"
               alt="Akiko's Buddhist B&B"
               className="h-24 w-auto"
             />

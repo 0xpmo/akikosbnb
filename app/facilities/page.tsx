@@ -136,7 +136,7 @@ export default function Facilities() {
             className="flex items-center gap-4 hover:opacity-90 transition-opacity"
           >
             <img
-              src="/AKIKOSwhitetext.png"
+              src="/AKIKOSwhitetext.webp"
               alt="Akiko's Buddhist B&B"
               className="h-24 w-auto"
             />
@@ -424,7 +424,7 @@ export default function Facilities() {
           <div className="container mx-auto px-4 text-center">
             <div className="mb-6">
               <img
-                src="/akiko-black-logo.png"
+                src="/akiko-black-logo.webp"
                 alt="Akiko's Buddhist B&B"
                 className="h-24 w-auto mx-auto mb-4"
               />

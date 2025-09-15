@@ -20,7 +20,7 @@ export default function MangoTreeCottage() {
 
   const images = [
     {
-      src: "/mango/mango-exterior.jpeg",
+      src: "/mango/mango-exterior.webp",
       alt: "Mango Tree Cottage exterior with screened walls",
     },
     {
@@ -28,7 +28,7 @@ export default function MangoTreeCottage() {
       alt: "Shared bathroom and kitchenette facilities",
     },
     {
-      src: "/mango/mango-tree-garden-path.jpeg",
+      src: "/mango/mango-tree-garden-path.webp",
       alt: "Tropical garden path with red anthurium flowers leading to cottage",
     },
     {
@@ -116,7 +116,7 @@ export default function MangoTreeCottage() {
             className="flex items-center gap-4 hover:opacity-90 transition-opacity"
           >
             <img
-              src="/AKIKOSwhitetext.png"
+              src="/AKIKOSwhitetext.webp"
               alt="Akiko's Buddhist B&B"
               className="h-24 w-auto"
             />

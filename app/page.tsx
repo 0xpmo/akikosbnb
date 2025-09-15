@@ -59,7 +59,7 @@ export default function Home() {
     },
     {
       type: "image",
-      image: "/homescreen/buddha-statue.png",
+      image: "/homescreen/buddha-statue.webp",
       title: "Grounded Simplicity",
       subtitle: `Learn to dance with the slower rhythms of an 'older' Hawaiʻi`,
       imageStyle: "object-cover",
@@ -79,7 +79,7 @@ export default function Home() {
     }
     timerRef.current = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 6100);
+    }, 7000);
   };
 
   useEffect(() => {
@@ -217,7 +217,7 @@ export default function Home() {
             className="flex items-center gap-4 hover:opacity-90 transition-opacity"
           >
             <Image
-              src="/AKIKOSwhitetext.png"
+              src="/AKIKOSwhitetext.webp"
               alt="Akiko's Buddhist B&B"
               width={200}
               height={96}
@@ -572,7 +572,7 @@ export default function Home() {
                 >
                   <div className="h-56 bg-muted bg-center mx-4 mt-4 relative overflow-hidden">
                     <Image
-                      src="/mango/mango-exterior.jpeg"
+                      src="/mango/mango-exterior.webp"
                       alt="Mango Tree Cottage exterior"
                       fill
                       className="object-cover"
@@ -1196,7 +1196,7 @@ export default function Home() {
           <div className="container mx-auto px-4 text-center">
             <div className="mb-6">
               <Image
-                src="/akiko-black-logo.png"
+                src="/akiko-black-logo.webp"
                 alt="Akiko's Buddhist B&B"
                 width={200}
                 height={96}

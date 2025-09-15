@@ -50,11 +50,11 @@ export default function PuuhouaHouse() {
       alt: "The Sunrise Room with first morning light streaming through windows",
     },
     {
-      src: "/puuhonua/elegant-tree/bed-tree-top-room.jpg",
+      src: "/puuhonua/elegant-tree/bed-tree-top-room.webp",
       alt: "Elegant Tree Tops Room bed with beautiful canopy views",
     },
     {
-      src: "/puuhonua/rainforest/bed-rainforest.jpg",
+      src: "/puuhonua/rainforest/bed-rainforest.webp",
       alt: "Rainforest Room bed surrounded by lush tropical vegetation",
     },
   ];
@@ -68,29 +68,29 @@ export default function PuuhouaHouse() {
     ],
     elegantTree: [
       {
-        src: "/puuhonua/elegant-tree/bed-tree-top-room.jpg",
+        src: "/puuhonua/elegant-tree/bed-tree-top-room.webp",
         alt: "Elegant Tree Tops Room bed with beautiful canopy views",
       },
       {
-        src: "/puuhonua/elegant-tree/window-treetop-room.jpg",
+        src: "/puuhonua/elegant-tree/window-treetop-room.webp",
         alt: "Window view from the Tree Tops Room",
       },
       {
-        src: "/puuhonua/elegant-tree/corner-room-tree.jpeg",
+        src: "/puuhonua/elegant-tree/corner-room-tree.webp",
         alt: "Corner view of the Tree Tops Room",
       },
     ],
     rainforest: [
       {
-        src: "/puuhonua/rainforest/bed-rainforest.jpg",
+        src: "/puuhonua/rainforest/bed-rainforest.webp",
         alt: "Rainforest Room bed surrounded by lush tropical vegetation",
       },
       {
-        src: "/puuhonua/rainforest/room-rainforest.jpg",
+        src: "/puuhonua/rainforest/room-rainforest.webp",
         alt: "Rainforest Room interior view",
       },
       {
-        src: "/puuhonua/rainforest/window-rainforest.jpg",
+        src: "/puuhonua/rainforest/window-rainforest.webp",
         alt: "Window view from the Rainforest Room",
       },
     ],
@@ -172,7 +172,7 @@ export default function PuuhouaHouse() {
             className="flex items-center gap-4 hover:opacity-90 transition-opacity"
           >
             <img
-              src="/AKIKOSwhitetext.png"
+              src="/AKIKOSwhitetext.webp"
               alt="Akiko's Buddhist B&B"
               className="h-24 w-auto"
             />
