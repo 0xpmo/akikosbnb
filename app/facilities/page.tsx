@@ -1,16 +1,8 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { ArrowLeft, ChevronLeft, ChevronRight, X, Menu } from "lucide-react";
+import { ChevronLeft, ChevronRight, Menu, X } from "lucide-react";
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function Facilities() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
@@ -77,15 +69,15 @@ export default function Facilities() {
         "Large, open studio with wooden floors and natural lighting, perfect for yoga, tai chi, and movement practices. Features exposed beam ceiling and views of tropical gardens.",
       images: [
         {
-          src: "/facilities/yoga-studio/yoga-room.jpeg",
+          src: "/facilities/yoga-studio/yoga-room.webp",
           alt: "Yoga Studio main room",
         },
         {
-          src: "/facilities/yoga-studio/yoga-altar.jpeg",
+          src: "/facilities/yoga-studio/yoga-altar.webp",
           alt: "Yoga Studio altar area",
         },
         {
-          src: "/facilities/yoga-studio/yoga-teacher-area.jpeg",
+          src: "/facilities/yoga-studio/yoga-teacher-area.webp",
           alt: "Yoga Studio teacher area",
         },
       ],
@@ -98,23 +90,23 @@ export default function Facilities() {
         "Traditional meditation hall for zazen practice and quiet contemplation. A serene space designed for deep spiritual practice and group meditation sessions.",
       images: [
         {
-          src: "/facilities/zendo/zendo-inside.jpg",
+          src: "/facilities/zendo/zendo-inside.webp",
           alt: "Zendo interior view",
         },
         {
-          src: "/facilities/zendo/altar.jpeg",
+          src: "/facilities/zendo/altar.webp",
           alt: "Zendo altar",
         },
         {
-          src: "/facilities/zendo/inside-altar.jpeg",
+          src: "/facilities/zendo/inside-altar.webp",
           alt: "Zendo altar close view",
         },
         {
-          src: "/facilities/zendo/wall-blocks.jpeg",
+          src: "/facilities/zendo/wall-blocks.webp",
           alt: "Zendo wall elements",
         },
         {
-          src: "/facilities/zendo/zendo-outside.jpeg",
+          src: "/facilities/zendo/zendo-outside.webp",
           alt: "Zendo exterior",
         },
       ],

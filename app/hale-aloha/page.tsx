@@ -24,10 +24,6 @@ export default function HaleAloha() {
       alt: "Hale Aloha exterior - beautiful plantation-style home",
     },
     {
-      src: "/hale/hale-aloha-living-room.avif",
-      alt: "Living room with large picture windows",
-    },
-    {
       src: "/hale/hale-aloha-living-space.avif",
       alt: "Spacious living area with natural light",
     },
