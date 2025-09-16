@@ -1192,7 +1192,15 @@ export default function Home() {
 
                   <p className="text-sm text-muted-foreground text-center">
                     This will open your email client with a pre-filled message
-                    to Akiko.
+                    to Akiko. If the email client doesn't open, please call
+                    Akiko directly at{" "}
+                    <a
+                      href="tel:+18089636422"
+                      className="text-primary hover:text-primary/80 transition-colors"
+                    >
+                      (808) 963-6422
+                    </a>
+                    .
                   </p>
                 </form>
               </CardContent>

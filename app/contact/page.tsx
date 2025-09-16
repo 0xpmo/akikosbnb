@@ -401,8 +401,8 @@ function ContactForm() {
 
                   <p className="text-sm text-muted-foreground text-center">
                     This will open your email client with a pre-filled message
-                    to Akiko. On mobile devices, if the email client doesn't
-                    open, please call Akiko directly at{" "}
+                    to Akiko. If the email client doesn't open, please call
+                    Akiko directly at{" "}
                     <a
                       href="tel:+18089636422"
                       className="text-primary hover:text-primary/80 transition-colors"
