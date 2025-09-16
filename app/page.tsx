@@ -818,7 +818,7 @@ export default function Home() {
                 >
                   <div className="h-48 bg-muted bg-center mx-4 mt-4 relative overflow-hidden">
                     <Image
-                      src="/facilities/yoga-studio/yoga-room.jpeg"
+                      src="/facilities/yoga-studio/yoga-room.webp"
                       alt="Yoga Studio"
                       fill
                       className="object-cover"
@@ -861,7 +861,7 @@ export default function Home() {
                 >
                   <div className="h-48 bg-muted bg-center mx-4 mt-4 relative overflow-hidden">
                     <Image
-                      src="/facilities/zendo/zendo-inside.jpg"
+                      src="/facilities/zendo/zendo-inside.webp"
                       alt="Zendo meditation space"
                       fill
                       className="object-cover"
