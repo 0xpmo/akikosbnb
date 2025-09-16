@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/card";
 import { ChevronLeft, ChevronRight, X, Menu } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import { useState, useEffect } from "react";
 
 export default function MangoTreeCottage() {
@@ -115,10 +116,14 @@ export default function MangoTreeCottage() {
             href="/"
             className="flex items-center gap-4 hover:opacity-90 transition-opacity"
           >
-            <img
+            <Image
               src="/AKIKOSwhitetext.webp"
               alt="Akiko's Buddhist B&B"
+              width={200}
+              height={96}
               className="h-24 w-auto"
+              priority
+              sizes="200px"
             />
             <div>
               <h1 className="font-['Yuji_Boku'] text-xl font-semibold text-white">
@@ -248,12 +253,17 @@ export default function MangoTreeCottage() {
                   setCurrentImages(images.map((img) => img.src));
                 }}
               >
-                <img
+                <Image
                   src={image.src || "/placeholder.svg"}
                   alt={image.alt}
+                  width={400}
+                  height={index === 0 ? 320 : 256}
                   className={`w-full object-cover group-hover:scale-105 transition-transform duration-300 ${
                     index === 0 ? "h-80" : "h-64"
                   }`}
+                  sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                  loading={index === 0 ? "eager" : "lazy"}
+                  priority={index === 0}
                 />
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
               </div>
@@ -546,11 +556,15 @@ export default function MangoTreeCottage() {
             )}
 
             {/* Image */}
-            <img
+            <Image
               src={selectedImage}
               alt="Accommodation image"
+              width={1200}
+              height={800}
               className="max-w-full max-h-full object-contain rounded-lg"
               onClick={(e) => e.stopPropagation()}
+              sizes="90vw"
+              priority
             />
           </div>
         </div>

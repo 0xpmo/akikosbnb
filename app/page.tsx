@@ -223,6 +223,7 @@ export default function Home() {
               height={96}
               className="h-24 w-auto"
               priority
+              sizes="200px"
             />
             <div>
               <h1 className="font-['Yuji_Boku'] text-xl font-semibold text-white">
@@ -345,7 +346,7 @@ export default function Home() {
                     loop
                     playsInline
                     autoPlay
-                    preload="auto"
+                    preload="metadata"
                     className="w-full h-full object-cover"
                     style={{ objectPosition: "center 40%" }}
                   >
@@ -433,6 +434,7 @@ export default function Home() {
                 height={400}
                 className="w-full h-48 sm:h-64 md:h-80 object-cover rounded-lg shadow-lg"
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                priority
               />
             </div>
             <div className="md:col-span-2">
@@ -526,7 +528,8 @@ export default function Home() {
                       alt="Banana Patch Cottage exterior"
                       fill
                       className="object-cover"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                      sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
+                      loading="lazy"
                     />
                   </div>
                   <CardHeader className="flex-shrink-0 bg-transparent">
@@ -576,7 +579,8 @@ export default function Home() {
                       alt="Mango Tree Cottage exterior"
                       fill
                       className="object-cover"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                      sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
+                      loading="lazy"
                     />
                   </div>
                   <CardHeader className="flex-shrink-0 bg-transparent">
@@ -627,7 +631,8 @@ export default function Home() {
                       alt="Pu'uhonua House exterior"
                       fill
                       className="object-cover"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                      sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
+                      loading="lazy"
                     />
                   </div>
                   <CardHeader className="flex-shrink-0 bg-transparent">
@@ -678,7 +683,8 @@ export default function Home() {
                       alt="Hale Aloha exterior"
                       fill
                       className="object-cover"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                      sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
+                      loading="lazy"
                     />
                   </div>
                   <CardHeader className="flex-shrink-0 bg-transparent">
@@ -816,7 +822,8 @@ export default function Home() {
                       alt="Yoga Studio"
                       fill
                       className="object-cover"
-                      sizes="(max-width: 768px) 100vw, 50vw"
+                      sizes="(max-width: 640px) 100vw, (max-width: 768px) 100vw, 50vw"
+                      loading="lazy"
                     />
                   </div>
                   <CardHeader>
@@ -858,7 +865,8 @@ export default function Home() {
                       alt="Zendo meditation space"
                       fill
                       className="object-cover"
-                      sizes="(max-width: 768px) 100vw, 50vw"
+                      sizes="(max-width: 640px) 100vw, (max-width: 768px) 100vw, 50vw"
+                      loading="lazy"
                     />
                   </div>
                   <CardHeader>
@@ -929,6 +937,7 @@ export default function Home() {
                         fill
                         className="object-cover"
                         sizes="(max-width: 640px) 50vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                        loading="lazy"
                       />
                     </div>
                   </div>
@@ -1201,6 +1210,8 @@ export default function Home() {
                 width={200}
                 height={96}
                 className="h-24 w-auto mx-auto mb-4"
+                loading="lazy"
+                sizes="200px"
               />
               <p className="text-muted-foreground max-w-md mx-auto">
                 In gratitude to our ancestors and in service to all who come
@@ -1271,6 +1282,7 @@ export default function Home() {
               className="max-w-full max-h-full object-contain rounded-lg"
               onClick={(e) => e.stopPropagation()}
               sizes="90vw"
+              priority
             />
           </div>
         </div>

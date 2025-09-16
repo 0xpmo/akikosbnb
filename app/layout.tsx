@@ -62,6 +62,19 @@ export default function RootLayout({
       lang="en"
       className={`${geist.variable} ${manrope.variable} ${yujiBoku.variable} ${notoSans.variable} ${sawarabiMincho.variable} antialiased`}
     >
+      <head>
+        {/* Preload critical resources for faster loading */}
+        <link
+          rel="preload"
+          href="/homescreen/akiko-walking-stairs-trimmed.mp4"
+          as="video"
+          type="video/mp4"
+        />
+        <link rel="preload" href="/homescreen/jungle1.JPG" as="image" />
+        <link rel="preload" href="/homescreen/buddha-statue.webp" as="image" />
+        <link rel="preload" href="/AKIKOSwhitetext.webp" as="image" />
+        <link rel="preload" href="/homescreen/akiko-statue.JPG" as="image" />
+      </head>
       <body>{children}</body>
     </html>
   );

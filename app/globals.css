@@ -3,6 +3,20 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* Mobile performance optimizations */
+@media (max-width: 768px) {
+  /* Optimize image loading */
+  img {
+    content-visibility: auto;
+  }
+
+  /* Reduce animations on mobile for better performance */
+  * {
+    animation-duration: 0.2s !important;
+    transition-duration: 0.2s !important;
+  }
+}
+
 :root {
   /* Updated color tokens to reflect Buddhist B&B aesthetic with emerald greens and warm golds */
   --background: oklch(1 0 0);
