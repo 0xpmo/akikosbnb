@@ -465,11 +465,12 @@ export default function HaleAloha() {
                   </p>
                 </div>
 
-                <Button className="w-full bg-primary hover:bg-primary/90">
-                  <Link href="/contact?accommodation=Hale Aloha">
-                    Inquire to Book
-                  </Link>
-                </Button>
+                <Link
+                  href="/contact?accommodation=Hale Aloha"
+                  className="w-full bg-primary hover:bg-primary/90 text-white font-medium py-2 px-4 rounded-md transition-colors inline-block text-center"
+                >
+                  Inquire to Book
+                </Link>
               </CardContent>
             </Card>
           </div>
