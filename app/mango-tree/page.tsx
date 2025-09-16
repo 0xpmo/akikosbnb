@@ -443,10 +443,12 @@ export default function MangoTreeCottage() {
                   </div>
                 </div>
                 <blockquote className="text-base leading-relaxed text-foreground italic mb-4">
-                  "To stay at Akiko's Buddhist B&B is to step into Old
-                  Hawai'i... The sounds of gentle wind chimes and waterfalls,
-                  the fragrances of gardenia and meditation incense invite a
-                  feeling of reverence for life's simplest gifts."
+                  "To stay at Akiko's Buddhist B&B is to step into Old Hawai'i,
+                  a place and time and way of life that is a wonder to discover.
+                  The sounds of gentle wind chimes and waterfalls, the
+                  fragrances of gardenia and meditation incense, the flavors of
+                  just-picked papaya all invite a feeling of reverence for
+                  life's simplest gifts."
                 </blockquote>
                 <cite className="text-sm font-medium text-primary not-italic">
                   — Katy Fogg
@@ -471,7 +473,8 @@ export default function MangoTreeCottage() {
                   "It is a place infused with the spirit of old Hawaii and an
                   understanding of the nuances of aloha. I have travelled many
                   places and gathered many memories, but rarely have I
-                  encountered a place so affecting."
+                  encountered a place so affecting, whose presence changed how I
+                  see my day-to-day life back home."
                 </blockquote>
                 <cite className="text-sm font-medium text-primary not-italic">
                   — Dave Millar

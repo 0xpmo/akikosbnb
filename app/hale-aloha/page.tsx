@@ -466,6 +466,86 @@ export default function HaleAloha() {
         </div>
       </div>
 
+      {/* Guest Reviews Section */}
+      <div className="py-16 bg-muted/20">
+        <div className="container mx-auto px-4 max-w-4xl">
+          <div className="text-center mb-12">
+            <h3 className="font-serif text-3xl font-light mb-4 text-foreground">
+              Guest Experiences
+            </h3>
+            <p className="text-muted-foreground leading-relaxed">
+              Discover what guests love about the elegance and charm of Hale
+              Aloha
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            <Card className="border-none shadow-lg">
+              <CardContent className="p-6">
+                <div className="mb-4">
+                  <div className="text-primary/40 mb-2">
+                    <svg
+                      className="h-8 w-8"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M14,17H17L19,13V7H13V13H16M6,17H9L11,13V7H5V13H8L6,17Z" />
+                    </svg>
+                  </div>
+                </div>
+                <blockquote className="text-base leading-relaxed text-foreground italic mb-4">
+                  "Being a guest at Akiko's Buddhist B&B is a blessing. The
+                  surroundings support peace, love and a deep respect for the
+                  beauty of the environment. It offered me a space for
+                  reflection and an opportunity to 'slow down' the pace of my
+                  busy life."
+                </blockquote>
+                <cite className="text-sm font-medium text-primary not-italic">
+                  — Deb Keyes, Harbor Springs, Michigan
+                </cite>
+              </CardContent>
+            </Card>
+
+            <Card className="border-none shadow-lg">
+              <CardContent className="p-6">
+                <div className="mb-4">
+                  <div className="text-primary/40 mb-2">
+                    <svg
+                      className="h-8 w-8"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M14,17H17L19,13V7H13V13H16M6,17H9L11,13V7H5V13H8L6,17Z" />
+                    </svg>
+                  </div>
+                </div>
+                <blockquote className="text-base leading-relaxed text-foreground italic mb-4">
+                  "Since we've came back from Hawaii, we often think of you. We
+                  also talk about the way you welcomed us to you're place. Our
+                  bicycle journey on Hawaii was fantastic but the souvenir that
+                  we cherish to most is the meeting with you."
+                </blockquote>
+                <cite className="text-sm font-medium text-primary not-italic">
+                  — FRANCE and SIMON
+                </cite>
+              </CardContent>
+            </Card>
+          </div>
+
+          <div className="text-center mt-8">
+            <Link href="/reviews">
+              <Button
+                variant="outline"
+                size="lg"
+                className="font-serif hover:bg-primary hover:text-white transition-colors"
+              >
+                Read More Guest Reflections →
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </div>
+
       {/* Image Modal with Navigation */}
       {selectedImage && (
         <div
