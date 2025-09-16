@@ -44,20 +44,16 @@ export default function HaleAloha() {
       alt: "Dining area with comfortable seating",
     },
     {
-      src: "/hale/hale-aloha-bathroom.avif",
-      alt: "Clean, functional bathroom",
-    },
-    {
       src: "/hale/hale-aloha-interior-1.avif",
-      alt: "Interior hallway and living spaces",
+      alt: "Interior of house with natural lighting",
     },
     {
-      src: "/hale/hale-aloha-interior-2.avif",
-      alt: "Additional interior view",
+      src: "/hale/hale-aloha-outdoor-path.avif",
+      alt: "Outdoor path with garden views",
     },
     {
-      src: "/hale/hale-aloha-interior-3.avif",
-      alt: "Another interior perspective of the home",
+      src: "/hale/hale-aloha-outdoor-statues.avif",
+      alt: "Outside garden area with statues",
     },
   ];
 
@@ -251,11 +247,11 @@ export default function HaleAloha() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto items-start">
             {images.map((image, index) => (
               <div
                 key={index}
-                className={`group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer ${
+                className={`group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer self-start ${
                   index === 0 ? "md:col-span-2 lg:col-span-2" : ""
                 }`}
                 onClick={() => {
