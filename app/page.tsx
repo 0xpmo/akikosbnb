@@ -511,7 +511,7 @@ export default function Home() {
             <h3 className="font-['Yuji_Boku'] text-3xl sm:text-4xl font-light text-center mb-12 text-foreground">
               Accommodations
             </h3>
-            <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-8 max-w-6xl mx-auto">
+            <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6 sm:gap-8 max-w-5xl mx-auto">
               <Link href="/banana-patch">
                 <Card
                   className="group overflow-hidden hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer h-full flex flex-col bg-transparent rounded-none border-none shadow-none"
