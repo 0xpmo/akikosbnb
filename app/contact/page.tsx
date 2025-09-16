@@ -402,7 +402,14 @@ function ContactForm() {
                   <p className="text-sm text-muted-foreground text-center">
                     This will open your email client with a pre-filled message
                     to Akiko. On mobile devices, if the email client doesn't
-                    open, the message will be copied to your clipboard.
+                    open, please call Akiko directly at{" "}
+                    <a
+                      href="tel:+18089636422"
+                      className="text-primary hover:text-primary/80 transition-colors"
+                    >
+                      (808) 963-6422
+                    </a>
+                    .
                   </p>
                 </form>
               </CardContent>

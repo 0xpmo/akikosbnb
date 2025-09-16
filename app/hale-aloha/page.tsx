@@ -310,8 +310,8 @@ export default function HaleAloha() {
               </h3>
               <div className="space-y-6">
                 <div className="relative">
-                  <div className="absolute -left-4 top-0 w-1 h-full bg-gradient-to-b from-primary to-primary/50"></div>
-                  <div className="pl-8">
+                  <div className="absolute -left-2 sm:-left-4 top-0 w-1 h-full bg-gradient-to-b from-primary to-primary/50"></div>
+                  <div className="pl-6 sm:pl-8">
                     <h4 className="font-serif text-xl font-light mb-2 text-foreground">
                       3 bedrooms, 1½ bath
                     </h4>
@@ -322,8 +322,8 @@ export default function HaleAloha() {
                   </div>
                 </div>
                 <div className="relative">
-                  <div className="absolute -left-4 top-0 w-1 h-full bg-gradient-to-b from-primary to-primary/50"></div>
-                  <div className="pl-8">
+                  <div className="absolute -left-2 sm:-left-4 top-0 w-1 h-full bg-gradient-to-b from-primary to-primary/50"></div>
+                  <div className="pl-6 sm:pl-8">
                     <h4 className="font-serif text-xl font-light mb-2 text-foreground">
                       Large picture windows
                     </h4>
@@ -334,8 +334,8 @@ export default function HaleAloha() {
                   </div>
                 </div>
                 <div className="relative">
-                  <div className="absolute -left-4 top-0 w-1 h-full bg-gradient-to-b from-primary to-primary/50"></div>
-                  <div className="pl-8">
+                  <div className="absolute -left-2 sm:-left-4 top-0 w-1 h-full bg-gradient-to-b from-primary to-primary/50"></div>
+                  <div className="pl-6 sm:pl-8">
                     <h4 className="font-serif text-xl font-light mb-2 text-foreground">
                       Spacious kitchen
                     </h4>
@@ -346,8 +346,8 @@ export default function HaleAloha() {
                   </div>
                 </div>
                 <div className="relative">
-                  <div className="absolute -left-4 top-0 w-1 h-full bg-gradient-to-b from-primary to-primary/50"></div>
-                  <div className="pl-8">
+                  <div className="absolute -left-2 sm:-left-4 top-0 w-1 h-full bg-gradient-to-b from-primary to-primary/50"></div>
+                  <div className="pl-6 sm:pl-8">
                     <h4 className="font-serif text-xl font-light mb-2 text-foreground">
                       Surrounded by gardens
                     </h4>
@@ -358,8 +358,8 @@ export default function HaleAloha() {
                   </div>
                 </div>
                 <div className="relative">
-                  <div className="absolute -left-4 top-0 w-1 h-full bg-gradient-to-b from-primary to-primary/50"></div>
-                  <div className="pl-8">
+                  <div className="absolute -left-2 sm:-left-4 top-0 w-1 h-full bg-gradient-to-b from-primary to-primary/50"></div>
+                  <div className="pl-6 sm:pl-8">
                     <h4 className="font-serif text-xl font-light mb-2 text-foreground">
                       Sleeps up to 4 people
                     </h4>
@@ -370,8 +370,8 @@ export default function HaleAloha() {
                   </div>
                 </div>
                 <div className="relative">
-                  <div className="absolute -left-4 top-0 w-1 h-full bg-gradient-to-b from-primary to-primary/50"></div>
-                  <div className="pl-8">
+                  <div className="absolute -left-2 sm:-left-4 top-0 w-1 h-full bg-gradient-to-b from-primary to-primary/50"></div>
+                  <div className="pl-6 sm:pl-8">
                     <h4 className="font-serif text-xl font-light mb-2 text-foreground">
                       High-speed WiFi (44 Mbps)
                     </h4>

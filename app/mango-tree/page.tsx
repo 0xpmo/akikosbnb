@@ -297,8 +297,8 @@ export default function MangoTreeCottage() {
               <h3 className="font-serif text-2xl font-light mb-8">Amenities</h3>
               <div className="space-y-6">
                 <div className="relative">
-                  <div className="absolute -left-4 top-0 w-1 h-full bg-gradient-to-b from-primary to-primary/50"></div>
-                  <div className="pl-8">
+                  <div className="absolute -left-2 sm:-left-4 top-0 w-1 h-full bg-gradient-to-b from-primary to-primary/50"></div>
+                  <div className="pl-6 sm:pl-8">
                     <h4 className="font-serif text-xl font-light mb-2 text-foreground">
                       Queen size bed
                     </h4>
@@ -309,8 +309,8 @@ export default function MangoTreeCottage() {
                   </div>
                 </div>
                 <div className="relative">
-                  <div className="absolute -left-4 top-0 w-1 h-full bg-gradient-to-b from-primary to-primary/50"></div>
-                  <div className="pl-8">
+                  <div className="absolute -left-2 sm:-left-4 top-0 w-1 h-full bg-gradient-to-b from-primary to-primary/50"></div>
+                  <div className="pl-6 sm:pl-8">
                     <h4 className="font-serif text-xl font-light mb-2 text-foreground">
                       Reading chair & work table
                     </h4>
@@ -321,8 +321,8 @@ export default function MangoTreeCottage() {
                   </div>
                 </div>
                 <div className="relative">
-                  <div className="absolute -left-4 top-0 w-1 h-full bg-gradient-to-b from-primary to-primary/50"></div>
-                  <div className="pl-8">
+                  <div className="absolute -left-2 sm:-left-4 top-0 w-1 h-full bg-gradient-to-b from-primary to-primary/50"></div>
+                  <div className="pl-6 sm:pl-8">
                     <h4 className="font-serif text-xl font-light mb-2 text-foreground">
                       Shared kitchenette
                     </h4>
@@ -333,8 +333,8 @@ export default function MangoTreeCottage() {
                   </div>
                 </div>
                 <div className="relative">
-                  <div className="absolute -left-4 top-0 w-1 h-full bg-gradient-to-b from-primary to-primary/50"></div>
-                  <div className="pl-8">
+                  <div className="absolute -left-2 sm:-left-4 top-0 w-1 h-full bg-gradient-to-b from-primary to-primary/50"></div>
+                  <div className="pl-6 sm:pl-8">
                     <h4 className="font-serif text-xl font-light mb-2 text-foreground">
                       High-speed WiFi (88 Mbps)
                     </h4>

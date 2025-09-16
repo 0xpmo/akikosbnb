@@ -290,13 +290,13 @@ export default function PuuhouaHouse() {
         }}
       >
         <div className="container mx-auto px-4">
-          <div className="flex justify-center pt-5 pb-4">
+          <div className="flex flex-wrap justify-center gap-2 pt-5 pb-4">
             <button
               onClick={() => {
                 setSelectedRoom("shared");
                 window.scrollTo({ top: 0, behavior: "smooth" });
               }}
-              className={`px-6 py-3 font-medium transition-all duration-200 font-['Yuji_Boku'] text-lg rounded-lg cursor-pointer ${
+              className={`px-3 py-2 sm:px-6 sm:py-3 font-medium transition-all duration-200 font-['Yuji_Boku'] text-sm sm:text-lg rounded-lg cursor-pointer ${
                 selectedRoom === "shared"
                   ? "text-white bg-primary shadow-lg transform scale-105"
                   : "text-gray-800 bg-white/80 hover:bg-primary/10 hover:text-primary border border-gray-300 hover:border-primary/50 hover:shadow-md backdrop-blur-sm"
@@ -309,7 +309,7 @@ export default function PuuhouaHouse() {
                 setSelectedRoom("sunrise");
                 window.scrollTo({ top: 0, behavior: "smooth" });
               }}
-              className={`px-6 py-3 font-medium transition-all duration-200 font-['Yuji_Boku'] text-lg rounded-lg cursor-pointer ml-2 ${
+              className={`px-3 py-2 sm:px-6 sm:py-3 font-medium transition-all duration-200 font-['Yuji_Boku'] text-sm sm:text-lg rounded-lg cursor-pointer ${
                 selectedRoom === "sunrise"
                   ? "text-white bg-primary shadow-lg transform scale-105"
                   : "text-gray-800 bg-white/80 hover:bg-primary/10 hover:text-primary border border-gray-300 hover:border-primary/50 hover:shadow-md backdrop-blur-sm"
@@ -322,7 +322,7 @@ export default function PuuhouaHouse() {
                 setSelectedRoom("elegantTree");
                 window.scrollTo({ top: 0, behavior: "smooth" });
               }}
-              className={`px-6 py-3 font-medium transition-all duration-200 font-['Yuji_Boku'] text-lg rounded-lg cursor-pointer ml-2 ${
+              className={`px-3 py-2 sm:px-6 sm:py-3 font-medium transition-all duration-200 font-['Yuji_Boku'] text-sm sm:text-lg rounded-lg cursor-pointer ${
                 selectedRoom === "elegantTree"
                   ? "text-white bg-primary shadow-lg transform scale-105"
                   : "text-gray-800 bg-white/80 hover:bg-primary/10 hover:text-primary border border-gray-300 hover:border-primary/50 hover:shadow-md backdrop-blur-sm"
@@ -335,7 +335,7 @@ export default function PuuhouaHouse() {
                 setSelectedRoom("rainforest");
                 window.scrollTo({ top: 0, behavior: "smooth" });
               }}
-              className={`px-6 py-3 font-medium transition-all duration-200 font-['Yuji_Boku'] text-lg rounded-lg cursor-pointer ml-2 ${
+              className={`px-3 py-2 sm:px-6 sm:py-3 font-medium transition-all duration-200 font-['Yuji_Boku'] text-sm sm:text-lg rounded-lg cursor-pointer ${
                 selectedRoom === "rainforest"
                   ? "text-white bg-primary shadow-lg transform scale-105"
                   : "text-gray-800 bg-white/80 hover:bg-primary/10 hover:text-primary border border-gray-300 hover:border-primary/50 hover:shadow-md backdrop-blur-sm"
@@ -352,7 +352,10 @@ export default function PuuhouaHouse() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h1 className="font-serif text-4xl font-light mb-4 text-foreground">
-              Pu'uhonua House
+              {selectedRoom === "shared" && "Pu'uhonua House"}
+              {selectedRoom === "sunrise" && "Sunrise Room"}
+              {selectedRoom === "elegantTree" && "Elegant Tree Tops Room"}
+              {selectedRoom === "rainforest" && "Rainforest Room"}
             </h1>
             <p className="text-lg text-muted-foreground">
               {selectedRoom === "shared" &&
@@ -426,8 +429,8 @@ export default function PuuhouaHouse() {
                 <div className="space-y-8">
                   {selectedRoom === "sunrise" && (
                     <div className="relative">
-                      <div className="absolute -left-4 top-0 w-1 h-full bg-gradient-to-b from-primary to-primary/50"></div>
-                      <div className="pl-8">
+                      <div className="absolute -left-2 sm:-left-4 top-0 w-1 h-full bg-gradient-to-b from-primary to-primary/50"></div>
+                      <div className="pl-6 sm:pl-8">
                         <h4 className="font-serif text-2xl font-light mb-4 text-foreground">
                           Sunrise Room
                         </h4>
@@ -446,8 +449,8 @@ export default function PuuhouaHouse() {
                   )}
                   {selectedRoom === "elegantTree" && (
                     <div className="relative">
-                      <div className="absolute -left-4 top-0 w-1 h-full bg-gradient-to-b from-primary to-primary/50"></div>
-                      <div className="pl-8">
+                      <div className="absolute -left-2 sm:-left-4 top-0 w-1 h-full bg-gradient-to-b from-primary to-primary/50"></div>
+                      <div className="pl-6 sm:pl-8">
                         <h4 className="font-serif text-2xl font-light mb-4 text-foreground">
                           Elegant Tree Tops Room
                         </h4>
@@ -466,8 +469,8 @@ export default function PuuhouaHouse() {
                   )}
                   {selectedRoom === "rainforest" && (
                     <div className="relative">
-                      <div className="absolute -left-4 top-0 w-1 h-full bg-gradient-to-b from-primary to-primary/50"></div>
-                      <div className="pl-8">
+                      <div className="absolute -left-2 sm:-left-4 top-0 w-1 h-full bg-gradient-to-b from-primary to-primary/50"></div>
+                      <div className="pl-6 sm:pl-8">
                         <h4 className="font-serif text-2xl font-light mb-4 text-foreground">
                           Rainforest Room
                         </h4>
@@ -495,7 +498,7 @@ export default function PuuhouaHouse() {
               <div className="space-y-6">
                 {/* <div className="relative">
                   <div className="absolute -left-4 top-0 w-1 h-full bg-gradient-to-b from-primary to-primary/50"></div>
-                  <div className="pl-8">
+                  <div className="pl-6 sm:pl-8">
                     <h4 className="font-serif text-xl font-light mb-2 text-foreground">
                       Large diverse library
                     </h4>
@@ -506,8 +509,8 @@ export default function PuuhouaHouse() {
                   </div>
                 </div> */}
                 <div className="relative">
-                  <div className="absolute -left-4 top-0 w-1 h-full bg-gradient-to-b from-primary to-primary/50"></div>
-                  <div className="pl-8">
+                  <div className="absolute -left-2 sm:-left-4 top-0 w-1 h-full bg-gradient-to-b from-primary to-primary/50"></div>
+                  <div className="pl-6 sm:pl-8">
                     <h4 className="font-serif text-xl font-light mb-2 text-foreground">
                       Fully-equipped kitchen
                     </h4>
@@ -518,8 +521,8 @@ export default function PuuhouaHouse() {
                   </div>
                 </div>
                 <div className="relative">
-                  <div className="absolute -left-4 top-0 w-1 h-full bg-gradient-to-b from-primary to-primary/50"></div>
-                  <div className="pl-8">
+                  <div className="absolute -left-2 sm:-left-4 top-0 w-1 h-full bg-gradient-to-b from-primary to-primary/50"></div>
+                  <div className="pl-6 sm:pl-8">
                     <h4 className="font-serif text-xl font-light mb-2 text-foreground">
                       Comfortable living room
                     </h4>
@@ -530,8 +533,8 @@ export default function PuuhouaHouse() {
                   </div>
                 </div>
                 <div className="relative">
-                  <div className="absolute -left-4 top-0 w-1 h-full bg-gradient-to-b from-primary to-primary/50"></div>
-                  <div className="pl-8">
+                  <div className="absolute -left-2 sm:-left-4 top-0 w-1 h-full bg-gradient-to-b from-primary to-primary/50"></div>
+                  <div className="pl-6 sm:pl-8">
                     <h4 className="font-serif text-xl font-light mb-2 text-foreground">
                       Veranda with garden views
                     </h4>
