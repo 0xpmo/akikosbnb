@@ -46,7 +46,7 @@ export default function Home() {
     {
       type: "video",
       video: "/homescreen/akiko-walking-stairs-trimmed.mp4",
-      // poster: "/homescreen/akiko-stairs.JPG",
+      poster: "/homescreen/akiko-stairs-frame-1.jpg",
       title: "Aloha & Welcome",
       subtitle: "to Akiko's Buddhist Bed & Breakfast",
     },
@@ -347,6 +347,7 @@ export default function Home() {
                     playsInline
                     autoPlay
                     preload="metadata"
+                    poster={slide.poster}
                     className="w-full h-full object-cover"
                     style={{ objectPosition: "center 40%" }}
                   >
