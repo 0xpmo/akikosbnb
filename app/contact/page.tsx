@@ -64,7 +64,7 @@ function ContactForm() {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     if (!validateForm()) {
@@ -75,17 +75,27 @@ function ContactForm() {
 
     try {
       // Open native email client with pre-filled form data
-      openEmailClient(formData);
+      const success = await openEmailClient(formData);
 
-      // Reset form
-      setFormData({
-        name: "",
-        accommodation: "",
-        dates: "",
-        message: "",
-      });
+      if (success) {
+        // Reset form only if email client opened successfully
+        setFormData({
+          name: "",
+          accommodation: "",
+          dates: "",
+          message: "",
+        });
+      } else {
+        // Show error message if all methods failed
+        alert(
+          "Unable to open email client. Please try calling Akiko directly at (808) 963-6422 or email akikobandb@gmail.com"
+        );
+      }
     } catch (error) {
       console.error("Error opening email client:", error);
+      alert(
+        "Unable to open email client. Please try calling Akiko directly at (808) 963-6422 or email akikobandb@gmail.com"
+      );
     } finally {
       setIsSubmitting(false);
     }
@@ -391,7 +401,8 @@ function ContactForm() {
 
                   <p className="text-sm text-muted-foreground text-center">
                     This will open your email client with a pre-filled message
-                    to Akiko.
+                    to Akiko. On mobile devices, if the email client doesn't
+                    open, the message will be copied to your clipboard.
                   </p>
                 </form>
               </CardContent>
