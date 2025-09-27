@@ -25,7 +25,7 @@ export default function HaleAloha() {
       alt: "Hale Aloha exterior - beautiful plantation-style home",
     },
     {
-      src: "/hale/hale-aloha-living-space.avif",
+      src: "/hale/hale-aloha-living-space.jpg",
       alt: "Spacious living area with natural light",
     },
     {
@@ -43,6 +43,10 @@ export default function HaleAloha() {
     {
       src: "/hale/hale-aloha-dining.avif",
       alt: "Dining area with comfortable seating",
+    },
+    {
+      src: "/hale/hale-aloha-dining-2.jpg",
+      alt: "Dining area with elegant table setting",
     },
     {
       src: "/hale/hale-aloha-interior-1.avif",
@@ -252,13 +256,11 @@ export default function HaleAloha() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto items-start">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto items-start">
             {images.map((image, index) => (
               <div
                 key={index}
-                className={`group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer self-start ${
-                  index === 0 ? "md:col-span-2 lg:col-span-2" : ""
-                }`}
+                className="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer self-start"
                 onClick={() => {
                   setSelectedImage(image.src);
                   setSelectedImageIndex(index);
@@ -268,12 +270,10 @@ export default function HaleAloha() {
                 <Image
                   src={image.src || "/placeholder.svg"}
                   alt={image.alt}
-                  width={index === 0 ? 800 : 400}
-                  height={index === 0 ? 600 : 400}
-                  className={`w-full object-cover group-hover:scale-105 transition-transform duration-300 ${
-                    index === 0 ? "h-80" : "h-64"
-                  }`}
-                  sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                  width={600}
+                  height={450}
+                  className="w-full object-cover group-hover:scale-105 transition-transform duration-300 h-80"
+                  sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 50vw"
                   loading={index === 0 ? "eager" : "lazy"}
                   priority={index === 0}
                 />
