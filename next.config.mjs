@@ -1,8 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
+  // Next 16 removed the `eslint` config option along with `next build`'s
+  // built-in lint step, so there is nothing left to opt out of here.
   typescript: {
     ignoreBuildErrors: true,
   },
